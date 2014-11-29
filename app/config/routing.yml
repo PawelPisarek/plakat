@@ -1,0 +1,5 @@
+obrazkiwbazie:
+    resource: "@ObrazkiwbazieBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
