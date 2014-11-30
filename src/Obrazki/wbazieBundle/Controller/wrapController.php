@@ -21,9 +21,8 @@ class wrapController extends Controller
 
         $entity = $em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
 
+        $size=$entity->getSize();
 
-
-        var_dump($entity);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Przed entity.');
         }
@@ -32,6 +31,7 @@ class wrapController extends Controller
         return array(
             'entity'=>$entity,
             'id'=>$id,
+            'size'=>$size,
             );    }
 
     /**

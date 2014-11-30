@@ -1,0 +1,8 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ObrazkiwbazieBundle:Skrypty:odwroc{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Skrypty:odwroc page</h1>
+    <img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>
+{% endblock %}

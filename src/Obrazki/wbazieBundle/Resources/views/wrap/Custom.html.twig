@@ -1,7 +1,45 @@
 
 
+
 {% block title %}ObrazkiwbazieBundle:wrap:Custom{% endblock %}
 
 
 <h1>Welcome to the wrap:Custom page</h1>
-{#<img src="{{ asset(entity.getUploadRootDir~'/'~ entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>#}
+    {#<img id="scream" src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}" width="220" height="277"/>#}
+
+<p>Canvas:</p>
+<canvas id="Custom" width="{{ entity.size.width+20 }}" height="{{ entity.size.Height+20 }}" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+
+
+
+<script>
+
+    window.onload=function(){
+        var c = document.getElementById("Custom");
+        var ctx = c.getContext("2d");
+        var img = new Image();
+        img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
+
+        console.log(img.height);
+        console.log(img.width);
+
+        ctx.drawImage(img, 10, 10, {{ entity.size.width }}, {{ entity.size.Height }});
+
+
+            var context = c.getContext('2d');
+
+            // simple drawing on canvas
+            context.beginPath();
+            context.moveTo(75,25);
+            context.lineTo(25,25,25,62.5);
+            context.lineTo(25,100,50,100);
+            context.lineTo(50,120,30,125);
+            context.lineTo(60,120,65,100);
+            context.lineTo(125,100,125,62.5);
+            context.lineTo(125,25,75,25);
+            context.stroke();
+
+
+    }
+</script>
