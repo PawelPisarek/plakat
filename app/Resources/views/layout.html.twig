@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% block contents %}{% endblock %}
+    {% render controller('ObrazkiwbazieBundle:wrap:Custom', {'id':id}) %}
+    {% render controller('ObrazkiwbazieBundle:wrap:Mirror', {'id':id}) %}
+    {% render controller('ObrazkiwbazieBundle:wrap:Mirror2', {'id':id}) %}
+    {% render controller('ObrazkiwbazieBundle:wrap:Stretch', {'id':id}) %}
+
+
+{% endblock %}

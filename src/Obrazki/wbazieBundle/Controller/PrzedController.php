@@ -54,6 +54,10 @@ class PrzedController extends Controller
 
             $entity->upload();
 
+            $entity->zmniejszRozmiar();
+
+            $entity->uploadMinaturka();
+
             $em->persist($entity);
             $em->flush();
 

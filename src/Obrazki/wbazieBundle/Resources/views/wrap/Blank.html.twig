@@ -1,7 +1,12 @@
-{% extends "::base.html.twig" %}
+{% extends "::layout.html.twig" %}
 
 {% block title %}ObrazkiwbazieBundle:wrap:Blank{% endblock %}
 
-{% block body %}
+{% block contents %}
 <h1>Welcome to the wrap:Blank page</h1>
+
+
+
+    {#<img src="{{ asset(entity.getUploadRootDir~'/'~ entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>#}
+
 {% endblock %}

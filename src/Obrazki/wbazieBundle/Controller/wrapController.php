@@ -1,61 +1,104 @@
 <?php
 
+
 namespace Obrazki\wbazieBundle\Controller;
 
+use Obrazki\wbazieBundle\Entity\Przed;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class wrapController extends Controller
 {
+
     /**
      * @Route("/Blank/{id}")
      * @Template()
      */
     public function BlankAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
+
+
+
+        var_dump($entity);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Przed entity.');
+        }
+
+
         return array(
-                // ...
+            'entity'=>$entity,
+            'id'=>$id,
             );    }
 
     /**
-     * @Route("/Stretch/{id}")
      * @Template()
      */
     public function StretchAction($id)
     {
+        $em=$this->getDoctrine()->getManager();
+
+        $entity=$em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
+
+        if(!$entity)
+        {
+            throw $this->createNotFoundException('Nie znaleziono obrazka');
+        }
         return array(
-                // ...
+                'entity'=>$entity,
             );    }
 
     /**
-     * @Route("/Mirror/{id}")
      * @Template()
      */
     public function MirrorAction($id)
     {
+        $em=$this->getDoctrine()->getManager();
+        $entity=$em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
+
+        if(!$entity)
+        {
+            throw $this->createNotFoundException('nie znaleziono obrazka');
+        }
         return array(
-                // ...
+                'entity'=>$entity,
             );    }
 
     /**
-     * @Route("/Custom/{id}")
      * @Template()
      */
     public function CustomAction($id)
     {
+        $em=$this->getDoctrine()->getManager();
+        $entity=$em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
+
+
+        if(!$entity)
+        {
+            throw $this->createNotFoundException('nie zanleziono obrazka');
+        }
+
+
         return array(
-                // ...
+                'entity'=>$entity,
             );    }
 
     /**
-     * @Route("/Mirror2/{id}")
      * @Template()
      */
     public function Mirror2Action($id)
     {
+        $em=$this->getDoctrine()->getManager();
+        $entity=$em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
+        if(!$entity)
+        {
+            throw $this->createNotFoundException('nie zanleziono obrazka');
+        }
         return array(
-                // ...
+                'entity'=>$entity,
             );    }
 
 }
