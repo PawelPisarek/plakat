@@ -3,6 +3,46 @@
 {% block title %}ObrazkiwbazieBundle:wrap:Stretch{% endblock %}
 
 
-<h1>Welcome to the wrap:Stretch page</h1>
-    <img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>
+{% set margines=50 %}
+
+<canvas id="Stretch" width="{{ entity.size.width+margines*2 }}" height="{{ entity.size.Height+margines*2 }}">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+
+
+
+<script>
+    function Stretch()
+    {
+        var c = document.getElementById("Stretch");
+        var ctx = c.getContext("2d");
+        var img = new Image();
+        img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
+
+
+
+        ctx.drawImage(img, 0,0, {{ entity.size.width }}, {{ entity.size.Height }});
+
+        ctx.moveTo({{ margines }},{{ margines }});
+        ctx.lineTo({{ entity.size.width-margines }},{{ margines }});
+        ctx.lineTo({{ entity.size.width-margines }},{{ entity.size.Height-margines }});
+        ctx.lineTo({{ margines }},{{ entity.size.Height-margines }});
+        ctx.lineTo({{ margines }},{{ margines }});
+
+        ctx.fillStyle="#FF0000";
+        ctx.fillRect(0,0,{{ margines }},{{ margines }});
+        ctx.fillRect({{ entity.size.width-margines }},0,{{ margines }},{{ margines }});
+        ctx.fillRect(0,{{entity.size.height-margines}},{{margines}},{{margines}})
+        ctx.fillRect({{ entity.size.width-margines }},{{ entity.size.height-margines }},{{ margines }}, {{ margines }});
+
+        ctx.stroke();
+
+
+
+
+
+
+        return c;
+    }
+
+</script>
 

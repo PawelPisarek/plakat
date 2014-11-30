@@ -2,7 +2,45 @@
 
 {% block title %}ObrazkiwbazieBundle:wrap:Mirror{% endblock %}
 
+ {% set margines=20 %}
 
-<h1>Welcome to the wrap:Mirror page</h1>
-    <img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>
+<canvas id="Mirror" width="{{ entity.size.width+margines*2 }}" height="{{ entity.size.Height+margines*2 }}">
+    Your browser does not support the HTML5 canvas tag.</canvas>
 
+
+
+<script>
+    function Mirror()
+    {
+        var c = document.getElementById("Mirror");
+        var ctx = c.getContext("2d");
+        var img = new Image();
+        img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
+
+
+
+        ctx.drawImage(img, 0,0, {{ entity.size.width }}, {{ entity.size.Height }});
+
+        ctx.moveTo({{ margines }},{{ margines }});
+        ctx.lineTo({{ entity.size.width-margines }},{{ margines }});
+        ctx.lineTo({{ entity.size.width-margines }},{{ entity.size.Height-margines }});
+        ctx.lineTo({{ margines }},{{ entity.size.Height-margines }});
+        ctx.lineTo({{ margines }},{{ margines }});
+
+        ctx.fillStyle="#FFFFFF";
+        ctx.fillRect(0,0,{{ margines }},{{ margines }});
+        ctx.fillRect({{ entity.size.width-margines }},0,{{ margines }},{{ margines }});
+        ctx.fillRect(0,{{entity.size.height-margines}},{{margines}},{{margines}})
+        ctx.fillRect({{ entity.size.width-margines }},{{ entity.size.height-margines }},{{ margines }}, {{ margines }});
+
+        ctx.stroke();
+
+
+
+
+
+
+        return c;
+    }
+
+</script>

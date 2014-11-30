@@ -1,103 +1,51 @@
 {% extends "::layout.html.twig" %}
 
-{% block stylesheets %}
 
-    <style>
-        #para {
-            background: #ffffff url("{{ asset( entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}") no-repeat left top;
-            margin-right: 200px;
-            position:relative
-        }
-
-    </style>
-    {% endblock %}
 {% block title %}ObrazkiwbazieBundle:wrap:Blank{% endblock %}
 
 {% block contents %}
-<h1>Welcome to the wrap:Blank page</h1>
 
-
-{{ entity.size.width }}
-
-
-    <div id="para"> <canvas id="Custom1"
-                            style="border:1px solid #ff1800;">
-            Your browser does not support the HTML5 canvas tag.</canvas> </div>
-
-
-
-    <script>
-
-        window.onload=function(){
-            var c = document.getElementById("Custom1");
-            var ctx = c.getContext("2d");
-            var img = new Image();
-            img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
-
-            console.log(img.height);
-            console.log(img.width);
-
-            ctx.drawImage(img, 10, 10, 260, 300);
-
-
-            var context = c.getContext('2d');
-
-            // simple drawing on canvas
-            context.beginPath();
-            context.moveTo(75,25);
-            context.lineTo(25,25,25,62.5);
-            context.lineTo(25,100,50,100);
-            context.lineTo(50,120,30,125);
-            context.lineTo(60,120,65,100);
-            context.lineTo(125,100,125,62.5);
-            context.lineTo(125,25,75,25);
-            context.stroke();
-
-
-        }
-    </script>
+    {% set margines=20 %}
 
 
 
 
+<canvas id="Blank" width="{{ entity.size.width+margines*2 }}" height="{{ entity.size.Height+margines*2 }}" >
+    Your browser does not support the HTML5 canvas tag.</canvas>
 
 
-    {#<script>#}
-        {#var canvas = document.querySelector('canvas'),#}
-                {#ctx    = canvas.getContext('2d');#}
-        {#fitToContainer(canvas);#}
-
-        {#ctx.fillStyle='yellow';#}
-        {#for (var i=0;i<5;++i) ctx.fillRect(i*18+2,2,16,16);#}
+<script>
 
 
-        {#function fitToContainer(canvas) {#}
-            {#canvas.style.width = '100%';#}
-            {#canvas.style.height = '100%';#}
-            {#canvas.width = canvas.offsetWidth;#}
-            {#canvas.height = canvas.offsetHeight;#}
+           function Blank()
+           {
+               var c = document.getElementById("Blank");
+               var ctx = c.getContext("2d");
+               var img = new Image();
+               img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
 
-        {#}#}
+               ctx.rect(0,{{ margines }},{{ entity.size.width+margines*2 }},{{ entity.size.height }})
+               ctx.rect({{ margines }},0,{{ entity.size.width }},{{ entity.size.height+margines*2 }})
 
-            {#var canvas = document.getElementById('myCanvas');#}
-
-        {#if (canvas.getContext) {#}
-            {#var context = canvas.getContext('2d');#}
-
-            {#// simple drawing on canvas#}
-            {#context.beginPath();#}
-            {#context.moveTo(75,25);#}
-            {#context.lineTo(25,25,25,62.5);#}
-            {#context.lineTo(25,100,50,100);#}
-            {#context.lineTo(50,120,30,125);#}
-            {#context.lineTo(60,120,65,100);#}
-            {#context.lineTo(125,100,125,62.5);#}
-            {#context.lineTo(125,25,75,25);#}
-            {#context.stroke();#}
-        {#} else {#}
-            {#alert('Error in canvas context loading');#}
-        {#}#}
-    {#</script>#}
+               ctx.stroke();
 
 
+               ctx.drawImage(img, {{ margines }}, {{ margines }}, {{ entity.size.width }}, {{ entity.size.Height }});
+
+
+
+               return c;
+           }
+
+
+           window.onload=function(){
+               document.getElementById("Blank").innerHTML=Blank();
+               document.getElementById("Custom").innerHTML=Custom();
+               document.getElementById("Mirror").innerHTML=Mirror();
+               document.getElementById("Stretch").innerHTML=Stretch();
+
+
+
+           }
+</script>
 {% endblock %}
