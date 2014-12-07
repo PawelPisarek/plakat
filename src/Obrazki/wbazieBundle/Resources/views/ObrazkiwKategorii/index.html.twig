@@ -1,7 +1,14 @@
-{% extends "::base.html.twig" %}
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
 
 {% block title %}ObrazkiwbazieBundle:ObrazkiwKategorii:index{% endblock %}
 
-{% block body %}
-<h1>Welcome to the ObrazkiwKategorii:index page</h1>
+
+
+{% block menu %}
+
+    <div class="panel-body">
+        {% for entity in entities %}
+            <div  class="panel-body" style="float: left;"><a href="{{ path('show_produkt',{'id':entity.id}) }}"><img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}" width="200" height="200"/></a></div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -1,7 +1,15 @@
-{% extends "::base.html.twig" %}
+{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
 
 {% block title %}ObrazkiwbazieBundle:ObrazkiwKategorii:show{% endblock %}
 
-{% block body %}
-<h1>Welcome to the ObrazkiwKategorii:show page</h1>
+{% block page %}
+    <div id="tresc">
+        <h2>{{ entity.NazwaObrazka }}</h2>
+
+        <img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>
+
+        <p><a href="{{ path('kategoirie') }}">powrot</a></p>
+
+
+    </div>
 {% endblock %}

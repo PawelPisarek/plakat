@@ -6,4 +6,6 @@ obrazkiwbazie:
 #    pattern: /zbior
 #    defaults: { _controller: ObrazkiwbazieBundle:wrap:Blank _defaults
 
-
+kategoirie:
+    pattern: /index
+    defaults: {_controller:ObrazkiwbazieBundle:ObrazkiwKategorii:index }

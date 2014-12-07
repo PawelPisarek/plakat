@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ObrazkiwKategoriiController extends Controller
 {
     /**
-     * @Route("/index")
+     * @Route("/index", name="kategoirie" )
      * @Template()
      */
     public function indexAction()
@@ -23,7 +23,7 @@ class ObrazkiwKategoriiController extends Controller
     }
 
     /**
-     * @Route("/{id}.html")
+     * @Route("/{id}.html", name="show_produkt")
      * @Template()
      */
     public function showAction($id)
