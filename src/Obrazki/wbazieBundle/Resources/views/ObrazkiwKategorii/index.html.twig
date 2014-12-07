@@ -6,9 +6,47 @@
 
 {% block menu %}
 
-    <div class="panel-body">
-        {% for entity in entities %}
-            <div  class="panel-body" style="float: left;"><a href="{{ path('show_produkt',{'id':entity.id}) }}"><img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}" width="200" height="200"/></a></div>
-        {% endfor %}
+    <div class="container-fluid">
+        <img src="http://img585.imageshack.us/img585/6691/logodesignwithsplatv2.jpg" alt="" width="200"
+             height="200"/>
+
+        <div class="row">
+            <div class="col-sm-3" style="background-color:lavender;">
+                <p>
+
+                    Abstract</br>
+
+
+                    Animals</br>
+                    Anime & Cartoon</br>
+                    Banksy</br>
+                    Car & Motorbikes</br>
+                    Celebrity, Movie & Music</br>
+                    Cityscape& Landscape</br>
+                    Floral</br>
+                    Food & Drink</br>
+                    Historic</br>
+                    Maps & Flags</br>
+                    Sport</br>
+                    Sunset & Seascapes</br>
+                    Video Games</br>
+
+
+
+
+
+
+                </p>
+            </div>
+            <div class="col-sm-9" style="background-color:lavenderblush;">
+                <div id="panel-body product-grid">
+                {% for entity in entities %}
+                   <a href="{{ path('show_produkt',{'id':entity.id}) }}"><img
+                                   src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}" width="200"
+                                   height="200"/></a>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
