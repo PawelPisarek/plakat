@@ -30,7 +30,7 @@ class Przed
     private $nazwaObrazka;
 
     /**
-     * @Assert\File(maxSize="6000000000000")
+     * @Assert\File(maxSize="60000000")
      */
     public $file;
 
