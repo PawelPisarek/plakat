@@ -1,0 +1,36 @@
+{% for grupy in entities %}
+
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default">{{ grupy.nazwa }}</button>
+        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            {% for podgrupa in grupy.podgrupy %}
+                <li class="list-group-item"><a href="{{ podgrupa.nazwa }}">{{ podgrupa.nazwa }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
+
+
+    {#<div class="panel-group" id="accordion">#}
+    {#{% for grupy in entities %}#}
+
+    {#<div class="panel panel-default">#}
+    {#<div class="panel-heading">#}
+    {#<h4 class="panel-title">#}
+    {#<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">{{ grupy.nazwa }}</a>#}
+    {#</h4>#}
+    {#</div>#}
+    {#<div id="collapseOne" class="panel-collapse collapse in">#}
+    {#<div class="panel-body">#}
+    {#{% for podgrupa in grupy.podgrupy %}#}
+
+    {#{{ podgrupa.nazwa }}#}
+    {#{% endfor %}#}
+    {#</div>#}
+    {#</div>#}
+    {#</div>#}
+    {#{% endfor %}#}
+{#</div>#}

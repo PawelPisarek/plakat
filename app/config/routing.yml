@@ -1,3 +1,8 @@
+obrazkijako_produkty:
+    resource: "@ObrazkijakoProduktyBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 obrazkiwbazie:
     resource: "@ObrazkiwbazieBundle/Controller/"
     type:     annotation

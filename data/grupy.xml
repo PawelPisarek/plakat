@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grupy>
+    <grupa>
+        <nazwa>Abstract</nazwa>
+        <podgrupy>
+            <podgrupa>
+                <nazwa>white</nazwa>
+            </podgrupa>
+            <podgrupa>
+                <nazwa>black</nazwa>
+            </podgrupa>
+
+        </podgrupy>
+    </grupa>
+    <grupa>
+        <nazwa>Animals</nazwa>
+        <podgrupy>
+            <podgrupa>
+                <nazwa>cat</nazwa>
+            </podgrupa>
+            <podgrupa>
+                <nazwa>dog</nazwa>
+            </podgrupa>
+
+        </podgrupy>
+    </grupa>
+    <grupa>
+        <nazwa>Anime &amp; Cartoon</nazwa>
+        <podgrupy>
+            <podgrupa>
+                <nazwa>Anime</nazwa>
+            </podgrupa>
+            <podgrupa>
+                <nazwa>Cartoon</nazwa>
+            </podgrupa>
+
+        </podgrupy>
+    </grupa>
+
+
+</grupy>

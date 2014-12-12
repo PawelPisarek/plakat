@@ -30,7 +30,7 @@ class Przed
     private $nazwaObrazka;
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\File(maxSize="60000000000")
      */
     public $file;
 
@@ -95,6 +95,15 @@ class Przed
         return $this->nazwaObrazka;
     }
 
+    public function getSize()
+    {
+        $imagine = new Imagine();
+        $image = $imagine->open($this->getUploadMinaturkaDir() . '/' . $this->getNazwaObrazka());
+        return $image->getSize();
+
+
+    }
+
     public function zmniejszRozmiar()
     {
         $imagine = new Imagine();
@@ -106,6 +115,13 @@ class Przed
             $minaturkaSizeH = $size->getHeight() / $mnoz;
         }; //zrobic elsa mniejsze niż 400
         $image->resize(new Box($minaturkaSizeW, $minaturkaSizeH))
+            ->save($this->getUploadMinaturkaDir() . '/' . $this->getNazwaObrazka());
+    }
+    public function obroc()
+    {
+        $imagine=new Imagine();
+        $image=$imagine->open($this->getUploadMinaturkaDir().'/'.$this->getNazwaObrazka());
+        $image->rotate(90)
             ->save($this->getUploadMinaturkaDir() . '/' . $this->getNazwaObrazka());
     }
 
