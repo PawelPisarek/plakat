@@ -1,3 +1,8 @@
+glowna_plakaty:
+    resource: "@glownaPlakatyBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 obrazkijako_produkty:
     resource: "@ObrazkijakoProduktyBundle/Controller/"
     type:     annotation

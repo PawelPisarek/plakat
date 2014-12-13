@@ -12,7 +12,7 @@ class wrapController extends Controller
 {
 
     /**
-     * @Route("/Blank/{id}")
+     * @Route("/Blank/{id}", name="ramki")
      * @Template()
      */
     public function BlankAction($id)
