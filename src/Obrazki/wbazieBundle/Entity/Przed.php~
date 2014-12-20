@@ -198,6 +198,8 @@ class Przed
         return $this;
     }
 
+
+
     /**
      * Get grupa
      *

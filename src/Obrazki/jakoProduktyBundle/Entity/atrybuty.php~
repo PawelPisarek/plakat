@@ -1,0 +1,53 @@
+<?php
+
+namespace Obrazki\jakoProduktyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * atrybuty
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class atrybuty
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @ORM\OneToOne(targetEntity="wrap",inversedBy="atrybut",cascade={"all"})
+     * @ORM\JoinColumn(name="wrap_id",referencedColumnName="id")
+     */
+    protected $wrap;
+
+    /**
+     * @ORM\OneToOne(targetEntity="wymiary",inversedBy="atrybut",cascade={"all"})
+     * @ORM\JoinColumn(name="wymiary_id",referencedColumnName="id")
+     */
+    protected $wymaiary;
+
+    /**
+     * @ORM\OneToOne(targetEntity="margines",inversedBy="atrybut",cascade={"all"})
+     * @ORM\JoinColumn(name="margines_id",referencedColumnName="id")
+     */
+    protected $margines;
+
+}
