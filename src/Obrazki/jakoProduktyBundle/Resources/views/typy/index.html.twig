@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>atrybuty list</h1>
+    <h1>typy list</h1>
 
     <table class="records_list">
         <thead>
@@ -13,14 +13,14 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('atrybuty_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('typy_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('atrybuty_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('typy_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('atrybuty_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('typy_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -29,14 +29,15 @@
         </tbody>
     </table>
 
+
     {% for ent in entities %}
 
-        {{ ent }} <br/>
-{% endfor %}
+        {{ ent.atrybuty }} <br/>
+    {% endfor %}
 
         <ul>
         <li>
-            <a href="{{ path('atrybuty_new') }}">
+            <a href="{{ path('typy_new') }}">
                 Create a new entry
             </a>
         </li>

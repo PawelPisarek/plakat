@@ -140,4 +140,40 @@ class atrybuty
     {
         return $this->wymiary;
     }
+
+    function __toString()
+    {
+        return $this->getMargines()->getNazwa().' '.$this->getWymiary()->getNazwa().' '.$this->getWrap()->getNazwa();
+    }
+
+
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="typy")
+     */
+    protected $plotno;
+
+    /**
+     * Set plotno
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\typy $plotno
+     * @return atrybuty
+     */
+    public function setPlotno(\Obrazki\jakoProduktyBundle\Entity\typy $plotno = null)
+    {
+        $this->plotno = $plotno;
+
+        return $this;
+    }
+
+    /**
+     * Get plotno
+     *
+     * @return \Obrazki\jakoProduktyBundle\Entity\typy 
+     */
+    public function getPlotno()
+    {
+        return $this->plotno;
+    }
 }

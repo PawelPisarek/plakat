@@ -140,4 +140,17 @@ class atrybuty
     {
         return $this->wymiary;
     }
+
+    function __toString()
+    {
+        return $this->getMargines()->getNazwa().' '.$this->getWymiary()->getNazwa().' '.$this->getWrap()->getNazwa();
+    }
+
+
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="typy")
+     */
+    protected $plotno;
 }
