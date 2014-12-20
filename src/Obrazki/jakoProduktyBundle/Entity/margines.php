@@ -63,7 +63,7 @@ class margines
     }
 
     /**
-     * @ORM\OneToOne(targetEntity="atrybuty")
+     * @ORM\OneToMany(targetEntity="atrybuty", mappedBy="margines",cascade={"all"})
      */
     protected $atrybut;
 
@@ -89,5 +89,41 @@ class margines
     public function getAtrybut()
     {
         return $this->atrybut;
+    }
+
+    function __toString()
+    {
+        return $this->getNazwa();
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->atrybut = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add atrybut
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut
+     * @return margines
+     */
+    public function addAtrybut(\Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut)
+    {
+        $this->atrybut[] = $atrybut;
+
+        return $this;
+    }
+
+    /**
+     * Remove atrybut
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut
+     */
+    public function removeAtrybut(\Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut)
+    {
+        $this->atrybut->removeElement($atrybut);
     }
 }

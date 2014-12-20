@@ -16,7 +16,7 @@ class atrybutyType extends AbstractType
     {
         $builder
             ->add('wrap')
-            ->add('wymaiary')
+            ->add('wymiary')
             ->add('margines')
         ;
     }

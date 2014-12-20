@@ -33,20 +33,18 @@ class atrybuty
     }
 
     /**
-     * @ORM\OneToOne(targetEntity="wrap",inversedBy="atrybut",cascade={"all"})
-     * @ORM\JoinColumn(name="wrap_id",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="wrap",inversedBy="atrybut")
      */
     protected $wrap;
 
     /**
-     * @ORM\OneToOne(targetEntity="wymiary",inversedBy="atrybut",cascade={"all"})
-     * @ORM\JoinColumn(name="wymiary_id",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="wymiary",inversedBy="atrybut")
+     *
      */
-    protected $wymaiary;
+    protected $wymiary;
 
     /**
-     * @ORM\OneToOne(targetEntity="margines",inversedBy="atrybut",cascade={"all"})
-     * @ORM\JoinColumn(name="margines_id",referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="margines",inversedBy="atrybut")
      */
     protected $margines;
 
@@ -118,5 +116,28 @@ class atrybuty
     public function getMargines()
     {
         return $this->margines;
+    }
+
+    /**
+     * Set wymiary
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\wymiary $wymiary
+     * @return atrybuty
+     */
+    public function setWymiary(\Obrazki\jakoProduktyBundle\Entity\wymiary $wymiary = null)
+    {
+        $this->wymiary = $wymiary;
+
+        return $this;
+    }
+
+    /**
+     * Get wymiary
+     *
+     * @return \Obrazki\jakoProduktyBundle\Entity\wymiary 
+     */
+    public function getWymiary()
+    {
+        return $this->wymiary;
     }
 }

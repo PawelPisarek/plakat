@@ -38,6 +38,9 @@ class Grupa
      */
     protected $zdjecie;
 
+
+
+
     function __toString()
     {
             return $this->getNazwa();
