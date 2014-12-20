@@ -2,7 +2,9 @@
 namespace Obrazki\jakoProduktyBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Obrazki\jakoProduktyBundle\Entity\filtr;
 use Obrazki\jakoProduktyBundle\Entity\Grupa;
+use Obrazki\jakoProduktyBundle\Entity\kubek;
 use Obrazki\jakoProduktyBundle\Entity\margines;
 use Obrazki\jakoProduktyBundle\Entity\PodGrupa;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -97,6 +99,42 @@ class loadmargines implements FixtureInterface
         $wrap->setNazwa('25mm');
         $manager->persist($wrap);
         $manager->flush();
+
+    }
+}
+
+class loadkubek implements FixtureInterface
+{
+    function  load(ObjectManager $manager)
+    {
+        $wrap = new kubek();
+        $wrap->setNazwa('rozmiar koszulki lub inne atrybuty kubka');
+        $manager->persist($wrap);
+        $manager->flush();
+        
+    }
+}
+
+class loadfiltr implements FixtureInterface
+{
+    function  load(ObjectManager $manager)
+    {
+        $wrap = new filtr();
+        $wrap->setNazwa('czarno biały');
+        $manager->persist($wrap);
+        $manager->flush();
+
+        $wrap = new filtr();
+        $wrap->setNazwa('sepia');
+        $manager->persist($wrap);
+        $manager->flush();
+
+        $wrap = new filtr();
+        $wrap->setNazwa('orginalny');
+        $manager->persist($wrap);
+        $manager->flush();
+
+
 
     }
 }

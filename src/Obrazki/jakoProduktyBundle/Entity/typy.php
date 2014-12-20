@@ -39,6 +39,11 @@ class typy
      */
     protected $atrybuty;
 
+    /**
+     * @ORM\OneToOne(targetEntity="kubek",inversedBy="kubek",cascade={"all"})
+     * @ORM\JoinColumn(name="kubek",referencedColumnName="id")
+     */
+    protected $kubek;
 
 
     /**
@@ -62,5 +67,28 @@ class typy
     public function getAtrybuty()
     {
         return $this->atrybuty;
+    }
+
+    /**
+     * Set kubek
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\kubek $kubek
+     * @return typy
+     */
+    public function setKubek(\Obrazki\jakoProduktyBundle\Entity\kubek $kubek = null)
+    {
+        $this->kubek = $kubek;
+
+        return $this;
+    }
+
+    /**
+     * Get kubek
+     *
+     * @return \Obrazki\jakoProduktyBundle\Entity\kubek 
+     */
+    public function getKubek()
+    {
+        return $this->kubek;
     }
 }

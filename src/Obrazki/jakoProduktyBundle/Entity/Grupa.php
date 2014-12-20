@@ -47,6 +47,16 @@ class Grupa
             }
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->podgrupy = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->zdjecie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id
      *
@@ -78,13 +88,6 @@ class Grupa
     public function getNazwa()
     {
         return $this->nazwa;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->podgrupy = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -123,10 +126,10 @@ class Grupa
     /**
      * Add zdjecie
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie
+     * @param \Obrazki\wbazieBundle\Entity\Przed $zdjecie
      * @return Grupa
      */
-    public function addZdjecie(\Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie)
+    public function addZdjecie(\Obrazki\wbazieBundle\Entity\Przed $zdjecie)
     {
         $this->zdjecie[] = $zdjecie;
 
@@ -136,9 +139,9 @@ class Grupa
     /**
      * Remove zdjecie
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie
+     * @param \Obrazki\wbazieBundle\Entity\Przed $zdjecie
      */
-    public function removeZdjecie(\Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie)
+    public function removeZdjecie(\Obrazki\wbazieBundle\Entity\Przed $zdjecie)
     {
         $this->zdjecie->removeElement($zdjecie);
     }

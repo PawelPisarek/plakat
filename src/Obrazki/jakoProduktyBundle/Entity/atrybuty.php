@@ -143,10 +143,8 @@ class atrybuty
 
     function __toString()
     {
-        return $this->getMargines()->getNazwa().' '.$this->getWymiary()->getNazwa().' '.$this->getWrap()->getNazwa();
+        return 'atrybuty płótna '.$this->getMargines()->getNazwa().' '.$this->getWymiary()->getNazwa().' '.$this->getWrap()->getNazwa();
     }
-
-
 
 
     /**

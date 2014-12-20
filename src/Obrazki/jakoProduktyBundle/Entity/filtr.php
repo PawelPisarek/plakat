@@ -5,12 +5,12 @@ namespace Obrazki\jakoProduktyBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Grupa
+ * filtr
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Grupa
+class filtr
 {
     /**
      * @var integer
@@ -28,24 +28,37 @@ class Grupa
      */
     private $nazwa;
 
-    /**
-     * @ORM\OneToMany(targetEntity="PodGrupa", mappedBy="grupy")
-     */
-    protected  $podgrupy;
 
     /**
-     * @ORM\OneToMany(targetEntity="Obrazki\wbazieBundle\Entity\Przed", mappedBy="grupa")
+     * Get id
+     *
+     * @return integer 
      */
-    protected $zdjecie;
-
-
-
-
-    function __toString()
+    public function getId()
     {
-            return $this->getNazwa();
-            }
+        return $this->id;
+    }
 
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     * @return filtr
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
 
+        return $this;
+    }
 
+    /**
+     * Get nazwa
+     *
+     * @return string 
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
+    }
 }

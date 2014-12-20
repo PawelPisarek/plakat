@@ -14,9 +14,26 @@ class typyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+//        $choices = array(
+//                    'choices' => array(
+//                                1 => 'filter.yes',
+//                                0 => 'filter.no',
+//                            ),
+//                        'required'=>false,
+//                        'translation_domain'=>'ReConfiguratorBundle',
+//                    );
         $builder
+
             ->add('atrybuty')
+            ->add('kubek')
+
+            //->add('ionization', 'filter_choice', $choices)
+
         ;
+
+
+//        $builder->add('typy', 'collection', array('atrybuty','kubek'));
+
     }
     
     /**

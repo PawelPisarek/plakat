@@ -188,22 +188,20 @@ class Przed
     /**
      * Set grupa
      *
-     * @param \Obrazki\wbazieBundle\Entity\Grupa $grupa
+     * @param \Obrazki\jakoProduktyBundle\Entity\Grupa $grupa
      * @return Przed
      */
-    public function setGrupa(\Obrazki\wbazieBundle\Entity\Grupa $grupa = null)
+    public function setGrupa(\Obrazki\jakoProduktyBundle\Entity\Grupa $grupa = null)
     {
         $this->grupa = $grupa;
 
         return $this;
     }
 
-
-
     /**
      * Get grupa
      *
-     * @return \Obrazki\wbazieBundle\Entity\Grupa
+     * @return \Obrazki\jakoProduktyBundle\Entity\Grupa 
      */
     public function getGrupa()
     {
