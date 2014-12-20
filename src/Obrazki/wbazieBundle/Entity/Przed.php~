@@ -34,6 +34,14 @@ class Przed
      */
     public $file;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Obrazki\jakoProduktyBundle\Entity\Grupa", inversedBy="zdjecie", cascade={"all"})
+     */
+    protected $grupa;
+
+
+
     public function getAbsolutePath()
     {
         return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
@@ -176,4 +184,27 @@ class Przed
     }
 
 
+
+    /**
+     * Set grupa
+     *
+     * @param \Obrazki\wbazieBundle\Entity\Grupa $grupa
+     * @return Przed
+     */
+    public function setGrupa(\Obrazki\wbazieBundle\Entity\Grupa $grupa = null)
+    {
+        $this->grupa = $grupa;
+
+        return $this;
+    }
+
+    /**
+     * Get grupa
+     *
+     * @return \Obrazki\wbazieBundle\Entity\Grupa
+     */
+    public function getGrupa()
+    {
+        return $this->grupa;
+    }
 }

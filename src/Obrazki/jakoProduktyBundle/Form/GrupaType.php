@@ -1,12 +1,12 @@
 <?php
 
-namespace Obrazki\wbazieBundle\Form;
+namespace Obrazki\jakoProduktyBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PrzedType extends AbstractType
+class GrupaType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,7 @@ class PrzedType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nazwaObrazka')
-            ->add('grupa')
-            ->add('file')
-            ->getForm()
+            ->add('nazwa')
         ;
     }
     
@@ -28,7 +25,7 @@ class PrzedType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Obrazki\wbazieBundle\Entity\Przed'
+            'data_class' => 'Obrazki\jakoProduktyBundle\Entity\Grupa'
         ));
     }
 
@@ -37,6 +34,6 @@ class PrzedType extends AbstractType
      */
     public function getName()
     {
-        return 'obrazki_wbaziebundle_przed';
+        return 'obrazki_jakoproduktybundle_grupa';
     }
 }

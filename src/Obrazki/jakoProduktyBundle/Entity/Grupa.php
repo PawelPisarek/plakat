@@ -34,6 +34,17 @@ class Grupa
     protected  $podgrupy;
 
     /**
+     * @ORM\OneToMany(targetEntity="Obrazki\wbazieBundle\Entity\Przed", mappedBy="grupa")
+     */
+    protected $zdjecie;
+
+    function __toString()
+    {
+            return $this->getNazwa();
+            }
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -104,5 +115,38 @@ class Grupa
     public function getPodgrupy()
     {
         return $this->podgrupy;
+    }
+
+    /**
+     * Add zdjecie
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie
+     * @return Grupa
+     */
+    public function addZdjecie(\Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie)
+    {
+        $this->zdjecie[] = $zdjecie;
+
+        return $this;
+    }
+
+    /**
+     * Remove zdjecie
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie
+     */
+    public function removeZdjecie(\Obrazki\jakoProduktyBundle\Entity\Przed $zdjecie)
+    {
+        $this->zdjecie->removeElement($zdjecie);
+    }
+
+    /**
+     * Get zdjecie
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getZdjecie()
+    {
+        return $this->zdjecie;
     }
 }
