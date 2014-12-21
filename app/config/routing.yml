@@ -1,3 +1,8 @@
+obrazkipf:
+    resource: "@ObrazkipfBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 glowna_plakaty:
     resource: "@glownaPlakatyBundle/Controller/"
     type:     annotation
@@ -12,6 +17,9 @@ obrazkiwbazie:
     resource: "@ObrazkiwbazieBundle/Controller/"
     type:     annotation
     prefix:   /
+
+
+
 # _zbior:
 #    pattern: /zbior
 #    defaults: { _controller: ObrazkiwbazieBundle:wrap:Blank _defaults

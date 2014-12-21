@@ -48,4 +48,111 @@ class Grupa
 
 
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->podgrupy = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->zdjecie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     * @return Grupa
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwa
+     *
+     * @return string 
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
+    }
+
+    /**
+     * Add podgrupy
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy
+     * @return Grupa
+     */
+    public function addPodgrupy(\Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy)
+    {
+        $this->podgrupy[] = $podgrupy;
+
+        return $this;
+    }
+
+    /**
+     * Remove podgrupy
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy
+     */
+    public function removePodgrupy(\Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy)
+    {
+        $this->podgrupy->removeElement($podgrupy);
+    }
+
+    /**
+     * Get podgrupy
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPodgrupy()
+    {
+        return $this->podgrupy;
+    }
+
+    /**
+     * Add zdjecie
+     *
+     * @param \Obrazki\wbazieBundle\Entity\Przed $zdjecie
+     * @return Grupa
+     */
+    public function addZdjecie(\Obrazki\wbazieBundle\Entity\Przed $zdjecie)
+    {
+        $this->zdjecie[] = $zdjecie;
+
+        return $this;
+    }
+
+    /**
+     * Remove zdjecie
+     *
+     * @param \Obrazki\wbazieBundle\Entity\Przed $zdjecie
+     */
+    public function removeZdjecie(\Obrazki\wbazieBundle\Entity\Przed $zdjecie)
+    {
+        $this->zdjecie->removeElement($zdjecie);
+    }
+
+    /**
+     * Get zdjecie
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getZdjecie()
+    {
+        return $this->zdjecie;
+    }
 }

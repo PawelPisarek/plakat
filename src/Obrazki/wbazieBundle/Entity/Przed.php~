@@ -185,31 +185,6 @@ class Przed
 
 
 
-//    /**
-//     * Set grupa
-//     *
-//     * @param \Obrazki\wbazieBundle\Entity\Grupa $grupa
-//     * @return Przed
-//     */
-//    public function setGrupa(\Obrazki\wbazieBundle\Entity\Grupa $grupa = null)
-//    {
-//        $this->grupa = $grupa;
-//
-//        return $this;
-//    }
-//
-//
-//
-//    /**
-//     * Get grupa
-//     *
-//     * @return \Obrazki\wbazieBundle\Entity\Grupa
-//     */
-//    public function getGrupa()
-//    {
-//        return $this->grupa;
-//    }
-
     /**
      * Set grupa
      *

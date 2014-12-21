@@ -1,0 +1,58 @@
+<?php
+
+namespace Obrazki\pfBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * zamowienie
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class zamowienie
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dataZlozenia", type="datetime")
+     */
+    private $dataZlozenia;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="zaplacono", type="boolean")
+     */
+    private $zaplacono;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dataWysylki", type="datetime")
+     */
+    private $dataWysylki;
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="klient", mappedBy="zamowienia")
+     */
+    protected $klienci;
+
+    function __toString()
+    {
+        return $this->getZaplacono().'zamowienie';
+    }
+
+
+   
+}

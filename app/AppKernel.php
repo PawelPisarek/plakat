@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Obrazki\jakoProduktyBundle\ObrazkijakoProduktyBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new glowna\PlakatyBundle\glownaPlakatyBundle(),
+            new Obrazki\pfBundle\ObrazkipfBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
