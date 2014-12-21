@@ -40,6 +40,14 @@ class Przed
      */
     protected $grupa;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_zdjecia")
+     */
+    protected $zdjecieprod;
+
+
+
+
 
 
     public function getAbsolutePath()
@@ -121,10 +129,29 @@ class Przed
             $mnoz = $size->getHeight() / 400;
             $minaturkaSizeW = $size->getWidth() / $mnoz;
             $minaturkaSizeH = $size->getHeight() / $mnoz;
-        }; //zrobic elsa mniejsze niż 400
+        } //zrobic elsa mniejsze niż 400
+        else
+        {
+            $minaturkaSizeW = $size->getWidth();
+            $minaturkaSizeH = $size->getHeight();
+
+
+        };
+
+
+
+
+
+
         $image->resize(new Box($minaturkaSizeW, $minaturkaSizeH))
             ->save($this->getUploadMinaturkaDir() . '/' . $this->getNazwaObrazka());
     }
+
+    function __toString()
+    {
+        return $this->getNazwaObrazka();
+    }
+
     public function obroc()
     {
         $imagine=new Imagine();
@@ -206,5 +233,45 @@ class Przed
     public function getGrupa()
     {
         return $this->grupa;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->zdjecieprod = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add zdjecieprod
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $zdjecieprod
+     * @return Przed
+     */
+    public function addZdjecieprod(\Obrazki\pfBundle\Entity\Produkt $zdjecieprod)
+    {
+        $this->zdjecieprod[] = $zdjecieprod;
+
+        return $this;
+    }
+
+    /**
+     * Remove zdjecieprod
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $zdjecieprod
+     */
+    public function removeZdjecieprod(\Obrazki\pfBundle\Entity\Produkt $zdjecieprod)
+    {
+        $this->zdjecieprod->removeElement($zdjecieprod);
+    }
+
+    /**
+     * Get zdjecieprod
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getZdjecieprod()
+    {
+        return $this->zdjecieprod;
     }
 }

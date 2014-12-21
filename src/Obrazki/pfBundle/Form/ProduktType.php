@@ -2,11 +2,12 @@
 
 namespace Obrazki\pfBundle\Form;
 
+use Obrazki\jakoProduktyBundle\Form\typyType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class klientType extends AbstractType
+class ProduktType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,11 +16,14 @@ class klientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('login')
-            ->add('haslo')
-            ->add('adresy')
-            ->add('zamowienia', null, array('expanded' => "true", "multiple" => "true"))
-            ->add('Produkt')
+            ->add('netto')
+            ->add('brutto')
+            ->add('rabat')
+            ->add('procVat')
+//            ->add('zamowienia')
+            ->add('id_zdjecia')
+            ->add('id_filtru')
+            ->add('id_typu')
         ;
     }
     
@@ -29,7 +33,7 @@ class klientType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Obrazki\pfBundle\Entity\klient'
+            'data_class' => 'Obrazki\pfBundle\Entity\Produkt'
         ));
     }
 
@@ -38,6 +42,6 @@ class klientType extends AbstractType
      */
     public function getName()
     {
-        return 'obrazki_pfbundle_klient';
+        return 'obrazki_pfbundle_produkt';
     }
 }

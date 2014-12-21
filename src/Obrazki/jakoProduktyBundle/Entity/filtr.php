@@ -30,6 +30,13 @@ class filtr
 
 
     /**
+     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_filtru")
+     */
+    protected $filtry;
+
+
+    /**
+     *
      * Get id
      *
      * @return integer 
@@ -60,5 +67,53 @@ class filtr
     public function getNazwa()
     {
         return $this->nazwa;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->filtry = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    function __toString()
+    {
+        return $this->getNazwa();
+
+    }
+
+
+    /**
+     *
+     * Add filtry
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $filtry
+     * @return filtr
+     */
+    public function addFiltry(\Obrazki\pfBundle\Entity\Produkt $filtry)
+    {
+        $this->filtry[] = $filtry;
+
+        return $this;
+    }
+
+    /**
+     * Remove filtry
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $filtry
+     */
+    public function removeFiltry(\Obrazki\pfBundle\Entity\Produkt $filtry)
+    {
+        $this->filtry->removeElement($filtry);
+    }
+
+    /**
+     * Get filtry
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFiltry()
+    {
+        return $this->filtry;
     }
 }

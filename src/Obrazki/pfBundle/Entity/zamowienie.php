@@ -50,8 +50,15 @@ class zamowienie
 
     function __toString()
     {
-        return $this->getZaplacono().'zamowienie';
+        return 'nr zamowienia'.$this->getId();
     }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * @ORM\ManyToMany(targetEntity="Produkt",inversedBy="zamowienia")
+     */
+    protected $produkty;
+
+
 
 
    
@@ -173,5 +180,38 @@ class zamowienie
     public function getKlienci()
     {
         return $this->klienci;
+    }
+
+    /**
+     * Add produkty
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $produkty
+     * @return zamowienie
+     */
+    public function addProdukty(\Obrazki\pfBundle\Entity\Produkt $produkty)
+    {
+        $this->produkty[] = $produkty;
+
+        return $this;
+    }
+
+    /**
+     * Remove produkty
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $produkty
+     */
+    public function removeProdukty(\Obrazki\pfBundle\Entity\Produkt $produkty)
+    {
+        $this->produkty->removeElement($produkty);
+    }
+
+    /**
+     * Get produkty
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProdukty()
+    {
+        return $this->produkty;
     }
 }

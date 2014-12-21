@@ -29,9 +29,9 @@ class kubek
     private $nazwa;
 
     /**
-     * @ORM\OneToOne(targetEntity="typy")
+     * @ORM\OneToOne(targetEntity="typy",mappedBy="kubki")
      */
-    protected $kubek;
+    protected $typ;
 
     /**
      * Get id
@@ -94,5 +94,28 @@ class kubek
     public function getKubek()
     {
         return $this->kubek;
+    }
+
+    /**
+     * Set typ
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\typy $typ
+     * @return kubek
+     */
+    public function setTyp(\Obrazki\jakoProduktyBundle\Entity\typy $typ = null)
+    {
+        $this->typ = $typ;
+
+        return $this;
+    }
+
+    /**
+     * Get typ
+     *
+     * @return \Obrazki\jakoProduktyBundle\Entity\typy 
+     */
+    public function getTyp()
+    {
+        return $this->typ;
     }
 }

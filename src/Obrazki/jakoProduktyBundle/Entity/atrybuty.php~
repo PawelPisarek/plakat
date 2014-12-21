@@ -35,64 +35,77 @@ class atrybuty
     /**
      * @ORM\ManyToOne(targetEntity="wrap",inversedBy="atrybut")
      */
-    protected $wrap;
+    protected $wrapy;
 
     /**
      * @ORM\ManyToOne(targetEntity="wymiary",inversedBy="atrybut")
      *
      */
-    protected $wymiary;
+    protected $wymiar;
 
     /**
      * @ORM\ManyToOne(targetEntity="margines",inversedBy="atrybut")
      */
     protected $margines;
 
+    function __toString()
+    {
+        return 'atrybuty płótna '.$this->getMargines()->getNazwa().' '.$this->getWymiary()->getNazwa().' '.$this->getWrap()->getNazwa();
+    }
+
 
     /**
-     * Set wrap
+     * @ORM\OneToOne(targetEntity="typy",mappedBy="atrybut")
+     */
+    protected $plotno;
+
+
+
+
+    /**
+     * Set wrapy
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\wrap $wrap
+     * @param \Obrazki\jakoProduktyBundle\Entity\wrap $wrapy
      * @return atrybuty
      */
-    public function setWrap(\Obrazki\jakoProduktyBundle\Entity\wrap $wrap = null)
+    public function setWrapy(\Obrazki\jakoProduktyBundle\Entity\wrap $wrapy = null)
     {
-        $this->wrap = $wrap;
+        $this->wrapy = $wrapy;
 
         return $this;
     }
 
     /**
-     * Get wrap
+     * Get wrapy
      *
      * @return \Obrazki\jakoProduktyBundle\Entity\wrap 
      */
-    public function getWrap()
+    public function getWrapy()
     {
-        return $this->wrap;
+        return $this->wrapy;
     }
 
     /**
-     * Set wymaiary
+     * Set wymiar
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\wymiary $wymaiary
+     * @param \Obrazki\jakoProduktyBundle\Entity\wymiary $wymiar
      * @return atrybuty
      */
-    public function setWymaiary(\Obrazki\jakoProduktyBundle\Entity\wymiary $wymaiary = null)
+    public function setWymiar(\Obrazki\jakoProduktyBundle\Entity\wymiary $wymiar = null)
     {
-        $this->wymaiary = $wymaiary;
+        $this->wymiar = $wymiar;
 
         return $this;
     }
 
     /**
-     * Get wymaiary
+     * Get wymiar
      *
      * @return \Obrazki\jakoProduktyBundle\Entity\wymiary 
      */
-    public function getWymaiary()
+    public function getWymiar()
     {
-        return $this->wymaiary;
+        return $this->wymiar;
     }
 
     /**
@@ -117,40 +130,6 @@ class atrybuty
     {
         return $this->margines;
     }
-
-    /**
-     * Set wymiary
-     *
-     * @param \Obrazki\jakoProduktyBundle\Entity\wymiary $wymiary
-     * @return atrybuty
-     */
-    public function setWymiary(\Obrazki\jakoProduktyBundle\Entity\wymiary $wymiary = null)
-    {
-        $this->wymiary = $wymiary;
-
-        return $this;
-    }
-
-    /**
-     * Get wymiary
-     *
-     * @return \Obrazki\jakoProduktyBundle\Entity\wymiary 
-     */
-    public function getWymiary()
-    {
-        return $this->wymiary;
-    }
-
-    function __toString()
-    {
-        return 'atrybuty płótna '.$this->getMargines()->getNazwa().' '.$this->getWymiary()->getNazwa().' '.$this->getWrap()->getNazwa();
-    }
-
-
-    /**
-     * @ORM\OneToOne(targetEntity="typy")
-     */
-    protected $plotno;
 
     /**
      * Set plotno

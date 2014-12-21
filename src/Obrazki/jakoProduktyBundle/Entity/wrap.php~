@@ -63,7 +63,7 @@ class wrap
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="atrybuty", mappedBy="wrap",cascade={"all"})
+     * @ORM\OneToMany(targetEntity="atrybuty", mappedBy="wrapy",cascade={"all"})
      */
     protected $atrybut;
 

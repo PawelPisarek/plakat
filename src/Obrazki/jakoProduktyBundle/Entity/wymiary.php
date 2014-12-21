@@ -28,6 +28,20 @@ class wymiary
      */
     private $nazwa;
 
+    /**
+     * @ORM\OneToMany(targetEntity="atrybuty",mappedBy="wymiar",cascade={"all"})
+     */
+    protected $atrybut;
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->atrybut = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -38,9 +52,6 @@ class wymiary
     {
         return $this->id;
     }
-
-
-
 
     /**
      * Set nazwa
@@ -66,47 +77,6 @@ class wymiary
     }
 
     /**
-     * @ORM\OneToMany(targetEntity="atrybuty",mappedBy="wymaiary",cascade={"all"})
-     */
-    protected $atrybut;
-
-    /**
-     * Set atrybut
-     *
-     * @param \Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut
-     * @return wymiary
-     */
-    public function setAtrybut(\Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut = null)
-    {
-        $this->atrybut = $atrybut;
-
-        return $this;
-    }
-
-    /**
-     * Get atrybut
-     *
-     * @return \Obrazki\jakoProduktyBundle\Entity\atrybuty 
-     */
-    public function getAtrybut()
-    {
-        return $this->atrybut;
-    }
-
-    function __toString()
-    {
-        return $this->getNazwa();
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->atrybut = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Add atrybut
      *
      * @param \Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut
@@ -128,4 +98,23 @@ class wymiary
     {
         $this->atrybut->removeElement($atrybut);
     }
+
+    /**
+     * Get atrybut
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAtrybut()
+    {
+        return $this->atrybut;
+    }
+
+    function __toString()
+    {
+
+    return $this->getNazwa();
+
+    }
+
+
 }
