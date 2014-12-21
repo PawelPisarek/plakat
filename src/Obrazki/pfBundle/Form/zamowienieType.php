@@ -19,6 +19,7 @@ class zamowienieType extends AbstractType
             ->add('zaplacono')
             ->add('dataWysylki')
             ->add('klienci')
+            ->add('produkty')
         ;
     }
     

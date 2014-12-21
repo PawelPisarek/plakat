@@ -73,6 +73,13 @@ class Produkt
      */
     protected $id_typu;
 
+    function __toString()
+    {
+        return $this->getIdTypu().'';
+
+    }
+
+
     /**
      * Get id
      *

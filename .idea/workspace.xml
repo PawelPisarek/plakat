@@ -25,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="klientType.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="klient.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/klient.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385" vertical-offset="527" max-vertical-offset="3230">
+              <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="klientType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Form/klientType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14625229" vertical-offset="209" max-vertical-offset="799">
-              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="20" selection-end-column="88" />
+            <state vertical-scroll-proportion="-2.0769231" vertical-offset="235" max-vertical-offset="782">
+              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -38,50 +48,28 @@
       <file leaf-file-name="typy.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/typy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.615385" vertical-offset="520" max-vertical-offset="2703">
+            <state vertical-scroll-proportion="-10.076923" vertical-offset="690" max-vertical-offset="2703">
               <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Produkt.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/Produkt.php">
+      <file leaf-file-name="klientController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Controller/klientController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-32.692307" vertical-offset="748" max-vertical-offset="4964">
-              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProduktType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Form/ProduktType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077" vertical-offset="51" max-vertical-offset="901">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-              <folding>
-                <element signature="e#41#86#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kubek.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/kubek.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.9615383" vertical-offset="745" max-vertical-offset="2159">
-              <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+            <state vertical-scroll-proportion="-36.423077" vertical-offset="787" max-vertical-offset="4199">
+              <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/typy/show.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="663">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state vertical-scroll-proportion="-3.2692308" vertical-offset="289" max-vertical-offset="1241">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="6" selection-end-line="33" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -90,38 +78,48 @@
       <file leaf-file-name="atrybuty.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/atrybuty.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.038462" vertical-offset="571" max-vertical-offset="2754">
-              <caret line="52" column="123" selection-start-line="52" selection-start-column="123" selection-end-line="52" selection-end-column="123" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="atrybutyController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Controller/atrybutyController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0" vertical-offset="1552" max-vertical-offset="4199">
-              <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+            <state vertical-scroll-proportion="-8.115385" vertical-offset="673" max-vertical-offset="2754">
+              <caret line="52" column="150" selection-start-line="52" selection-start-column="150" selection-end-line="52" selection-end-column="150" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/atrybuty/show.html.twig">
+        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/Produkt/show.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="663">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="850">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typyController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Controller/typyController.php">
+      <file leaf-file-name="zamowienieController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Controller/zamowienieController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="61.46154" vertical-offset="1598" max-vertical-offset="4199">
+            <state vertical-scroll-proportion="5.230769" vertical-offset="136" max-vertical-offset="4199">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Produkt.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/Produkt.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.49725777" vertical-offset="1037" max-vertical-offset="5083">
+              <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zamowienie.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/zamowienie.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-38.692307" vertical-offset="507" max-vertical-offset="3791">
+              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -171,23 +169,23 @@
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/adres.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/zamowienie/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig" />
         <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/klient.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/zamowienie.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Entity/Przed.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/filtr.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/Produkt.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/wrap.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/wymiary.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Form/atrybutyType.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/kubek.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Form/typyType.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/atrybuty.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/typy/show.html.twig" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/atrybuty/show.html.twig" />
         <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/typy.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Form/ProduktType.php" />
         <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Form/klientType.php" />
+        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/atrybuty.php" />
+        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig" />
+        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/Produkt.php" />
       </list>
     </option>
   </component>
@@ -293,32 +291,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pfBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plakaty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plakaty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Obrazki" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pfBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -458,7 +430,7 @@
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30551302" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3275862" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32741934" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -652,24 +624,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.923077" vertical-offset="167" max-vertical-offset="799">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="573">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Controller/klientController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -683,28 +640,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Controller/zamowienieController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4199">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#47#92#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="595">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/zamowienie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.923077" vertical-offset="1255" max-vertical-offset="3791">
-          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -729,14 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.923077" vertical-offset="1050" max-vertical-offset="2125">
           <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Form/zamowienieType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -781,14 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/klient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385" vertical-offset="527" max-vertical-offset="3230">
-          <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/kubek.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.9615383" vertical-offset="745" max-vertical-offset="2159">
@@ -809,7 +732,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="663">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
+          <folding>
+            <element signature="e#12#28#0#Twig" expanded="false" />
+            <element signature="e#374#378#0#Twig" expanded="false" />
+            <element signature="e#473#482#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -825,31 +752,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="663">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/atrybuty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.038462" vertical-offset="571" max-vertical-offset="2754">
-          <caret line="52" column="123" selection-start-line="52" selection-start-column="123" selection-end-line="52" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/typy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.615385" vertical-offset="520" max-vertical-offset="2703">
-          <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/Produkt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-32.692307" vertical-offset="748" max-vertical-offset="4964">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#12#28#0#Twig" expanded="false" />
+            <element signature="e#378#386#0#Twig" expanded="false" />
+            <element signature="e#481#494#0#Twig" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -863,10 +770,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Form/zamowienieType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/klient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="527" max-vertical-offset="3230">
+          <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Form/klientType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14625229" vertical-offset="209" max-vertical-offset="799">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="20" selection-end-column="88" />
+        <state vertical-scroll-proportion="-2.0769231" vertical-offset="235" max-vertical-offset="782">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Controller/klientController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-36.423077" vertical-offset="787" max-vertical-offset="4199">
+          <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Controller/zamowienieController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.230769" vertical-offset="136" max-vertical-offset="4199">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/Produkt/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/atrybuty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.115385" vertical-offset="673" max-vertical-offset="2754">
+          <caret line="52" column="150" selection-start-line="52" selection-start-column="150" selection-end-line="52" selection-end-column="150" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308" vertical-offset="289" max-vertical-offset="1241">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="6" selection-end-line="33" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/typy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.076923" vertical-offset="690" max-vertical-offset="2703">
+          <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/zamowienie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-38.692307" vertical-offset="507" max-vertical-offset="3791">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/Produkt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49725777" vertical-offset="1037" max-vertical-offset="5083">
+          <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
           <folding />
         </state>
       </provider>

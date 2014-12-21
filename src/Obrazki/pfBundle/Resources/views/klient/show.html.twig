@@ -20,11 +20,37 @@
         </tbody>
     </table>
 
+    {#{{ dump(entity) }}#}
 
-    {% for zam in entity.zamowienia %}
-        {{ zam }}
+    {#{% for zamowienie in entity.zamowienia %}#}
+        {#{{ dump(zamowienie)}}#}
+
+        {#{% for produkt in zamowienie.produkty %}#}
+            {#{{ dump(produkt)}}#}
+
+
+        {#{% endfor %}#}
+
+    {#{% endfor %}#}
+
+
+    {% for zamowienie in entity.zamowienia %}
+        {{ zamowienie }} <br/>
+
+        {% for produkt in zamowienie.produkty %}
+            zamowienie :   {{ produkt }},{{ produkt.IdZdjecia }} <br/>
+
+
+            {#{% for zdjecie in Przed.id_zdjecia %}#}
+               {#<b> zdjęcie :   {{ zdjecie }}</b>#}
+
+
+            {#{% endfor %}#}
+
+        {% endfor %}
     {% endfor %}
 
+    {#{{ dump(produkt) }}#}
         <ul class="record_actions">
     <li>
         <a href="{{ path('klient') }}">

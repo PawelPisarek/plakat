@@ -33,6 +33,9 @@ class typy
     }
 
 
+//    skromna Uwaga
+//    jeśli zwórci błąd że nie można dodać itp to jest dobrze bo dzięki temu mamy różne typy
+
     /**
      * @ORM\OneToOne(targetEntity="atrybuty", inversedBy="plotno",cascade={"all"})
      * @ORM\JoinColumn(name="plotno",referencedColumnName="id")
@@ -51,11 +54,12 @@ class typy
     protected $typys;
 
 
-  
+//skromna Uwaga
+//    jeśli zwórci błąd że nie można dodać itp to jest dobrze bo dzięki temu mamy różne typy
 
     function __toString()
     {
-        return $this->getAtrybuty().' '.$this->getKubek();
+        return $this->getAtrybut().' '.$this->getKubki();
     }
 
 
