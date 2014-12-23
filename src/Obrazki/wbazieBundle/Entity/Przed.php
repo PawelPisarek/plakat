@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  *
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Przed
 {
@@ -226,6 +227,22 @@ class Przed
         // wyczyść zmienną file ponieważ już jej nie potrzebujemy
         $this->file = null;
     }
+
+
+//    /**
+//     * @ORM\PostRemove()
+//     */
+//    public function removeUpload()
+//    {
+//        if ($file =$this->getUploadDir()) {
+//
+//            chmod($this->getUploadRootDir().'/'.$this->getUploadDir(), 0777);
+//
+//            unlink($file);
+//        }
+//    }
+
+
     public function uploadMinaturka()
     {
         // zmienna file może być pusta jeśli pole nie jest wymagane

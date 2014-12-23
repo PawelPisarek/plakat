@@ -247,11 +247,17 @@ class PrzedController extends Controller
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
 
+
+
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Przed entity.');
             }
 
+
             $em->remove($entity);
+
+
+
             $em->flush();
         }
 
