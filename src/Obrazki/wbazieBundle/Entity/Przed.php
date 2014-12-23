@@ -96,7 +96,10 @@ class Przed
      */
     public function setNazwaObrazka($nazwaObrazka)
     {
-        $this->nazwaObrazka = $nazwaObrazka;
+
+
+            $this->nazwaObrazka = $nazwaObrazka;
+
 
         return $this;
     }
@@ -129,7 +132,7 @@ class Przed
             $mnoz = $size->getHeight() / 400;
             $minaturkaSizeW = $size->getWidth() / $mnoz;
             $minaturkaSizeH = $size->getHeight() / $mnoz;
-        } //zrobic elsa mniejsze niż 400
+        }
         else
         {
             $minaturkaSizeW = $size->getWidth();
@@ -172,14 +175,53 @@ class Przed
 
         // metoda move jako atrybuty przyjmuje ścieżkę docelową gdzie trafi przenoszony plik
         // oraz ścieżkę z której ma przenieś plik
+//        $extension = $this->$file->guessExtension();
+//        if (!$extension) {
+//            // rozszerzenie nie może zostać znalezione
+//            $extension = 'bin';
+//        }
+
+
+       // echo finfo_file($finfo, 'cos.jpg');
+       // var_dump($this->file->guessExtension());
+
+
+        $mime=explode('.', $this->file->getClientOriginalName());//dzieli na tabliece z nazwą zdjecia i plikiem
+
+        $mime=$mime[1];//zostawia samo rozszezenie
+
+
+//        $mime=$this->file->getmimeType(); //to nie działa
 
 
 
-        $this->file->move($this->getUploadRootDir().'/'.$this->getUploadDir(), $this->file->getClientOriginalName());
 
 
+
+
+
+
+        if($this->getNazwaObrazka()!=null)
+        {
+          echo 'orginalna nazwa';
+            $random=$this->getNazwaObrazka().'.'.$mime;
+        }
+
+        else
+        {
+            echo 'losowan nazwa ';
+            $random=rand(1, 99999).'.'.$mime;
+        }
+
+
+
+
+        $this->file->move($this->getUploadRootDir().'/'.$this->getUploadDir(),$random);
+
+
+
+        $this->setNazwaObrazka($random);
         // ustaw zmienną patch ścieżką do zapisanego pliku
-        $this->setNazwaObrazka($this->file->getClientOriginalName());
 
         // wyczyść zmienną file ponieważ już jej nie potrzebujemy
         $this->file = null;

@@ -9,33 +9,50 @@ use Obrazki\jakoProduktyBundle\Entity\margines;
 use Obrazki\jakoProduktyBundle\Entity\PodGrupa;
 use Doctrine\Common\Persistence\ObjectManager;
 use Obrazki\jakoProduktyBundle\Entity\wymiary;
+use Obrazki\wbazieBundle\Entity\Przed;
 use Proxies\__CG__\Obrazki\jakoProduktyBundle\Entity\wrap;
 
 
-class loadkontynenty implements FixtureInterface
+class loadgrupy implements FixtureInterface
 {
     function  load(ObjectManager $manager)
     {
-        $xml=simplexml_load_file('data/grupy.xml');
-        foreach($xml->grupa as $g)
-        {
-            $grupa= new Grupa();
+        $xml = simplexml_load_file('data/grupy.xml');
+        foreach ($xml->grupa as $g) {
+            $grupa = new Grupa();
             $grupa->setNazwa($g->nazwa);
             $manager->persist($grupa);
-            foreach($g->podgrupy->podgrupa as $podgrupa)
-            {
-                $Podgrupa =new PodGrupa();
-                $Podgrupa->setNazwa($podgrupa->nazwa);
-                $Podgrupa->setGrupy($grupa);
-                $manager->persist($Podgrupa);
-
-            }
 
 
         }
         $manager->flush();
     }
 }
+
+
+class loadzdjecia implements FixtureInterface
+{
+    function  load(ObjectManager $manager)
+    {
+        $xml = simplexml_load_file('data/zdjecia.xml');
+        foreach ($xml->zdjecie as $z) {
+            $zdjecie = new Przed();
+            $zdjecie->setNazwaObrazka($z->nazwa);
+
+            $grupa = $manager->getRepository('ObrazkijakoProduktyBundle:Grupa')->findOneBy(array('nazwa' => $z->grupa));
+
+
+            $zdjecie->setGrupa($grupa);
+
+
+            $manager->persist($zdjecie);
+
+
+        }
+        $manager->flush();
+    }
+}
+
 
 class loadwrap implements FixtureInterface
 {
@@ -111,7 +128,7 @@ class loadkubek implements FixtureInterface
         $wrap->setNazwa('rozmiar koszulki lub inne atrybuty kubka');
         $manager->persist($wrap);
         $manager->flush();
-        
+
     }
 }
 
@@ -133,7 +150,6 @@ class loadfiltr implements FixtureInterface
         $wrap->setNazwa('orginalny');
         $manager->persist($wrap);
         $manager->flush();
-
 
 
     }

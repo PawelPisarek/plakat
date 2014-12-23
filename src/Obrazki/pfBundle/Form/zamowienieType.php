@@ -15,7 +15,6 @@ class zamowienieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dataZlozenia')
             ->add('zaplacono')
             ->add('dataWysylki')
             ->add('klienci')

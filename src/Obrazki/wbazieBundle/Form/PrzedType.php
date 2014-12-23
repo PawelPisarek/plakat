@@ -15,8 +15,8 @@ class PrzedType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nazwaObrazka')
-            ->add('grupa')
+           // ->add('nazwaObrazka')
+            // ->add('grupa')
             ->add('file')
             ->getForm()
         ;

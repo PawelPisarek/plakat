@@ -50,7 +50,7 @@ class atrybuty
 
     function __toString()
     {
-        return 'atrybuty płótna '.$this->getMargines()->getNazwa().' '.$this->getWymiar()->getNazwa().' '.$this->getWrapy()->getNazwa();
+        return 'płótno margines:'.$this->getMargines()->getNazwa().' wymiar: '.$this->getWymiar()->getNazwa().' wrap: '.$this->getWrapy()->getNazwa();
     }
 
 

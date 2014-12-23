@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class zamowienie
 {
@@ -24,7 +25,7 @@ class zamowienie
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dataZlozenia", type="datetime")
+     * @ORM\Column(name="dataZlozenia", type="datetime", nullable=false)
      */
     private $dataZlozenia;
 
@@ -83,12 +84,11 @@ class zamowienie
     /**
      * Set dataZlozenia
      *
-     * @param \DateTime $dataZlozenia
-     * @return zamowienie
+     * @ORM\PrePersist
      */
-    public function setDataZlozenia($dataZlozenia)
+    public function setDataZlozenia()
     {
-        $this->dataZlozenia = $dataZlozenia;
+        $this->dataZlozenia = new  \DateTime();
 
         return $this;
     }

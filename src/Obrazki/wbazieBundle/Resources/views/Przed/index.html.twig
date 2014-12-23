@@ -11,15 +11,19 @@
                 <th>
                     obrazek
                 </th>
+                <th>grupa</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
+
+
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('przed_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nazwaObrazka }}</td>
                 <td> <img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/></td>
+                <td>{{ entity.grupa}}</td>
                 <td>
                 <ul>
                     <li>

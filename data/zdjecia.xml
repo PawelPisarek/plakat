@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zdjecia>
+    <zdjecie>
+        <nazwa>1.jpg</nazwa>
+        <grupa>Abstract</grupa>
+    </zdjecie>
+
+
+    <zdjecie>
+        <nazwa>2.jpg</nazwa>
+        <grupa>Animals</grupa>
+    </zdjecie>
+
+
+
+</zdjecia>

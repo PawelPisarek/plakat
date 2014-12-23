@@ -33,10 +33,12 @@ class PrzedController extends Controller
         $entities = $em->getRepository('ObrazkiwbazieBundle:Przed')->findAll();
 
 
+
         return array(
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new Przed entity.
      *
@@ -48,19 +50,20 @@ class PrzedController extends Controller
     {
         $entity = new Przed();
         $form = $this->createCreateForm($entity);
+
+//        exit(\Doctrine\Common\Util\Debug::dump($form));
         $form->handleRequest($request);
 
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
+
             $entity->upload();
 
             $entity->zmniejszRozmiar();
 
             $entity->uploadMinaturka();
-
-
 
 
             $em->persist($entity);
@@ -73,7 +76,7 @@ class PrzedController extends Controller
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
 
 
@@ -88,10 +91,14 @@ class PrzedController extends Controller
      */
     private function createCreateForm(Przed $entity)
     {
-        $form = $this->createForm(new PrzedType(), $entity, array(
-            'action' => $this->generateUrl('przed_create'),
-            'method' => 'POST',
-        ));
+        $form = $this->createForm(
+            new PrzedType(),
+            $entity,
+            array(
+                'action' => $this->generateUrl('przed_create'),
+                'method' => 'POST',
+            )
+        );
 
         $form->add('submit', 'submit', array('label' => 'Create'));
 
@@ -108,11 +115,11 @@ class PrzedController extends Controller
     public function newAction()
     {
         $entity = new Przed();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -136,7 +143,7 @@ class PrzedController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -162,30 +169,35 @@ class PrzedController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
 
     /**
-    * Creates a form to edit a Przed entity.
-    *
-    * @param Przed $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Przed entity.
+     *
+     * @param Przed $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Przed $entity)
     {
-        $form = $this->createForm(new PrzedType(), $entity, array(
-            'action' => $this->generateUrl('przed_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
+        $form = $this->createForm(
+            new PrzedType(),
+            $entity,
+            array(
+                'action' => $this->generateUrl('przed_update', array('id' => $entity->getId())),
+                'method' => 'PUT',
+            )
+        );
 
         $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
+
     /**
      * Edits an existing Przed entity.
      *
@@ -214,11 +226,12 @@ class PrzedController extends Controller
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a Przed entity.
      *
@@ -258,7 +271,6 @@ class PrzedController extends Controller
             ->setAction($this->generateUrl('przed_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

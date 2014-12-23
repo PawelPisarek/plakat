@@ -75,7 +75,7 @@ class Produkt
 
     function __toString()
     {
-        return $this->getIdTypu().'nazwa typu produktu';
+        return $this->getIdTypu().'';
 
     }
 
