@@ -1,17 +1,27 @@
+
+
+
+<ul class="list-group">
+    <br/>
 {% for grupy in entities %}
 
+   <a class="list-group-item" href="{{ path('menuk',{'grupa':grupy.nazwa}) }}">{{ grupy.nazwa }}</a>
 
-    <div class="btn-group">
-        <button type="button" class="btn btn-default">{{ grupy.nazwa }}</button>
-        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            {% for podgrupa in grupy.podgrupy %}
-                <li class="list-group-item"><a href="{{ podgrupa.nazwa }}">{{ podgrupa.nazwa }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
 {% endfor %}
+</ul>
+
+
+
+{#<div class="btn-group">#}
+    {#<button type="button" class="btn btn-default">{{ grupy.nazwa }}</button>#}
+    {#<button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span>#}
+    {#</button>#}
+    {#<ul class="dropdown-menu">#}
+        {#{% for podgrupa in grupy.podgrupy %}#}
+            {#<li class="list-group-item"><a href="{{ podgrupa.nazwa }}">{{ podgrupa.nazwa }}</a></li>#}
+        {#{% endfor %}#}
+    {#</ul>#}
+{#</div>#}
 
 
     {#<div class="panel-group" id="accordion">#}
