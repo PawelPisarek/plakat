@@ -8,6 +8,7 @@ use Obrazki\jakoProduktyBundle\Entity\kubek;
 use Obrazki\jakoProduktyBundle\Entity\margines;
 use Obrazki\jakoProduktyBundle\Entity\PodGrupa;
 use Doctrine\Common\Persistence\ObjectManager;
+use Obrazki\jakoProduktyBundle\Entity\typy;
 use Obrazki\jakoProduktyBundle\Entity\wymiary;
 use Obrazki\wbazieBundle\Entity\Przed;
 use Proxies\__CG__\Obrazki\jakoProduktyBundle\Entity\wrap;
@@ -70,6 +71,28 @@ class loadwrap implements FixtureInterface
 
         $wrap = new wrap();
         $wrap->setNazwa('mirror');
+        $manager->persist($wrap);
+        $manager->flush();
+
+    }
+}
+
+class loadtypy implements FixtureInterface
+{
+    function  load(ObjectManager $manager)
+    {
+        $wrap = new typy();
+        $wrap->setNazwa('płótno');
+        $manager->persist($wrap);
+        $manager->flush();
+
+        $wrap = new typy();
+        $wrap->setNazwa('kubek');
+        $manager->persist($wrap);
+        $manager->flush();
+
+        $wrap = new typy();
+        $wrap->setNazwa('koszulka');
         $manager->persist($wrap);
         $manager->flush();
 

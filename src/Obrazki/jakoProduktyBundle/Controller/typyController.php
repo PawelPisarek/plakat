@@ -116,11 +116,15 @@ class typyController extends Controller
             throw $this->createNotFoundException('Unable to find typy entity.');
         }
 
+
+
+
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+
         );
     }
 

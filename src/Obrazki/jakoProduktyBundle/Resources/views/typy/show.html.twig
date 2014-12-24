@@ -6,7 +6,8 @@
 
     {{ dump(entity) }}
 
-    {{ entity }}
+    {{ entity.atrybut.wrapy }}
+
 
     <table class="record_properties">
         <tbody>
@@ -28,6 +29,8 @@
             Edit
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li><a href="{{ path('typy_delete', { 'id': entity.id }) }}">
+            Edit
+        </a></li>
 </ul>
 {% endblock %}

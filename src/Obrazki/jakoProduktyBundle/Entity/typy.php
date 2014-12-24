@@ -33,6 +33,7 @@ class typy
     }
 
 
+
 //    skromna Uwaga
 //    jeśli zwórci błąd że nie można dodać itp to jest dobrze bo dzięki temu mamy różne typy
 
@@ -52,6 +53,15 @@ class typy
      * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_typu")
      */
     protected $typys;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nazwa", type="string", length=255)
+     */
+    private $nazwa;
+
 
 
 //skromna Uwaga
@@ -149,5 +159,28 @@ class typy
     public function getTypys()
     {
         return $this->typys;
+    }
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     * @return typy
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwa
+     *
+     * @return string 
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
     }
 }

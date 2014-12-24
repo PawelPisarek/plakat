@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  *
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Przed
 {
@@ -96,7 +97,10 @@ class Przed
      */
     public function setNazwaObrazka($nazwaObrazka)
     {
-        $this->nazwaObrazka = $nazwaObrazka;
+
+
+            $this->nazwaObrazka = $nazwaObrazka;
+
 
         return $this;
     }
@@ -172,25 +176,73 @@ class Przed
 
         // metoda move jako atrybuty przyjmuje ścieżkę docelową gdzie trafi przenoszony plik
         // oraz ścieżkę z której ma przenieś plik
+//        $extension = $this->$file->guessExtension();
+//        if (!$extension) {
+//            // rozszerzenie nie może zostać znalezione
+//            $extension = 'bin';
+//        }
 
-        $extension = $this->$file->guessExtension();
-        if (!$extension) {
-            // rozszerzenie nie może zostać znalezione
-            $extension = 'bin';
+
+       // echo finfo_file($finfo, 'cos.jpg');
+       // var_dump($this->file->guessExtension());
+
+
+        $mime=explode('.', $this->file->getClientOriginalName());//dzieli na tabliece z nazwą zdjecia i plikiem
+
+        $mime=$mime[1];//zostawia samo rozszezenie
+
+
+//        $mime=$this->file->getmimeType(); //to nie działa
+
+
+
+
+
+
+
+
+
+        if($this->getNazwaObrazka()!=null)
+        {
+          echo 'orginalna nazwa';
+            $random=$this->getNazwaObrazka().'.'.$mime;
         }
 
-        $random=rand(1, 99999).'.'.$extension;
+        else
+        {
+            echo 'losowan nazwa ';
+            $random=rand(1, 99999).'.'.$mime;
+        }
+
+
+
+
         $this->file->move($this->getUploadRootDir().'/'.$this->getUploadDir(),$random);
 
 
 
-
-        // ustaw zmienną patch ścieżką do zapisanego pliku
         $this->setNazwaObrazka($random);
+        // ustaw zmienną patch ścieżką do zapisanego pliku
 
         // wyczyść zmienną file ponieważ już jej nie potrzebujemy
         $this->file = null;
     }
+
+
+//    /**
+//     * @ORM\PostRemove()
+//     */
+//    public function removeUpload()
+//    {
+//        if ($file =$this->getUploadDir()) {
+//
+//            chmod($this->getUploadRootDir().'/'.$this->getUploadDir(), 0777);
+//
+//            unlink($file);
+//        }
+//    }
+
+
     public function uploadMinaturka()
     {
         // zmienna file może być pusta jeśli pole nie jest wymagane
