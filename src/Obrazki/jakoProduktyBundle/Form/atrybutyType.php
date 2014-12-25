@@ -18,7 +18,7 @@ class atrybutyType extends AbstractType
             ->add('wrapy')
             ->add('wymiar')
             ->add('margines')
-            ->add('plotno')
+           // ->add('plotno')
         ;
     }
     

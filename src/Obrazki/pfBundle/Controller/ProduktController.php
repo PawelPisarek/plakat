@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Obrazki\pfBundle\Entity\Produkt;
 use Obrazki\pfBundle\Form\ProduktType;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Produkt controller.
@@ -115,18 +116,27 @@ class ProduktController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Produkt entity.');
         }
+        $request = $this->get('request');
+        $cookies = $request->cookies;
+
+
+
+        var_dump($cookies->get('produkt'));
+        $produkty=explode(',',$cookies->get('produkt'));
+        var_dump($produkty);
+
 
         $deleteForm = $this->createDeleteForm($id);
 
-        $obrazek=$em->getRepository('ObrazkiwbazieBundle:Przed')->find($entity->getIdZdjecia()->getId());
-        $typ=$em->getRepository('ObrazkijakoProduktyBundle:typy')->find($entity->getIdTypu()->getId());
+//        $obrazek=$em->getRepository('ObrazkiwbazieBundle:Przed')->find($entity->getIdZdjecia()->getId());
+//        $typ=$em->getRepository('ObrazkijakoProduktyBundle:typy')->find($entity->getIdTypu()->getId());
 
 
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-            'obrazek'=>$obrazek,
-            'typ'=>$typ,
+//            'obrazek'=>$obrazek,
+//            'typ'=>$typ,
         );
     }
 

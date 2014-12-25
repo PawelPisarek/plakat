@@ -16,14 +16,14 @@ class ProduktType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('netto')
-            ->add('brutto')
-            ->add('rabat')
-            ->add('procVat')
+           // ->add('netto')
+          //  ->add('brutto')
+          //  ->add('rabat')
+          //  ->add('procVat')
 //            ->add('zamowienia')
-            ->add('id_zdjecia')
+         //   ->add('id_zdjecia')
             ->add('id_filtru')
-            ->add('id_typu')
+          //  ->add('id_typu')
         ;
     }
     

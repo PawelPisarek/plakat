@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Produkt</h1>
+    <h1>{{ entity.IdTypu.nazwa }}</h1>
 
     <table class="record_properties">
         <tbody>
@@ -32,24 +32,28 @@
     {#{{ entity.Przed }}#}
 
     {#{{ dump(obrazek) }} //nie wiem jakim cudem nazwa obrazka jest null ale pojkazuje dwa#}
+{#{{ entity.IdZdjecia.nazwaObrazka }}#}
+{{ entity.IdTypu.atrybut }}<br>
 
-
-    {{ obrazek.nazwaObrazka }}
+    {#{{ obrazek.nazwaObrazka }}#}
     {#{{ dump(typ) }}#}
     {#{{ dump(typ.atrybut) }}#}
     {#{{ dump(typ.atrybut.wrapy) }}#}
-    {{ typ.atrybut }}
+    {#{{ typ.atrybut }}#}
+
+
+    <img src="{{ asset(entity.IdZdjecia.getUploadMinaturkaDir~'/' ~ entity.IdZdjecia.nazwaObrazka  ) }}"/>
         <ul class="record_actions">
-    <li>
-        <a href="{{ path('produkt') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('produkt_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
+    {#<li>#}
+        {#<a href="{{ path('produkt') }}">#}
+            {#Back to the list#}
+        {#</a>#}
+    {#</li>#}
+    {#<li>#}
+        {#<a href="{{ path('produkt_edit', { 'id': entity.id }) }}">#}
+            {#Edit#}
+        {#</a>#}
+    {#</li>#}
     <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

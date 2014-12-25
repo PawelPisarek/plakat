@@ -12,6 +12,7 @@ use Obrazki\pfBundle\Form\zamowienieType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -44,20 +45,20 @@ class ObrazkiwKategoriiController extends Controller
             throw $this->createNotFoundException('nie znaleziono obrazka');
         }
 
-     //   $zamowienie=new zamowienie();
-        $produkt=new Produkt();
+        //   $zamowienie=new zamowienie();
+        $produkt = new Produkt();
 
-       $produkt->setIdZdjecia($entity);
+        $produkt->setIdZdjecia($entity);
 
         $produkt->setNetto(100);
         $produkt->setProcVat(22);
-        $produkt->setBrutto($produkt->getNetto()*$produkt->getProcVat()/100+$produkt->getNetto());
+        $produkt->setBrutto($produkt->getNetto() * $produkt->getProcVat() / 100 + $produkt->getNetto());
         $produkt->setRabat(0);
-       // $zamowienie->setZaplacono(false);
+        // $zamowienie->setZaplacono(false);
 
-       // $zamowienie->setDataWysylki(new \DateTime());
+        // $zamowienie->setDataWysylki(new \DateTime());
 
-      //  $zamowienie->addProdukty($produkt);
+        //  $zamowienie->addProdukty($produkt);
 
         $form = $this->createForm(new ProduktType(), $produkt);
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -69,14 +70,15 @@ class ObrazkiwKategoriiController extends Controller
             $em->flush();
 
 
-            return $this->redirect($this->generateUrl('plotno_new',array('id'=> $produkt->getId())));
+            return $this->redirect($this->generateUrl('plotno_new', array('id' => $produkt->getId())));
 
         }
 
 
         return array(
-           'entity' => $entity,
-            'form' => $form->createView(), // ...
+            'entity' => $entity,
+            'form' => $form->createView(),
+
         );
     }
 
@@ -84,7 +86,7 @@ class ObrazkiwKategoriiController extends Controller
      * @Route("plotno/new/{id}", name="plotno_new")
      * @Template()
      */
-    public function plotnoAction(Request $request,$id)
+    public function plotnoAction(Request $request, $id)
     {
 
 
@@ -99,10 +101,10 @@ class ObrazkiwKategoriiController extends Controller
 
 
             $em = $this->getDoctrine()->getManager();
-            $produkt=$em->getRepository('ObrazkipfBundle:Produkt')->find($id);
+            $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
             $produkt->setIdTypu($entity);
 
-            $em->persist($entity);
+            $em->persist($produkt);
             $em->flush();
 //            return $this->render(
 //                '@ObrazkijakoProdukty/produkt/show.html.twig',
@@ -112,13 +114,64 @@ class ObrazkiwKategoriiController extends Controller
 //                    'typy_delete' => $entity->getId(),
 //                )
 //            );
-            return $this->redirect($this->generateUrl('produkt_show',array('id'=>$produkt->getId())));
+//-------------------------------------------------------------
+            $cookieGuest = array(
+                'name' => 'produkt',
+                'value' => $produkt->getId()
+            );
+
+            $request = $this->get('request');
+            $cookies = $request->cookies;
+
+
+
+            if ($cookies->has('produkt'))
+            {
+//                var_dump($cookies->get('produkt'));
+                $cookieGuest = array(
+                    'name' => 'produkt',
+                    'value' => $cookies->get('produkt').','.$produkt->getId()
+                );
+
+                $cookie = new Cookie(
+                    $cookieGuest['name'], $cookieGuest['value']
+                );
+
+//                var_dump($cookie);
+//                exit();
+            }else
+            {
+                $cookie = new Cookie(
+                    $cookieGuest['name'], $cookieGuest['value']
+                );
+            }
+
+
+
+
+
+            $response = new Response();
+            $response->headers->setCookie($cookie);
+            $response->send();
+
+//----------------------------------------------------------------------------------
+            return $this->redirect($this->generateUrl('produkt_show', array('id' => $produkt->getId())));
         }
+
         return array(
             'entity' => $entity,
             'form' => $form->createView(),
+
         );
     }
 
+//    /**
+//     * @param Request $request
+//     * @param $id
+//     */
+//    public function stworzzam(Request $request,$id)
+//    {
+//
+//    }
 
 }

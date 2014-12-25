@@ -56,14 +56,14 @@ class Produkt
 //////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @ORM\ManyToOne(targetEntity="Obrazki\wbazieBundle\Entity\Przed",inversedBy="zdjecieprod",cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Obrazki\wbazieBundle\Entity\Przed",inversedBy="zdjecieprod",cascade={"persist"})
      */
     protected  $id_zdjecia;
 
 //////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * @ORM\ManyToOne(targetEntity="Obrazki\jakoProduktyBundle\Entity\filtr",inversedBy="filtry",cascade={"all"})
+     * @ORM\ManyToOne(targetEntity="Obrazki\jakoProduktyBundle\Entity\filtr",inversedBy="filtry",cascade={"persist"})
      */
     protected $id_filtru;
 //////////////////////////////////////////////////////////
