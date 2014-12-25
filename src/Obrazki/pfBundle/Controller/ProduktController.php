@@ -118,9 +118,15 @@ class ProduktController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
+        $obrazek=$em->getRepository('ObrazkiwbazieBundle:Przed')->find($entity->getIdZdjecia()->getId());
+        $typ=$em->getRepository('ObrazkijakoProduktyBundle:typy')->find($entity->getIdTypu()->getId());
+
+
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'obrazek'=>$obrazek,
+            'typ'=>$typ,
         );
     }
 

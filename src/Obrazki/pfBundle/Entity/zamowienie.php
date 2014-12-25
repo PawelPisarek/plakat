@@ -55,7 +55,7 @@ class zamowienie
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
-     * @ORM\ManyToMany(targetEntity="Produkt",inversedBy="zamowienia")
+     * @ORM\ManyToMany(targetEntity="Produkt",inversedBy="zamowienia",cascade={"persist"})
      */
     protected $produkty;
 

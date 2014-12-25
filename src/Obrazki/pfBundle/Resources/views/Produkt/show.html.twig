@@ -28,6 +28,17 @@
         </tbody>
     </table>
 
+    {#{{ dump(entity)}}#}
+    {#{{ entity.Przed }}#}
+
+    {#{{ dump(obrazek) }} //nie wiem jakim cudem nazwa obrazka jest null ale pojkazuje dwa#}
+
+
+    {{ obrazek.nazwaObrazka }}
+    {#{{ dump(typ) }}#}
+    {#{{ dump(typ.atrybut) }}#}
+    {#{{ dump(typ.atrybut.wrapy) }}#}
+    {{ typ.atrybut }}
         <ul class="record_actions">
     <li>
         <a href="{{ path('produkt') }}">

@@ -75,7 +75,9 @@ class Produkt
 
     function __toString()
     {
-        return $this->getIdTypu().'';
+
+
+        return $this->getIdZdjecia().'';
 
     }
 
