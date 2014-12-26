@@ -1,0 +1,53 @@
+{{ form_start(form) }}
+    {#{{ form_errors(form) }}#}
+
+<div>
+    {{ form_label(form.produkty) }}
+    {{ form_errors(form.produkty) }}
+
+
+    {{ form_widget(form.produkty) }}
+    {#{{ form.produkty.vars.full_name }}#}
+
+    {#{{ dump(form.produkty.vars) }}#}
+
+    {% for produkt in form.produkty %}
+        {#{{ dump(produkt) }}#}
+        {% if (produkt.vars.checked==true) %}
+            <div>
+                {{ form_widget(produkt) }}
+                {{ form_label(produkt) }}
+                {{ form_errors(produkt) }}
+            </div>
+        {% endif  %}
+
+    {% endfor %}
+
+</div>
+
+{{ form_end(form) }}
+
+{#<div>#}
+    {#{{ form_label(form.dueDate) }}#}
+    {#{{ form_errors(form.dueDate) }}#}
+    {#{{ form_widget(form.dueDate) }}#}
+{#</div>#}
+
+{#<input type="submit" />#}
+
+
+
+
+
+{#{{ form(form) }}#}
+
+
+
+
+{#{{ entity.Produkty  }}#}
+
+{% for produkt in entity.Produkty %}
+
+<img src="{{  asset(produkt.IdZdjecia.getUploadMinaturkaDir~'/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}" width="70" height="70"/>
+{{ produkt.Netto }}
+{% endfor %}

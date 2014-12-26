@@ -45,7 +45,7 @@ class klient
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="zamowienie", inversedBy="klienci")
+     * @ORM\ManyToMany(targetEntity="zamowienie", inversedBy="klienci",cascade={"all"})
      * @ORM\JoinTable(name="klient_zamowienie")
      */
     private $zamowienia;

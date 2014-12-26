@@ -24,6 +24,15 @@
         </tbody>
     </table>
 
+   {% for produkt in entity.Produkty %}
+
+        <img src="{{  asset(produkt.IdZdjecia.getUploadMinaturkaDir~'/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}" width="70" height="70"/>
+        {{ produkt.Netto }}
+    {% endfor %}
+
+
+
+
         <ul class="record_actions">
     <li>
         <a href="{{ path('zamowienie') }}">
@@ -36,5 +45,7 @@
         </a>
     </li>
     <li>{{ form(delete_form) }}</li>
+            <li><a href="{{ path('nowyklie',{'id':entity.id}) }}">dobra to teraz wprowadz adres</a></li>
+
 </ul>
 {% endblock %}

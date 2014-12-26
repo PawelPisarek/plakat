@@ -34,7 +34,7 @@ class zamowienie
      *
      * @ORM\Column(name="zaplacono", type="boolean")
      */
-    private $zaplacono;
+    private $zaplacono=false;
 
     /**
      * @var \DateTime
@@ -134,6 +134,7 @@ class zamowienie
      */
     public function setDataWysylki($dataWysylki)
     {
+
         $this->dataWysylki = $dataWysylki;
 
         return $this;

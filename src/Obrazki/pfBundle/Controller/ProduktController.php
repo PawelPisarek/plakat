@@ -116,14 +116,14 @@ class ProduktController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Produkt entity.');
         }
-        $request = $this->get('request');
-        $cookies = $request->cookies;
+//        $request = $this->get('request');
+//        $cookies = $request->cookies;
 
 
 
-        var_dump($cookies->get('produkt'));
-        $produkty=explode(',',$cookies->get('produkt'));
-        var_dump($produkty);
+//        var_dump($cookies->get('produkt'));
+//        $produkty=explode(',',$cookies->get('produkt'));
+//        var_dump($produkty);
 
 
         $deleteForm = $this->createDeleteForm($id);

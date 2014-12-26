@@ -15,8 +15,8 @@ class klientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('login')
-            ->add('haslo')
+          //  ->add('login')
+          //  ->add('haslo')
             ->add('adresy',new adresType())
             ->add('zamowienia', null, array('expanded' => "true", "multiple" => "true"))
         ;
