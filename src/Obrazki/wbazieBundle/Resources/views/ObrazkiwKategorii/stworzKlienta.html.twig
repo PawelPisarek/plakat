@@ -1,1 +1,32 @@
 {{ form(form) }}
+
+{#{{ form_start(form) }}#}
+
+{#<div>#}
+
+    {#{% for zamowienie in form.zamowienia %}#}
+
+        {#{% if (zamowienie.vars.checked==true) %}#}
+
+            {#<div>#}
+                {#{{ form_widget(zamowienie) }}#}
+                {#{{ form_label(zamowienie) }}#}
+                {#{{ form_errors(zamowienie) }}#}
+            {#</div>#}
+    {#{% endif %}#}
+    {#{% endfor %}#}
+
+    {#{%  do  form.zamowienia.setRendered %}#}
+
+{#</div>#}
+
+
+
+{#{{ form_widget(form.adresy) }}#}
+{#{{ form_label(form.adresy) }}#}
+
+
+{#{{ form_row(form.submit) }}#}
+{#{{ form_label(form.submit) }}#}
+
+{#{{ form_end(form) }}#}
