@@ -3,13 +3,52 @@
 {% block body -%}
     <h1>Wybierz typ </h1>
 
-    {{ form(form) }}
+    {{ form_start(form) }}
+
+    {{ form_label(form.wrapy) }}
+    {{ form_widget(form.wrapy) }}
+
+    {#{{ form_label(form.margines) }}#}
+    {#{{ form_widget(form.margines) }}#}
+
+ {#{{ dump(form) }}#}
+    {#{{ dump(form.wymiar ) }}#}
+
+        <table border="1">
+
+            {% for m in form.margines %}
+                <tr>
+
+
+                    {% for w in  form.wymiar  %}
+                        <td>
+                            {#{{ dump(w.name) }}#}
+                            {{ form_widget(w) }}
+                            {{ form_label(w) }}
+                            {{ form_label(m) }}
+                            {{ form_widget(m) }}
+                           {#<input type="radio" name="wymiar" value="{{ m ~ ' ' ~ w }}">{{ m ~ ' ' ~ w }}<br>#}
+                        </td>
+                    {% endfor %}
+
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+    {{ form_end(form) }}
 
     <ul class="record_actions">
         <li>
-            <a href="{{ path('atrybuty') }}">
-                Back to the list
+            <a href="{{ path('kategoirie') }}">
+                powrot
             </a>
         </li>
     </ul>
+
+
+
+
 {% endblock %}

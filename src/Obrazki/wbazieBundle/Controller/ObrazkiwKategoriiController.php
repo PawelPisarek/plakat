@@ -177,7 +177,9 @@ class ObrazkiwKategoriiController extends Controller
         $em = $this->getDoctrine()->getManager();
         foreach ($produkty as $id) {
             $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
-            $zamowienie->addProdukty($produkt);
+           if($produkt!=null)
+               $zamowienie->addProdukty($produkt);
+
         }
 
         $zamowienie->setDataWysylki(new  \DateTime('2000-01-01')); //set data wysyłki nie poprawnie
@@ -215,6 +217,9 @@ class ObrazkiwKategoriiController extends Controller
         $klient=new klient();
         $klient->setLogin('1');
         $klient->setHaslo('1');
+
+        $klient->setLogin($uzytkonik->getlogin());
+
 
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ObrazkipfBundle:zamowienie')->find($id);

@@ -1,15 +1,26 @@
-{% extends 'JordiLlonchCrudGeneratorBundle::layout.html.twig' %}
+{% extends 'ObrazkiwbazieBundle:ObrazkiwKategorii:index.html.twig' %}
 
-{% block title %}ObrazkiwbazieBundle:ObrazkiwKategorii:show{% endblock %}
-
-{% block page %}
-    <div id="tresc">
-        <h2>{{ entity.NazwaObrazka }}</h2>
+{% block produkt %}
+    <div class="col-sm-6" style="background-color:lavenderblush;">
+        {#<h2>{{ entity.NazwaObrazka }}</h2>#}
 
         <img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>
 
         <p><a href="{{ path('kategoirie') }}">powrot</a></p>
-       {{ form(form)}}
+
+
 
     </div>
+    <div class="col-sm-3" style="background-color:lavenderblush;">
+        <p>Jakiś opis jeśli chcesz ale taki sam dla wszystkich obrazków</p>
+
+
+
+        {{ form(form)}}
+
+
+
+    </div>
+
 {% endblock %}
+

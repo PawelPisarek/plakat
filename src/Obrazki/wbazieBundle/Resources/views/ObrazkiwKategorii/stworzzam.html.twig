@@ -4,7 +4,9 @@
     {{ form_row(form.submit) }}
     {{ form_label(form.submit) }}
 
+    {#{{ dump(form.produkty) }}#}
     {% for produkt in form.produkty %}
+
         {% if (produkt.vars.checked==true) %}
             <div>
                 {{ form_widget(produkt) }}

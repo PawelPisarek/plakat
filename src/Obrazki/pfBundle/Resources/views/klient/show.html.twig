@@ -2,21 +2,20 @@
 
 {% block body -%}
     <h1>klient</h1>
-    sajkjdlksalkasjdklasjd
     <table class="record_properties">
         <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Login</th>
-            <td>{{ entity.login }}</td>
-        </tr>
-        <tr>
-            <th>Haslo</th>
-            <td>{{ entity.haslo }}</td>
-        </tr>
+        {#<tr>#}
+            {#<th>Id</th>#}
+            {#<td>{{ entity.id }}</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<th>Login</th>#}
+            {#<td>{{ entity.login }}</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<th>Haslo</th>#}
+            {#<td>{{ entity.haslo }}</td>#}
+        {#</tr>#}
         </tbody>
     </table>
 
@@ -27,8 +26,11 @@
 
             {% for produkt in zamowienie.produkty %}
                 <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+
                      width="70" height="70"/>
-                {{ produkt.Netto }}
+             cena netto   {{ produkt.Netto }}
+                cena brutto {{ produkt.Brutto }}
+
             {% endfor %}
         </div>
     {% endfor %}

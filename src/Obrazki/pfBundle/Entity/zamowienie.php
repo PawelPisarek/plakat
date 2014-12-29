@@ -34,7 +34,7 @@ class zamowienie
      *
      * @ORM\Column(name="zaplacono", type="boolean")
      */
-    private $zaplacono=false;
+    private $zaplacono = false;
 
     /**
      * @var \DateTime
@@ -51,7 +51,7 @@ class zamowienie
 
     function __toString()
     {
-        return 'nr zamowienia'.$this->getId();
+        return 'nr zamowienia' . $this->getId();
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
@@ -60,21 +60,19 @@ class zamowienie
     protected $produkty;
 
 
-
-
-   
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->klienci = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+//    /**
+//     * Constructor
+//     */
+//    public function __construct()
+//    {
+//        $this->klienci = new \Doctrine\Common\Collections\ArrayCollection();
+//
+//    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -96,7 +94,7 @@ class zamowienie
     /**
      * Get dataZlozenia
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDataZlozenia()
     {
@@ -119,7 +117,7 @@ class zamowienie
     /**
      * Get zaplacono
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getZaplacono()
     {
@@ -143,7 +141,7 @@ class zamowienie
     /**
      * Get dataWysylki
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDataWysylki()
     {
@@ -176,7 +174,7 @@ class zamowienie
     /**
      * Get klienci
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getKlienci()
     {
@@ -203,16 +201,30 @@ class zamowienie
      */
     public function removeProdukty(\Obrazki\pfBundle\Entity\Produkt $produkty)
     {
+
+//        exit(\Doctrine\Common\Util\Debug::dump($produkty));
+
+
         $this->produkty->removeElement($produkty);
     }
 
     /**
      * Get produkty
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getProdukty()
     {
         return $this->produkty;
     }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->klienci = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->produkty = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 }

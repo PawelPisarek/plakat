@@ -50,7 +50,10 @@ class atrybuty
 
     function __toString()
     {
-        return 'płótno margines:'.$this->getMargines()->getNazwa().' wymiar: '.$this->getWymiar()->getNazwa().' wrap: '.$this->getWrapy()->getNazwa();
+//        return 'płótno margines:';
+        return 'płótno margines:'.$this->getMargines().' wymiar: '.$this->getWymiar().' wrap: '.$this->getWrapy();
+
+
     }
 
 

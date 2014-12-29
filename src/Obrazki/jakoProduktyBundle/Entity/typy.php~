@@ -160,4 +160,27 @@ class typy
     {
         return $this->typys;
     }
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     * @return typy
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwa
+     *
+     * @return string 
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
+    }
 }

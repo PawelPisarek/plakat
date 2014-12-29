@@ -109,6 +109,9 @@ class ProduktController extends Controller
      */
     public function showAction($id)
     {
+
+
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);

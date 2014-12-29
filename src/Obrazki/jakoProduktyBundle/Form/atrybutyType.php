@@ -8,28 +8,45 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class atrybutyType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('wrapy')
-            ->add('wymiar')
-            ->add('margines')
-           // ->add('plotno')
+            ->add('wrapy')// ->add('plotno')
+            ->add(
+                'wymiar',
+                null,
+                array(
+                    'multiple' => false,
+                    'expanded' => true
+                )
+            )
+            ->add(
+                'margines',
+                    null,
+                array(
+                    'multiple' => false,
+                    'expanded' => true
+                )
+
+
+            )
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Obrazki\jakoProduktyBundle\Entity\atrybuty'
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'Obrazki\jakoProduktyBundle\Entity\atrybuty'
+            )
+        );
     }
 
     /**

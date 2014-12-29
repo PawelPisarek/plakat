@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -33,31 +33,39 @@
 <body>
 
 
-
-
 <div class="container">
-{% block menu %}
+    {% block menu %}
 
     <div class="container-fluid">
-        <img src="http://img585.imageshack.us/img585/6691/logodesignwithsplatv2.jpg" alt="" width="200"
-             height="200"/>
+        <div class="col-sm-3"><img src="http://img585.imageshack.us/img585/6691/logodesignwithsplatv2.jpg" alt=""
+                                   width="200"
+                                   height="200"/>
+        </div>
+        <div class="col-sm-8"></div>
+        <div class="col-sm-1">
+            <br/> <a href="{{ path('nowezam') }}">koszyk</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" style="background-color:lavender;">
 
-        <div class="row">
-            <div class="col-sm-3" style="background-color:lavender;">
+            {% render controller('ObrazkijakoProduktyBundle:menu:index') %}
+        </div>
+        <div class="col-sm-9" style="background-color:lavenderblush;">
+            <div id="panel-body product-grid">
+                {% block produkt %}
+                    {% for entity in entities %}
+                        <a href="{{ path('show_produkt',{'id':entity.id}) }}"><img
+                                    src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}" width="200"
+                                    height="200"/></a>
+                    {% endfor %}
 
-                {% render controller('ObrazkijakoProduktyBundle:menu:index') %}
-            </div>
-            <div class="col-sm-9" style="background-color:lavenderblush;">
-                <div id="panel-body product-grid">
-                {% for entity in entities %}
-                   <a href="{{ path('show_produkt',{'id':entity.id}) }}"><img
-                                   src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}" width="200"
-                                   height="200"/></a>
-                {% endfor %}
-                </div>
+
+                {% endblock %}
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 </div>
 
