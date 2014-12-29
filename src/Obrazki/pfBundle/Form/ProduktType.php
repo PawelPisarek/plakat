@@ -23,7 +23,6 @@ class ProduktType extends AbstractType
 //            ->add('zamowienia')
          //   ->add('id_zdjecia')
             ->add('id_filtru')
-          //  ->add('id_typu')
         ;
     }
     

@@ -1,0 +1,4 @@
+Obrazki\jakoProdukty\Entity\atrybuty:
+     properties:
+             name:
+                 - MinLength: 100

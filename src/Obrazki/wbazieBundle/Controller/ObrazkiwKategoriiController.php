@@ -97,13 +97,14 @@ class ObrazkiwKategoriiController extends Controller
         $entity->setNazwa('płótno');
         $form = $this->createForm(new atrybutyType(), $atrybuty);
         $form->add('submit', 'submit', array('label' => 'Create'));
+        $em = $this->getDoctrine()->getManager();
+        $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
         $form->handleRequest($request);
         if ($form->isValid()) {
             $entity->setAtrybut($atrybuty);
 
 
-            $em = $this->getDoctrine()->getManager();
-            $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
+
             $produkt->setIdTypu($entity);
 
             $em->persist($produkt);
@@ -155,7 +156,7 @@ class ObrazkiwKategoriiController extends Controller
         }
 
         return array(
-            'entity' => $entity,
+            'entity' => $produkt->getIdZdjecia(),
             'form' => $form->createView(),
 
         );
@@ -217,9 +218,6 @@ class ObrazkiwKategoriiController extends Controller
         $klient=new klient();
         $klient->setLogin('1');
         $klient->setHaslo('1');
-
-        $klient->setLogin($uzytkonik->getlogin());
-
 
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ObrazkipfBundle:zamowienie')->find($id);

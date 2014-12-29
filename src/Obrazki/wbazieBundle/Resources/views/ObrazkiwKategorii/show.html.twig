@@ -9,16 +9,17 @@
         <p><a href="{{ path('kategoirie') }}">powrot</a></p>
 
 
-
     </div>
     <div class="col-sm-3" style="background-color:lavenderblush;">
-        <p>Jakiś opis jeśli chcesz ale taki sam dla wszystkich obrazków</p>
+        {% block formularz %}
+            <br/>
+            <p>Jakiś opis jeśli chcesz ale taki sam dla wszystkich obrazków</p>
 
 
 
-        {{ form(form)}}
+            {{ form(form) }}
 
-
+        {% endblock %}
 
     </div>
 

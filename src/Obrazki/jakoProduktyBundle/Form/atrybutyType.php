@@ -20,16 +20,19 @@ class atrybutyType extends AbstractType
                 'wymiar',
                 null,
                 array(
-                    'multiple' => false,
-                    'expanded' => true
+//                    'multiple' => false,
+//                    'expanded' => true,
+                    'required'    => true
                 )
+
             )
             ->add(
                 'margines',
                     null,
                 array(
-                    'multiple' => false,
-                    'expanded' => true
+//                    'multiple' => false,
+//                    'expanded' => true,
+                    'required'    => true
                 )
 
 

@@ -1,39 +1,208 @@
-{% extends '::base.html.twig' %}
+{% extends 'ObrazkiwbazieBundle:ObrazkiwKategorii:show.html.twig' %}
 
-{% block body -%}
-    <h1>Wybierz typ </h1>
+{% block formularz -%}
+    {#<h1>Wybierz typ </h1>#}
 
     {{ form_start(form) }}
 
     {{ form_label(form.wrapy) }}
     {{ form_widget(form.wrapy) }}
+    {{ form_errors(form.wrapy) }}
 
     {#{{ form_label(form.margines) }}#}
     {#{{ form_widget(form.margines) }}#}
+    {#{{ form_errors(form.margines) }}#}
 
- {#{{ dump(form) }}#}
+    {#{{ form_label(form.wymiar) }}#}
+    {#{{ form_widget(form.wymiar) }}#}
+    {#{{ form_errors(form.wymiar) }}#}
+
+    {#{{ dump(form.margines.vars) }}#}
+
+    {#<div>#}
+    {#{{ form.margines.vars.name }}#}
+    {#{% for m in form.margines.vars.choices %}#}
+
+
+        {#<input type="radio" name="{{ form.margines.vars.full_name }}"  id="margin" value="{{ m.value }}">{{ m.label }}#}
+
+
+    {#{% endfor %}#}
+
+    {#{% do form.margines.setRendered %}#}
+
+    {#</div>#}
+    {#<div>#}
+        {#{{ form.wymiar.vars.name }}#}
+        {#{% for w in form.wymiar.vars.choices %}#}
+
+
+            {#<input type="radio" name="{{ form.wymiar.vars.full_name }}" id="wys" value="{{ w.value }}">{{ w.label }}#}
+
+
+        {#{% endfor %}#}
+
+        {#{% do form.wymiar.setRendered %}#}
+
+    {#</div>#}
+
+
+{% for m in form.margines.vars.choices %}
+<table border="1">
+<tr>
+    {% for w in form.wymiar.vars.choices %}
+
+
+
+        {#<button id="myBtn" value="myvalue" onclick="myFunction()">Try it</button>#}
+
+
+            <td onclick="myFunction({{ m.value }},{{ w.value }} )">{{ m.label ~' '~w.label }}
+
+                {#{{ m.value ~' '~ w.value }}#}
+              </td>
+
+
+
+    {% endfor %}
+
+
+</tr>
+</table>
+{% endfor %}
+
+
+    {#{{ dump(form.margines.vars.unique_block_prefix) }}#}
+
+
+    <script>
+        function myFunction(z1,z2) {
+
+            document.getElementById("obrazki_jakoproduktybundle_atrybuty_margines").value  = z1;
+            document.getElementById("obrazki_jakoproduktybundle_atrybuty_wymiar").value  =z2;
+
+          document.getElementById("demo").innerHTML = z1+z2;
+        }
+    </script>
+
+
+
+
+    {#<table border="1">#}
+
+    {#{% for m in form.margines %}#}
+    {#<tr>#}
+
+
+    {#{% for w in  form.wymiar %}#}
+    {#<td>#}
+    {#{{ dump(w.name) }}
+    {#{{ form_widget(w) }}
+
+    {#{{ form_widget(m) }}#}
+    {#{{ form_label(w) }}#}
+    {#{{ m.vars.value }}#}
+    {#{{ w.vars.value }}#}
+
+    {#<input type="button" id="myBtn" onclick="myFunction()" value="Try it">#}
+
+    {#<label for="{{ w.vars.id }}">{{ w.vars.label }}</label>#}
+
+    {#<label for="{{ m.vars.id }}">{{ m.vars.label }}</label>#}
+
+
+
+
+
+    {#<label  >{{ m.vars.label }} {{ w.vars.label }}</label>#}
+    {#{#{{ dump(m) }}#}
+
+    {#{{ dump( form_label(w).for) }}#}
+
+    {#<input type="radio" name="wymiar" value="{{ m ~ ' ' ~ w }}">{{ m ~ ' ' ~ w }}<br>#}
+    {#</td>#}
+    {#{% endfor %}#}
+
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {#{{ dump(form) }}#}
     {#{{ dump(form.wymiar ) }}#}
 
-        <table border="1">
+    {#<table border="1">#}
 
-            {% for m in form.margines %}
-                <tr>
+    {#{% for m in form.margines %}#}
+    {#<tr>#}
 
 
-                    {% for w in  form.wymiar  %}
-                        <td>
-                            {#{{ dump(w.name) }}#}
-                            {{ form_widget(w) }}
-                            {{ form_label(w) }}
-                            {{ form_label(m) }}
-                            {{ form_widget(m) }}
-                           {#<input type="radio" name="wymiar" value="{{ m ~ ' ' ~ w }}">{{ m ~ ' ' ~ w }}<br>#}
-                        </td>
-                    {% endfor %}
+    {#{% for w in  form.wymiar  %}#}
+    {#<td>#}
+    {#{#{{ dump(w.name) }}#}
+    {#{{ form_widget(w) }}#}
 
-                </tr>
-            {% endfor %}
-        </table>
+    {#{{ form_widget(m) }}#}
+    {#{#{{ form_label(w) }}#}
+    {#{#{{ m.vars.value }}#}
+    {#{#{{ w.vars.value }}#}
+
+    {#{#<input type="button" id="myBtn" onclick="myFunction()" value="Try it">#}
+
+    {#<label for="{{  w.vars.id }}">{{ w.vars.label }}</label>#}
+
+    {#<label for="{{ m.vars.id }}">{{ m.vars.label }}</label>#}
+
+
+
+    {#{#<label  >{{ m.vars.label }} {{ w.vars.label }}</label>#}
+    {#{#{#{{ dump(m) }}#}
+
+    {#{#{{ dump( form_label(w).for) }}#}
+
+    {#{#<input type="radio" name="wymiar" value="{{ m ~ ' ' ~ w }}">{{ m ~ ' ' ~ w }}<br>#}
+    {#</td>#}
+    {#{% endfor %}#}
+
+    {#</tr>#}
+    {#{% endfor %}#}
+    {#</table>#}
+
 
 
 
