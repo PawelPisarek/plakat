@@ -198,7 +198,7 @@ class ObrazkiwKategoriiController extends Controller
             $response->headers->clearCookie('produkt');
             $response->send();
 
-            return $this->redirect($this->generateUrl('zamowienie_show', array('id' => $zamowienie->getId())));
+            return $this->redirect($this->generateUrl('nowyklie', array('id' => $zamowienie->getId())));
         }
 
         return array(
