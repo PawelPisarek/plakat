@@ -17,11 +17,44 @@
 
 
 
-            {{ form(form) }}
+            {#{{ form(form) }}#}
+          {#{{ dump(form) }}#}
+
+            {{ form_start(form) }}
+
+            {{ form_label(form.id_filtru) }}
+            {{ form_widget(form.id_filtru, { 'attr': {'onchange': 'funkcja()'} }) }}
+
+
+
+            {{ form_errors(form.id_filtru) }}
+
+
+            {{ form_label(form.submit) }}
+            {{ form_widget(form.submit) }}
+
+            {{ form_end(form) }}
 
         {% endblock %}
 
+        
+
+        <p id="demo"></p>
     </div>
+
+
+    <script>
+        function funkcja() {
+
+            var e = document.getElementById("obrazki_pfbundle_produkt_id_filtru");
+            var strUser = e.options[e.selectedIndex].text;
+            document.getElementById("demo").innerHTML = strUser;
+
+        }
+
+
+
+    </script>
 
 {% endblock %}
 
