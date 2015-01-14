@@ -103,19 +103,16 @@ class loadwymairy implements FixtureInterface
 {
     function  load(ObjectManager $manager)
     {
-        $wrap = new wymiary();
-        $wrap->setNazwa('a1');
-        $manager->persist($wrap);
-        $manager->flush();
 
-        $wrap = new wymiary();
-        $wrap->setNazwa('a2');
-        $manager->persist($wrap);
-        $manager->flush();
+        $wymiary=file('data/wymiary.txt');
 
-        $wrap = new wymiary();
-        $wrap->setNazwa('a3');
-        $manager->persist($wrap);
+        foreach($wymiary as $wiatr)
+        {
+            $wrap = new wymiary();
+            $wrap->setNazwa($wiatr);
+            $manager->persist($wrap);
+        }
+
         $manager->flush();
 
     }
@@ -125,19 +122,16 @@ class loadmargines implements FixtureInterface
 {
     function  load(ObjectManager $manager)
     {
-        $wrap = new margines();
-        $wrap->setNazwa('18mm');
-        $manager->persist($wrap);
-        $manager->flush();
 
-        $wrap = new margines();
-        $wrap->setNazwa('22mm');
-        $manager->persist($wrap);
-        $manager->flush();
+        $marginesy=array('18mm','25mm','32mm','52mm');
+        foreach ($marginesy as $marg)
+        {
+            $magi= new margines();
+            $magi->setNazwa($marg);
+            $manager->persist($magi);
 
-        $wrap = new margines();
-        $wrap->setNazwa('25mm');
-        $manager->persist($wrap);
+        }
+
         $manager->flush();
 
     }

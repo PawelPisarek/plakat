@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a642e528-b48c-45a0-b337-9dcd0105b963" name="Default" comment="">
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\frameworkRootSettings.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\inspectionProfiles\Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\inspectionProfiles\profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\symfony2.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\web\uploads\po\10320499_685764081491058_5315408665859705414_n.jpg" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\web\uploads\po\drops.jpg" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\web\uploads\przed\10320499_685764081491058_5315408665859705414_n.jpg" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\web\uploads\przed\as.jpg" afterPath="" />
-      <change type="DELETED" beforePath="X:\wamp\www\symfony2odpodstaw\plakaty2\plakat\web\uploads\przed\drops.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Controller/ObrazkiwKategoriiController.php" afterPath="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Controller/ObrazkiwKategoriiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/ObrazkiwKategorii/index.html.twig" afterPath="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/ObrazkiwKategorii/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/ObrazkiwKategorii/plotno.html.twig" afterPath="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/ObrazkiwKategorii/plotno.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/Produkt/show.html.twig" afterPath="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/Produkt/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig" afterPath="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/zamowienie.php" afterPath="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/zamowienie.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="plakaty.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +32,8 @@
       <file leaf-file-name="ObrazkiwKategoriiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Obrazki/wbazieBundle/Controller/ObrazkiwKategoriiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="4267">
-              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.31911263" vertical-offset="918" max-vertical-offset="4301">
+              <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
               <folding>
                 <element signature="e#51#98#0#PHP" expanded="true" />
               </folding>
@@ -161,62 +143,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="changedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/app/data/grupy.xml" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/wrap/Blank.html.twig" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Controller/menuController.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/ObrazkiwKategorii/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/menu/index.html.twig" />
-        <option value="$PROJECT_DIR$/vendor/jordillonch/crud-generator/JordiLlonch/Bundle/CrudGeneratorBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/glowna/PlakatyBundle/Resources/views/StronaGlowna/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Controller/wrapController.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/Przed/show.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/atrybuty/edit.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/margines.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/atrybuty/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/typy/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/Grupa.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/adres.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/zamowienie/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/klient.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/filtr.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/wrap.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/wymiary.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Form/atrybutyType.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/kubek.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/atrybuty/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Form/ProduktType.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Form/klientType.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/atrybuty.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/Produkt.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Resources/views/klient/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Entity/zamowienie.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Form/zamowienieType.php" />
-        <option value="$PROJECT_DIR$/data/zdjecia.xml" />
-        <option value="$PROJECT_DIR$/data/grupy.xml" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/Przed/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Form/PrzedType.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Controller/PrzedController.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Entity/Przed.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Entity/typy.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Form/typyType.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/DataFixtures/ORM/loadfixtures.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/ObrazkiwKategorii/plotno.html" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Resources/views/ObrazkiwKategorii/plotno.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Controller/typyController.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/pfBundle/Form/plotno.php" />
-        <option value="$PROJECT_DIR$/src/Obrazki/jakoProduktyBundle/Resources/views/typy/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Obrazki/wbazieBundle/Controller/ObrazkiwKategoriiController.php" />
-      </list>
-    </option>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
@@ -251,17 +179,17 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plakat" />
+              <option name="myItemId" value="plakaty" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,7 +198,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="LayoutCode.rearrangeEntriesTwig" value="false" />
@@ -314,7 +242,7 @@
       <node-options />
       <gulpfile />
       <tasks />
-      <pass-parent-env-vars>false</pass-parent-env-vars>
+      <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <method />
     </configuration>
@@ -370,7 +298,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33308157" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3429003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32580644" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -379,8 +309,6 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39968652" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -782,8 +710,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Obrazki/wbazieBundle/Controller/ObrazkiwKategoriiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1190" max-vertical-offset="4267">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.31911263" vertical-offset="918" max-vertical-offset="4301">
+          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
           <folding>
             <element signature="e#51#98#0#PHP" expanded="true" />
           </folding>
@@ -792,4 +720,3 @@
     </entry>
   </component>
 </project>
-
