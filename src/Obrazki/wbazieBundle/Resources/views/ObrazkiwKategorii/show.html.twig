@@ -4,7 +4,15 @@
     <div class="col-sm-6" style="background-color:lavenderblush;">
         {#<h2>{{ entity.NazwaObrazka }}</h2>#}
 
-        <img src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>
+
+
+
+        <section class="orginalny">
+
+            <img   src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}"/>
+
+        </section>
+
 
         <p><a href="{{ path('kategoirie') }}">powrot</a></p>
 
@@ -37,17 +45,54 @@
 
         {% endblock %}
 
-        
+
 
         <p id="demo"></p>
     </div>
 
+{#<canvas id="myCanvas" width="250" height="300" style="border:1px solid #d3d3d3;">#}
 
     <script>
+
+
+        {#var canvas = document.getElementById('myCanvas');#}
+        {#var context = canvas.getContext('2d');#}
+        {#var imageObj = new Image();#}
+
+        {#imageObj.onload = function() {#}
+            {#context.drawImage(imageObj, 0,0);#}
+        {#};#}
+        {#imageObj.src='{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}';#}
+
+
+
+
+        window.onload=function() {
+
+
+
+            document.getElementById("demo").innerHTML = 'orginalny';
+
+
+
+        }
+
+
+
         function funkcja() {
 
             var e = document.getElementById("obrazki_pfbundle_produkt_id_filtru");
             var strUser = e.options[e.selectedIndex].text;
+
+
+//            var y = document.getElementsByTagName("section").item(0).attributes.getNamedItem('orginalny');
+
+//            if (x==undefined)
+//           x = document.getElementsByClassName("sepia");
+
+          var nazwaClasy=document.getElementById("demo").innerText;
+            var x = document.getElementsByClassName(nazwaClasy);
+            x[0].className = strUser;
             document.getElementById("demo").innerHTML = strUser;
 
         }

@@ -154,7 +154,13 @@ class loadfiltr implements FixtureInterface
     function  load(ObjectManager $manager)
     {
         $wrap = new filtr();
-        $wrap->setNazwa('czarno biały');
+        $wrap->setNazwa('orginalny');
+        $manager->persist($wrap);
+        $manager->flush();
+
+
+        $wrap = new filtr();
+        $wrap->setNazwa('grayscale');
         $manager->persist($wrap);
         $manager->flush();
 
@@ -163,10 +169,7 @@ class loadfiltr implements FixtureInterface
         $manager->persist($wrap);
         $manager->flush();
 
-        $wrap = new filtr();
-        $wrap->setNazwa('orginalny');
-        $manager->persist($wrap);
-        $manager->flush();
+
 
 
     }

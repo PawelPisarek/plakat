@@ -22,7 +22,11 @@ class ProduktType extends AbstractType
           //  ->add('procVat')
 //            ->add('zamowienia')
          //   ->add('id_zdjecia')
-            ->add('id_filtru')
+            ->add('id_filtru',null,array(
+                'required'=>true
+
+
+            ))
         ;
     }
     
