@@ -218,4 +218,13 @@ class zamowienie
         return $this->produkty;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->klienci = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->produkty = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 }

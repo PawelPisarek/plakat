@@ -5,8 +5,7 @@
 
 {% block contents %}
 
-    {% set margines=100 %}
-
+    {% set margines=20 %}
 
 
 
@@ -14,12 +13,14 @@
     Your browser does not support the HTML5 canvas tag.</canvas>
 
 
+    {#{{ dump(entity) }}#}
+
 <script>
 
 
            function Blank()
            {
-               var c = document.getElementById("Blank");
+               var c = document.getElementById("plotno");
                var ctx = c.getContext("2d");
                var img = new Image();
                img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
@@ -39,7 +40,7 @@
 
 
            window.onload=function(){
-               document.getElementById("Blank").innerHTML=Blank();
+               document.getElementById("plotno").innerHTML=Blank();
                document.getElementById("Custom").innerHTML=Custom();
                document.getElementById("Mirror").innerHTML=Mirror();
                document.getElementById("Stretch").innerHTML=Stretch();

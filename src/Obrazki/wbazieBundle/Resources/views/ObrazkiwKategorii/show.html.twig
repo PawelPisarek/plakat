@@ -31,7 +31,7 @@
             {{ form_start(form) }}
 
             {{ form_label(form.id_filtru) }}
-            {{ form_widget(form.id_filtru, { 'attr': {'onchange': 'funkcja()'} }) }}
+            {{ form_widget(form.id_filtru, { 'attr': {'onchange': 'ZmianaFiltruWidocznaNaObrazku()'} }) }}
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-        <p id="demo"></p>
+        <p id="pudelko"></p>
     </div>
 
 {#<canvas id="myCanvas" width="250" height="300" style="border:1px solid #d3d3d3;">#}
@@ -68,32 +68,21 @@
 
 
         window.onload=function() {
-
-
-
-            document.getElementById("demo").innerHTML = 'orginalny';
-
-
-
+            document.getElementById("pudelko").innerHTML = 'orginalny';
         }
 
 
 
-        function funkcja() {
+        function ZmianaFiltruWidocznaNaObrazku() {
 
             var e = document.getElementById("obrazki_pfbundle_produkt_id_filtru");
-            var strUser = e.options[e.selectedIndex].text;
+            var filtr = e.options[e.selectedIndex].text;
 
 
-//            var y = document.getElementsByTagName("section").item(0).attributes.getNamedItem('orginalny');
-
-//            if (x==undefined)
-//           x = document.getElementsByClassName("sepia");
-
-          var nazwaClasy=document.getElementById("demo").innerText;
-            var x = document.getElementsByClassName(nazwaClasy);
-            x[0].className = strUser;
-            document.getElementById("demo").innerHTML = strUser;
+          var nazwaClasyJakoFiltr=document.getElementById("pudelko").innerText;
+            var x = document.getElementsByClassName(nazwaClasyJakoFiltr);
+            x[0].className = filtr;
+            document.getElementById("pudelko").innerHTML = filtr;
 
         }
 

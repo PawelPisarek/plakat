@@ -79,9 +79,12 @@
         </div>
         <div class="col-sm-9" style="background-color:lavenderblush;">
             <div id="panel-body product-grid">
-                {% block produkt %}
+
+                {#<a href="{{ path('show_produkt',{'id':entity.id, 'typr':entity.IdTypu} ) }}"><img#}
+
+                    {% block produkt %}
                     {% for entity in entities %}
-                        <a href="{{ path('show_produkt',{'id':entity.id}) }}"><img
+                        <a href="{{ path('show_produkt',{'id':entity.id, 'typr':'canvas'} ) }}"><img
                                     src="{{ asset(entity.getUploadMinaturkaDir~'/' ~ entity.nazwaObrazka  ) }}" width="200"
                                     height="200"/></a>
                     {% endfor %}

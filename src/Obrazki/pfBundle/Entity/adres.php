@@ -3,6 +3,8 @@
 namespace Obrazki\pfBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * adres
@@ -23,14 +25,19 @@ class adres
 
     /**
      * @var string
+     * @Assert\Length(min = 3)
+     * @Assert\NotBlank
      *
      * @ORM\Column(name="miasto", type="string", length=255)
      */
     private $miasto;
 
+
     /**
      * @var string
      *
+     * @Assert\Length(min = 3)
+     * @Assert\NotBlank
      * @ORM\Column(name="ulica", type="string", length=255)
      */
     private $ulica;
@@ -52,9 +59,13 @@ class adres
     /**
      * @var string
      *
+     * @Assert\Email
+     * @Assert\NotBlank
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
+
+
 
 
     /**

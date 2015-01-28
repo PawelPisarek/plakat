@@ -59,20 +59,18 @@ class loadwrap implements FixtureInterface
 {
     function  load(ObjectManager $manager)
     {
-        $wrap = new wrap();
-        $wrap->setNazwa('custom');
-        $manager->persist($wrap);
+
+        $wrapy=array('Blank','Stretch','Mirror','Custom','Mirror 2');
+        foreach($wrapy as $wrap)
+        {
+            $wra = new wrap();
+            $wra->setNazwa($wrap);
+            $manager->persist($wra);
+
+        }
         $manager->flush();
 
-        $wrap = new wrap();
-        $wrap->setNazwa('costam');
-        $manager->persist($wrap);
-        $manager->flush();
 
-        $wrap = new wrap();
-        $wrap->setNazwa('mirror');
-        $manager->persist($wrap);
-        $manager->flush();
 
     }
 }

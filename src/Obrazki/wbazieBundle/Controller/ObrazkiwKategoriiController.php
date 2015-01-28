@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ObrazkiwKategoriiController extends Controller
 {
     /**
-     * @Route("/index/", name="kategoirie" )
+     * @Route("/index/{typr}", name="kategoirie" )
      * @Template()
      */
     public function indexAction()
@@ -29,16 +29,19 @@ class ObrazkiwKategoriiController extends Controller
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository('ObrazkiwbazieBundle:Przed')->findAll();
 
+//            $typr2=$typr;
+
         return array(
-            'entities' => $entities
+            'entities' => $entities,
+            'typr',
         );
     }
 
     /**
-     * @Route("/{id}.html", name="show_produkt")
+     * @Route("{typr}/{id}.html", name="show_produkt")
      * @Template()
      */
-    public function showAction($id, Request $request)
+    public function showAction($id, Request $request,$typr)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
@@ -56,11 +59,23 @@ class ObrazkiwKategoriiController extends Controller
         $produkt->setProcVat(22);
         $produkt->setBrutto($produkt->getNetto() * $produkt->getProcVat() / 100 + $produkt->getNetto());
         $produkt->setRabat(0);
+        $typ = new typy();
+
+        if($typr=='canvas')
+        {
+            $typ->setNazwa('płótno');
+        }
+        if($typr=='wizyt')
+        {
+            $typ->setNazwa('wizytówka');
+        }
         // $zamowienie->setZaplacono(false);
 
         // $zamowienie->setDataWysylki(new \DateTime());
 
         //  $zamowienie->addProdukty($produkt);
+
+
 
         $form = $this->createForm(new ProduktType(), $produkt);
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -68,6 +83,10 @@ class ObrazkiwKategoriiController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $em->persist($typ);
+            $produkt->setIdTypu($typ);
+
             $em->persist($produkt);
             $em->flush();
 
@@ -85,7 +104,7 @@ class ObrazkiwKategoriiController extends Controller
     }
 
     /**
-     * @Route("plotno/new/{id}", name="plotno_new")
+     * @Route("typp/new/{id}", name="plotno_new")
      * @Template()
      */
     public function plotnoAction(Request $request, $id)
@@ -93,19 +112,25 @@ class ObrazkiwKategoriiController extends Controller
 
 
         $atrybuty = new atrybuty();
-        $entity = new typy();
-        $entity->setNazwa('płótno');
+//        $entity = new typy();
+
+//        if($typ=='canvas')
+//        {
+//            $entity->setNazwa('płótno');
+//        }
         $form = $this->createForm(new atrybutyType(), $atrybuty);
         $form->add('submit', 'submit', array('label' => 'Create'));
+
+
         $em = $this->getDoctrine()->getManager();
         $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
         $form->handleRequest($request);
         if ($form->isValid()) {
-            $entity->setAtrybut($atrybuty);
+//            $entity->setAtrybut($atrybuty);
 
 
 
-            $produkt->setIdTypu($entity);
+//            $produkt->setIdTypu($entity);
 
             $em->persist($produkt);
             $em->flush();

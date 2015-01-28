@@ -20,7 +20,7 @@ class adresType extends AbstractType
             ->add('kodpocztowy')
             ->add('nrTelefonu')
             ->add('email')
-          //  ->add('klienci')
+//            ->add('klienci')
         ;
     }
     

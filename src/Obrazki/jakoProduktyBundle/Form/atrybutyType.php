@@ -15,29 +15,33 @@ class atrybutyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('wrapy')// ->add('plotno')
+            ->add(
+                'wrapy',
+                null,
+                array('required' => true)
+
+            )// ->add('plotno')
             ->add(
                 'wymiar',
                 null,
                 array(
 //                    'multiple' => false,
 //                    'expanded' => true,
-                    'required'    => true
+                    'required' => true
                 )
 
             )
             ->add(
                 'margines',
-                    null,
+                null,
                 array(
 //                    'multiple' => false,
 //                    'expanded' => true,
-                    'required'    => true
+                    'required' => true
                 )
 
 
-            )
-        ;
+            );
     }
 
     /**
