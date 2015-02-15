@@ -24,6 +24,8 @@ class StronaGlownaController extends Controller
      */
     public function wizytowkaAction()
     {
+        echo 'cos';
+        exit();
         return array(
                 // ...
             );    }

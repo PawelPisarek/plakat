@@ -28,10 +28,7 @@ class Grupa
      */
     private $nazwa;
 
-    /**
-     * @ORM\OneToMany(targetEntity="PodGrupa", mappedBy="grupy")
-     */
-    protected  $podgrupy;
+ 
 
     /**
      * @ORM\OneToMany(targetEntity="Obrazki\wbazieBundle\Entity\Przed", mappedBy="grupa")
@@ -48,12 +45,12 @@ class Grupa
 
 
 
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->podgrupy = new \Doctrine\Common\Collections\ArrayCollection();
         $this->zdjecie = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -88,39 +85,6 @@ class Grupa
     public function getNazwa()
     {
         return $this->nazwa;
-    }
-
-    /**
-     * Add podgrupy
-     *
-     * @param \Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy
-     * @return Grupa
-     */
-    public function addPodgrupy(\Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy)
-    {
-        $this->podgrupy[] = $podgrupy;
-
-        return $this;
-    }
-
-    /**
-     * Remove podgrupy
-     *
-     * @param \Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy
-     */
-    public function removePodgrupy(\Obrazki\jakoProduktyBundle\Entity\PodGrupa $podgrupy)
-    {
-        $this->podgrupy->removeElement($podgrupy);
-    }
-
-    /**
-     * Get podgrupy
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPodgrupy()
-    {
-        return $this->podgrupy;
     }
 
     /**

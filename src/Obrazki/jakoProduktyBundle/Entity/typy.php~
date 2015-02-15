@@ -44,10 +44,10 @@ class typy
     protected $atrybut;
 
     /**
-     * @ORM\OneToOne(targetEntity="kubek",inversedBy="typ",cascade={"all"})
+     * @ORM\OneToOne(targetEntity="koszulka",inversedBy="rozmiar",cascade={"all"})
      * @ORM\JoinColumn(name="kubek_id",referencedColumnName="id")
      */
-    protected $kubki;
+    protected $koszulki;
 
     /**
      * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_typu")
@@ -74,113 +74,4 @@ class typy
 
 
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->typys = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set atrybut
-     *
-     * @param \Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut
-     * @return typy
-     */
-    public function setAtrybut(\Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut = null)
-    {
-        $this->atrybut = $atrybut;
-
-        return $this;
-    }
-
-    /**
-     * Get atrybut
-     *
-     * @return \Obrazki\jakoProduktyBundle\Entity\atrybuty 
-     */
-    public function getAtrybut()
-    {
-        return $this->atrybut;
-    }
-
-    /**
-     * Set kubki
-     *
-     * @param \Obrazki\jakoProduktyBundle\Entity\kubek $kubki
-     * @return typy
-     */
-    public function setKubki(\Obrazki\jakoProduktyBundle\Entity\kubek $kubki = null)
-    {
-        $this->kubki = $kubki;
-
-        return $this;
-    }
-
-    /**
-     * Get kubki
-     *
-     * @return \Obrazki\jakoProduktyBundle\Entity\kubek 
-     */
-    public function getKubki()
-    {
-        return $this->kubki;
-    }
-
-    /**
-     * Add typys
-     *
-     * @param \Obrazki\pfBundle\Entity\Produkt $typys
-     * @return typy
-     */
-    public function addTypy(\Obrazki\pfBundle\Entity\Produkt $typys)
-    {
-        $this->typys[] = $typys;
-
-        return $this;
-    }
-
-    /**
-     * Remove typys
-     *
-     * @param \Obrazki\pfBundle\Entity\Produkt $typys
-     */
-    public function removeTypy(\Obrazki\pfBundle\Entity\Produkt $typys)
-    {
-        $this->typys->removeElement($typys);
-    }
-
-    /**
-     * Get typys
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTypys()
-    {
-        return $this->typys;
-    }
-
-    /**
-     * Set nazwa
-     *
-     * @param string $nazwa
-     * @return typy
-     */
-    public function setNazwa($nazwa)
-    {
-        $this->nazwa = $nazwa;
-
-        return $this;
-    }
-
-    /**
-     * Get nazwa
-     *
-     * @return string 
-     */
-    public function getNazwa()
-    {
-        return $this->nazwa;
-    }
 }

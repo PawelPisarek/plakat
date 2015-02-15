@@ -1,0 +1,94 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}glownaPlakatyBundle:panel:wszystkieZamowienia{% endblock %}
+
+{% block body %}
+    <h1>Wszystkie zamówienia</h1>
+    <p>
+        hierarchia <br/>
+        klient->zamowienia->produkty->typy <br/>
+        jeśli typ=płótno to atrybuty <br/>
+        jeśli typ=koszulki to koszuki <br/>
+
+    </p>
+
+
+
+    <table border="1">
+
+        <tr>
+            <td>login</td>
+            <td>miasto</td>
+            <td>kodpocztowy</td>
+            <td>nrtelefonu</td>
+            <td>nr zamowienia</td>
+            <td>produkty</td>
+            <td>kwota</td>
+        </tr>
+        {% for klienta in klienci %}
+            {#{{ dump(klienta) }}#}
+            <tr>
+                <td>{{ klienta.login }}</td>
+                <td>{{ klienta.adresy.miasto }}</td>
+                <td>{{ klienta.adresy.kodpocztowy }}</td>
+                <td>{{ klienta.adresy.nrTelefonu }}</td>
+
+                {% set kwota=0 %}
+
+                {% for zamowienie in klienta.zamowienia %}
+                    <td>{{ zamowienie }}</td>
+                    <td>
+                        <div>
+
+                            {% for produkt in zamowienie.produkty %}
+                                <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+
+                                     width="70" height="70"/>
+                                {#cena netto   {{ produkt.Netto }}#}
+                                {#cena brutto {{ produkt.Brutto }}#}
+                                {% set  kwota=kwota+produkt.Brutto %}
+                                {{ produkt.IdFiltru }} <br/>
+
+                                {% if "płótno"==produkt.IdTypu.nazwa %}
+
+                                    {#{{ dump(produkt.IdTypu.atrybut) }} &#123;&#35;10 mniej zapytań&#35;&#125;#}
+                                    {#{{ dump(produkt.IdTypu.atrybut.wrapy ) }}#}
+                                    {{ produkt.IdTypu.atrybut.wrapy  }}
+                                    {{ produkt.IdTypu.atrybut.wymiar  }}
+                                    {{ produkt.IdTypu.atrybut.margines  }}
+                                {% else %}
+
+                                    {#{{ dump(produkt.IdTypu.nazwa)}}#}
+                                    {{ produkt.IdTypu.koszulki }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </td>
+                {% endfor %}
+
+
+                <td>
+                    {{ kwota }}
+
+                </td>
+
+            </tr>
+
+
+
+            {#<tr>#}
+
+            {#<td>{{ dump(klienta.klienci) }}</td>#}
+            {#<td>{{ dump(klienta.produkty) }}</td>#}
+            {#<td></td>#}
+            {#<td></td>#}
+            {#<td></td>#}
+            {#<td></td>#}
+            {#<td></td>#}
+            {#</tr>#}
+
+
+        {% endfor %}
+
+    </table>
+{% endblock %}

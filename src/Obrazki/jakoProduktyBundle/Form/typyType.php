@@ -17,7 +17,7 @@ class typyType extends AbstractType
         $builder
             ->add('nazwa')
             ->add('atrybut')
-            ->add('kubki')
+            ->add('koszulki')
         ;
     }
     

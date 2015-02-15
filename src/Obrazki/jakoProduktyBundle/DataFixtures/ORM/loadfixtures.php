@@ -4,7 +4,7 @@ namespace Obrazki\jakoProduktyBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Obrazki\jakoProduktyBundle\Entity\filtr;
 use Obrazki\jakoProduktyBundle\Entity\Grupa;
-use Obrazki\jakoProduktyBundle\Entity\kubek;
+use Obrazki\jakoProduktyBundle\Entity\koszulka;
 use Obrazki\jakoProduktyBundle\Entity\margines;
 use Obrazki\jakoProduktyBundle\Entity\PodGrupa;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -139,7 +139,7 @@ class loadkubek implements FixtureInterface
 {
     function  load(ObjectManager $manager)
     {
-        $wrap = new kubek();
+        $wrap = new koszulka();
         $wrap->setNazwa('rozmiar koszulki lub inne atrybuty kubka');
         $manager->persist($wrap);
         $manager->flush();

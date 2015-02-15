@@ -25,14 +25,19 @@ class adres
 
     /**
      * @var string
+     * @Assert\Length(min = 3)
+     * @Assert\NotBlank
      *
      * @ORM\Column(name="miasto", type="string", length=255)
      */
     private $miasto;
 
+
     /**
      * @var string
      *
+     * @Assert\Length(min = 3)
+     * @Assert\NotBlank
      * @ORM\Column(name="ulica", type="string", length=255)
      */
     private $ulica;
@@ -60,7 +65,8 @@ class adres
      */
     private $email;
 
-    
+
+
 
     /**
      * @ORM\OneToOne(targetEntity="klient", mappedBy="adresy")

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class kubek
+class koszulka
 {
     /**
      * @var integer
@@ -29,9 +29,9 @@ class kubek
     private $nazwa;
 
     /**
-     * @ORM\OneToOne(targetEntity="typy",mappedBy="kubki")
+     * @ORM\OneToOne(targetEntity="typy",mappedBy="koszulki")
      */
-    protected $typ;
+    protected $rozmiar;
 
     /**
      * Get id
@@ -47,7 +47,7 @@ class kubek
      * Set nazwa
      *
      * @param string $nazwa
-     * @return kubek
+     * @return koszulka
      */
     public function setNazwa($nazwa)
     {
@@ -77,7 +77,7 @@ class kubek
      * Set kubek
      *
      * @param \Obrazki\jakoProduktyBundle\Entity\typy $kubek
-     * @return kubek
+     * @return koszulka
      */
     public function setKubek(\Obrazki\jakoProduktyBundle\Entity\typy $kubek = null)
     {
@@ -99,12 +99,12 @@ class kubek
     /**
      * Set typ
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\typy $typ
-     * @return kubek
+     * @param \Obrazki\jakoProduktyBundle\Entity\typy $rozmiar
+     * @return koszulka
      */
-    public function setTyp(\Obrazki\jakoProduktyBundle\Entity\typy $typ = null)
+    public function setRozmiar(\Obrazki\jakoProduktyBundle\Entity\typy $rozmiar = null)
     {
-        $this->typ = $typ;
+        $this->rozmiar = $rozmiar;
 
         return $this;
     }
@@ -114,8 +114,8 @@ class kubek
      *
      * @return \Obrazki\jakoProduktyBundle\Entity\typy 
      */
-    public function getTyp()
+    public function getRozmiar()
     {
-        return $this->typ;
+        return $this->rozmiar;
     }
 }

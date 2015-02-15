@@ -27,3 +27,7 @@ obrazkiwbazie:
 kategoirie:
     pattern: /index
     defaults: {_controller:ObrazkiwbazieBundle:ObrazkiwKategorii:index }
+#
+#panel:
+#     path:   /wszystkieZamowienia
+#     defaults:  { _controller: glownaPlakatyBundle:panel:wszystkieZamowienia }

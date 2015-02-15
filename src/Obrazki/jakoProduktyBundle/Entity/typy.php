@@ -44,10 +44,10 @@ class typy
     protected $atrybut;
 
     /**
-     * @ORM\OneToOne(targetEntity="kubek",inversedBy="typ",cascade={"all"})
+     * @ORM\OneToOne(targetEntity="koszulka",inversedBy="rozmiar",cascade={"all"})
      * @ORM\JoinColumn(name="kubek_id",referencedColumnName="id")
      */
-    protected $kubki;
+    protected $koszulki;
 
     /**
      * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_typu")
@@ -69,7 +69,7 @@ class typy
 
     function __toString()
     {
-        return $this->getAtrybut().' '.$this->getKubki();
+        return $this->getAtrybut().' '.$this->getKoszulki();
     }
 
 
@@ -80,6 +80,29 @@ class typy
     public function __construct()
     {
         $this->typys = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     * @return typy
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwa
+     *
+     * @return string 
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
     }
 
     /**
@@ -106,26 +129,26 @@ class typy
     }
 
     /**
-     * Set kubki
+     * Set koszulki
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\kubek $kubki
+     * @param \Obrazki\jakoProduktyBundle\Entity\koszulka $koszulki
      * @return typy
      */
-    public function setKubki(\Obrazki\jakoProduktyBundle\Entity\kubek $kubki = null)
+    public function setKoszulki(\Obrazki\jakoProduktyBundle\Entity\koszulka $koszulki = null)
     {
-        $this->kubki = $kubki;
+        $this->koszulki = $koszulki;
 
         return $this;
     }
 
     /**
-     * Get kubki
+     * Get koszulki
      *
-     * @return \Obrazki\jakoProduktyBundle\Entity\kubek 
+     * @return \Obrazki\jakoProduktyBundle\Entity\koszulka 
      */
-    public function getKubki()
+    public function getKoszulki()
     {
-        return $this->kubki;
+        return $this->koszulki;
     }
 
     /**
@@ -159,28 +182,5 @@ class typy
     public function getTypys()
     {
         return $this->typys;
-    }
-
-    /**
-     * Set nazwa
-     *
-     * @param string $nazwa
-     * @return typy
-     */
-    public function setNazwa($nazwa)
-    {
-        $this->nazwa = $nazwa;
-
-        return $this;
-    }
-
-    /**
-     * Get nazwa
-     *
-     * @return string 
-     */
-    public function getNazwa()
-    {
-        return $this->nazwa;
     }
 }
