@@ -137,10 +137,10 @@ class ObrazkiwKategoriiController extends Controller
         $typ1 = $produkt->getIdTypu();
 
         dump($produkt->getIdTypu()->getId());
-        dump($typ1);
+        dump($typ1->getNazwa());
 //        dump($typ);
-        exit();
-        if($typp=='canvas')
+      //  exit();
+//        if($typp=='canvas')
 //        {
 //            $typ->setNazwa('płótno');
 //        }
