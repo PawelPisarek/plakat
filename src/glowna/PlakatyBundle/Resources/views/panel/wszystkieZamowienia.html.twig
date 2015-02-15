@@ -41,25 +41,48 @@
                         <div>
 
                             {% for produkt in zamowienie.produkty %}
-                                <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
 
-                                     width="70" height="70"/>
-                                {#cena netto   {{ produkt.Netto }}#}
-                                {#cena brutto {{ produkt.Brutto }}#}
-                                {% set  kwota=kwota+produkt.Brutto %}
-                                {{ produkt.IdFiltru }} <br/>
+
+
 
                                 {% if "płótno"==produkt.IdTypu.nazwa %}
 
+                                    <div style="background-color: #2f96b4">
+                                    <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+
+                                         width="70" height="70"/>
+                                    {#cena netto   {{ produkt.Netto }}#}
+                                    {#cena brutto {{ produkt.Brutto }}#}
+                                    {% set  kwota=kwota+produkt.Brutto %}
+                                    {{ produkt.IdFiltru }} <br/>
+                                    {{ produkt.IdTypu }}
+
                                     {#{{ dump(produkt.IdTypu.atrybut) }} &#123;&#35;10 mniej zapytań&#35;&#125;#}
                                     {#{{ dump(produkt.IdTypu.atrybut.wrapy ) }}#}
+
+
                                     {{ produkt.IdTypu.atrybut.wrapy  }}
                                     {{ produkt.IdTypu.atrybut.wymiar  }}
                                     {{ produkt.IdTypu.atrybut.margines  }}
+                                    <br/>
+                                    </div>
                                 {% else %}
 
-                                    {#{{ dump(produkt.IdTypu.nazwa)}}#}
-                                    {{ produkt.IdTypu.koszulki }}
+                                   <div style="background-color: #C4D798">
+                                       <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+
+                                            width="70" height="70"/>
+                                       {#cena netto   {{ produkt.Netto }}#}
+                                       {#cena brutto {{ produkt.Brutto }}#}
+                                       {% set  kwota=kwota+produkt.Brutto %}
+                                       {{ produkt.IdFiltru }} <br/>
+
+
+                                       {#{{ dump(produkt.IdTypu.nazwa)}}#}
+                                       {{ produkt.IdTypu.koszulki }}
+                                       <br/>
+                                   </div>
+
                                 {% endif %}
                             {% endfor %}
                         </div>

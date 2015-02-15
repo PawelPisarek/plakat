@@ -3,8 +3,10 @@
 namespace Obrazki\wbazieBundle\Controller;
 
 use Obrazki\jakoProduktyBundle\Entity\atrybuty;
+use Obrazki\jakoProduktyBundle\Entity\koszulka;
 use Obrazki\jakoProduktyBundle\Entity\typy;
 use Obrazki\jakoProduktyBundle\Form\atrybutyType;
+use Obrazki\jakoProduktyBundle\Form\koszulkaType;
 use Obrazki\pfBundle\Entity\klient;
 use Obrazki\pfBundle\Entity\Produkt;
 use Obrazki\pfBundle\Entity\zamowienie;
@@ -41,7 +43,7 @@ class ObrazkiwKategoriiController extends Controller
      * @Route("{typr}/{id}.html", name="show_produkt")
      * @Template()
      */
-    public function showAction($id, Request $request,$typr)
+    public function showAction($id, Request $request, $typr)
     {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
@@ -61,20 +63,24 @@ class ObrazkiwKategoriiController extends Controller
         $produkt->setRabat(0);
         $typ = new typy();
 
-        if($typr=='canvas')
-        {
+        if ($typr == 'canvas') {
             $typ->setNazwa('płótno');
         }
-        if($typr=='wizyt')
-        {
+        if ($typr == 'wizyt') {
             $typ->setNazwa('wizytówka');
         }
+
+
+        if ($typr == 'koszul') {
+            $typ->setNazwa('koszulka');
+        }
+
+
         // $zamowienie->setZaplacono(false);
 
         // $zamowienie->setDataWysylki(new \DateTime());
 
         //  $zamowienie->addProdukty($produkt);
-
 
 
         $form = $this->createForm(new ProduktType(), $produkt);
@@ -110,47 +116,63 @@ class ObrazkiwKategoriiController extends Controller
     public function plotnoAction(Request $request, $id)
     {
 
-
-        $atrybuty = new atrybuty();
-
-
-//        echo dump($typp);
-//        exit();
-
-//        if($typp=='canvas')
-//        {
-//            $typ->setNazwa('płótno');
-//        }
-
-
-        $form = $this->createForm(new atrybutyType(), $atrybuty);
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-
         $em = $this->getDoctrine()->getManager();
         $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
 
+        $typ = $produkt->getIdTypu();
 
-//        $typ = $this->getDoctrine()->getManager()->getRepository('ObrazkijakoProduktyBundle:typy')->findOneBy(array('id'=>$produkt->getIdTypu()->getId()));
+
+        if ($typ->getNazwa() == "płótno") {
+        $atrybuty = new atrybuty();
+
+        $form = $this->createForm(new atrybutyType(), $atrybuty);
+        $form->add('submit', 'submit', array('label' => 'Create'));
+        } else {
+
+            if ($typ->getNazwa() == "koszulka") {
+
+                $koszulka = new koszulka();
+                $form = $this->createForm(new koszulkaType(), $koszulka);
+                $form->add('submit', 'submit', array('label' => 'Create'));
 
 
-        $typ1 = $produkt->getIdTypu();
 
-        dump($produkt->getIdTypu()->getId());
-        dump($typ1->getNazwa());
-//        dump($typ);
-      //  exit();
-//        if($typp=='canvas')
-//        {
-//            $typ->setNazwa('płótno');
-//        }
+            }
+            else
+            {
+                dump($typ->getNazwa() . '  dup');
+                exit();
+            }
+
+        }
+
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
 
-            $typ->setAtrybut($atrybuty);
+            if (isset($atrybuty)) {
+                $typ->setAtrybut($atrybuty);
 
+            } else {
+                if (isset($koszulka)) {
+                    $typ->setKoszulki($koszulka);
+                }
+            }
+//            if ($typ->getNazwa() == "płótno") {
+//
+//                $typ->setAtrybut($atrybuty);
+//
+//            } else {
+//
+//                if ($typ->getNazwa() == "koszulka") {
+//                    {
+//                        exit();
+//
+//                        $typ->setKoszulki($koszulka);
+//                    }
+//                }
+//            }
 
 
             $produkt->setIdTypu($typ);
@@ -201,6 +223,7 @@ class ObrazkiwKategoriiController extends Controller
 
 //----------------------------------------------------------------------------------
             return $this->redirect($this->generateUrl('produkt_show', array('id' => $produkt->getId())));
+
         }
 
         return array(
@@ -214,8 +237,10 @@ class ObrazkiwKategoriiController extends Controller
      * @Route("/zamowien", name="nowezam")
      * @Template()
      */
-    public function stworzzamAction(Request $request)
-    {
+    public
+    function stworzzamAction(
+        Request $request
+    ) {
         $zamowienie = new zamowienie();
 
         $request = $this->get('request');
@@ -226,8 +251,9 @@ class ObrazkiwKategoriiController extends Controller
         $em = $this->getDoctrine()->getManager();
         foreach ($produkty as $id) {
             $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
-           if($produkt!=null)
-               $zamowienie->addProdukty($produkt);
+            if ($produkt != null) {
+                $zamowienie->addProdukty($produkt);
+            }
 
         }
 
@@ -261,9 +287,12 @@ class ObrazkiwKategoriiController extends Controller
      * @Route("/adre/{id}",name="nowyklie")
      * @Template()
      */
-    public function  stworzKlientaAction(Request $request,$id)
-    {
-        $klient=new klient();
+    public
+    function  stworzKlientaAction(
+        Request $request,
+        $id
+    ) {
+        $klient = new klient();
         $klient->setLogin('1');
         $klient->setHaslo('1');
 
@@ -274,20 +303,20 @@ class ObrazkiwKategoriiController extends Controller
         $klient->addZamowienium($entity);
 
 
-        $form=$this->createForm(new klientType(),$klient);
-        $form->add('submit','submit',array('label'=>'create'));
+        $form = $this->createForm(new klientType(), $klient);
+        $form->add('submit', 'submit', array('label' => 'create'));
         $form->handleRequest($request);
-        if ($form->isValid())
-        {
-            $em=$this->getDoctrine()->getManager();
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $em->persist($klient);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('klient_show',array('id'=>$klient->getId())));
+            return $this->redirect($this->generateUrl('klient_show', array('id' => $klient->getId())));
         }
+
         return array(
-          'entity'=>$klient,
-            'form'=>$form->createView(),
+            'entity' => $klient,
+            'form' => $form->createView(),
         );
 
 
