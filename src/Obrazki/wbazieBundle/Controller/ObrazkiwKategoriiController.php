@@ -91,7 +91,7 @@ class ObrazkiwKategoriiController extends Controller
             $em->flush();
 
 
-            return $this->redirect($this->generateUrl('plotno_new', array('id' => $produkt->getId(),'typp'=>$typr)));
+            return $this->redirect($this->generateUrl('plotno_new', array('id' => $produkt->getId())));
 
         }
 
@@ -104,23 +104,23 @@ class ObrazkiwKategoriiController extends Controller
     }
 
     /**
-     * @Route("{typp}/new/{id}", name="plotno_new")
+     * @Route("typp/new/{id}", name="plotno_new")
      * @Template()
      */
-    public function plotnoAction(Request $request, $id,$typp)
+    public function plotnoAction(Request $request, $id)
     {
 
 
         $atrybuty = new atrybuty();
-        $typ = new typy();
+
 
 //        echo dump($typp);
 //        exit();
 
-        if($typp=='canvas')
-        {
-            $typ->setNazwa('płótno');
-        }
+//        if($typp=='canvas')
+//        {
+//            $typ->setNazwa('płótno');
+//        }
 
 
         $form = $this->createForm(new atrybutyType(), $atrybuty);
@@ -129,8 +129,26 @@ class ObrazkiwKategoriiController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
+
+
+//        $typ = $this->getDoctrine()->getManager()->getRepository('ObrazkijakoProduktyBundle:typy')->findOneBy(array('id'=>$produkt->getIdTypu()->getId()));
+
+
+        $typ1 = $produkt->getIdTypu();
+
+        dump($produkt->getIdTypu()->getId());
+        dump($typ1);
+//        dump($typ);
+        exit();
+        if($typp=='canvas')
+//        {
+//            $typ->setNazwa('płótno');
+//        }
+
         $form->handleRequest($request);
+
         if ($form->isValid()) {
+
             $typ->setAtrybut($atrybuty);
 
 
