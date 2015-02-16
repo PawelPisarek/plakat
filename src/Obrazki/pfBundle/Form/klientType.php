@@ -18,7 +18,7 @@ class klientType extends AbstractType
           //  ->add('login')
           //  ->add('haslo')
             ->add('adresy',new adresType())
-       //     ->add('zamowienia', null, array('expanded' => "true", "multiple" => "true"))
+         //   ->add('zamowienia', null, array('expanded' => "true", "multiple" => "true"))
         ;
     }
     

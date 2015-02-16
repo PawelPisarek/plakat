@@ -36,6 +36,7 @@
                 {% set kwota=0 %}
 
                 {% for zamowienie in klienta.zamowienia %}
+                    {#<tr>#}
                     <td>{{ zamowienie }}</td>
                     <td>
                         <div>
@@ -48,57 +49,55 @@
                                 {% if "płótno"==produkt.IdTypu.nazwa %}
 
                                     <div style="background-color: #2f96b4">
-                                    <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+                                        <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
 
-                                         width="70" height="70"/>
-                                    {#cena netto   {{ produkt.Netto }}#}
-                                    {#cena brutto {{ produkt.Brutto }}#}
-                                    {% set  kwota=kwota+produkt.Brutto %}
-                                    {{ produkt.IdFiltru }} <br/>
-                                    {{ produkt.IdTypu }}
+                                             width="70" height="70"/>
+                                        {#cena netto   {{ produkt.Netto }}#}
+                                        {#cena brutto {{ produkt.Brutto }}#}
+                                        {% set  kwota=kwota+produkt.Brutto %}
+                                        {{ produkt.IdFiltru }} <br/>
+                                        {#{{ produkt.IdTypu }}#}
 
-                                    {#{{ dump(produkt.IdTypu.atrybut) }} &#123;&#35;10 mniej zapytań&#35;&#125;#}
-                                    {#{{ dump(produkt.IdTypu.atrybut.wrapy ) }}#}
+                                        {#{{ dump(produkt.IdTypu.atrybut) }} &#123;&#35;10 mniej zapytań&#35;&#125;#}
+                                        {#{{ dump(produkt.IdTypu.atrybut.wrapy ) }}#}
 
 
-                                    {{ produkt.IdTypu.atrybut.wrapy  }}
-                                    {{ produkt.IdTypu.atrybut.wymiar  }}
-                                    {{ produkt.IdTypu.atrybut.margines  }}
-                                    <br/>
+                                        {{ produkt.IdTypu.atrybut.wrapy }}
+                                        {{ produkt.IdTypu.atrybut.wymiar }}
+                                        {{ produkt.IdTypu.atrybut.margines }}
+                                        <br/>
                                     </div>
                                 {% else %}
 
                                     {% if "koszulka"==produkt.IdTypu.nazwa %}
-                                   <div style="background-color: #C4D79F">
-                                       <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+                                        <div style="background-color: #C4D79F">
+                                            <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
 
-                                            width="70" height="70"/>
-                                       {#cena netto   {{ produkt.Netto }}#}
-                                       {#cena brutto {{ produkt.Brutto }}#}
-                                       {% set  kwota=kwota+produkt.Brutto %}
-                                       {{ produkt.IdFiltru }} <br/>
-
-
-                                       {#{{ dump(produkt.IdTypu.nazwa)}}#}
-                                       {{ produkt.IdTypu.koszulki }}
-                                       <br/>
-                                   </div>
-                                        {% else %}
-                                            <div style="background-color: #E0F3AC">
-                                                <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
-
-                                                     width="70" height="70"/>
-                                                {#cena netto   {{ produkt.Netto }}#}
-                                                {#cena brutto {{ produkt.Brutto }}#}
-                                                {% set  kwota=kwota+produkt.Brutto %}
-                                                {{ produkt.IdFiltru }} <br/>
+                                                 width="70" height="70"/>
+                                            {#cena netto   {{ produkt.Netto }}#}
+                                            {#cena brutto {{ produkt.Brutto }}#}
+                                            {% set  kwota=kwota+produkt.Brutto %}
+                                            {{ produkt.IdFiltru }} <br/>
 
 
-                                                {#{{ dump(produkt.IdTypu.nazwa)}}#}
-                                                {{ produkt.IdTypu.koszulki }}
-                                                <br/>
-                                                {{ produkt.IdTypu.nazwa }}
-                                            </div>
+                                            {#{{ dump(produkt.IdTypu.nazwa)}}#}
+                                            {{ produkt.IdTypu.koszulki }}
+                                            <br/>
+                                        </div>
+                                    {% else %}
+                                        <div style="background-color: #E0F3AC">
+                                            <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+
+                                                 width="70" height="70"/>
+
+                                            {% set  kwota=kwota+produkt.Brutto %}
+                                            {{ produkt.IdFiltru }} <br/>
+
+
+                                            {{ produkt.IdTypu.koszulki }}
+                                            <br/>
+                                            {{ produkt.IdTypu.nazwa }}
+                                        </div>
                                     {% endif %}
 
 
@@ -106,6 +105,7 @@
                             {% endfor %}
                         </div>
                     </td>
+                    {#</tr>#}
                 {% endfor %}
 
 

@@ -2,422 +2,400 @@
 
 {% block produkt -%}
 
-    {#{% set margines=50 %}#}
 
+    {% if typ=='płótno' %}
 
 
-    {#&#123;&#35;{{ dump(entity)}}&#35;&#125;#}
 
-    {#<img id="orig" src="{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}" alt="" hidden="hidden"  />#}
-    {#&#123;&#35;ukryty obrazek poto żeby to działało&#35;&#125;#}
+        {% set margines=50 %}
+        {% set wymiary=31*2 %}
 
 
-    {#<canvas id="plotno" width="{{ entity.size.width+margines*2 }}" height="{{ entity.size.Height+margines*2 }}" >#}
-        {#Your browser does not support the HTML5 canvas tag.</canvas>#}
+        {#{{ dump(entity)}}#}
 
+        <img id="orig" src="{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}" alt=""
+             hidden="hidden"/>
+        {#ukryty obrazek poto żeby to działało#}
 
-    {#&#123;&#35;<img id="orig" src="{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}" width="600" height="337">&#35;&#125;#}
 
-    {#&#123;&#35;<canvas  width="600" height="337"></canvas>&#35;&#125;#}
+        <canvas id="plotno" width="{{ entity.size.width+margines*2 }}" height="{{ entity.size.Height+margines*2 }}">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
 
 
+        {#<img id="orig" src="{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}" width="600" height="337">#}
 
+        {#<canvas  width="600" height="337"></canvas>#}
 
-    {#<p id="pudelko"></p>#}
 
-    {#<button id="loginLink" onclick="toggleTable();"  class="btn-primary">pokaż tabele</button>#}
 
-    {#{{ form_start(form) }}#}
 
-    {#{{ form_label(form.wrapy) }}#}
-    {#{{ form_widget(form.wrapy,{'attr':{'onchange':'funkcja()'}}) }}#}
+        <p id="pudelko"></p>
 
+        <button id="loginLink" onclick="toggleTable();" class="btn-primary">pokaż tabele</button>
 
-    {#{{ form_errors(form.wrapy) }}#}
+        {{ form_start(form) }}
 
-    {#<table id="tabelaZwymiarami" border="1" >#}
+        {{ form_label(form.wrapy) }}
+        {{ form_widget(form.wrapy,{'attr':{'onchange':'funkcja()'}}) }}
 
-        {#<tr>#}
-            {#<th></th>#}
-            {#{% for m in form.margines.vars.choices %}#}
-                {#<th> {{ m.label }}</th>#}
-            {#{% endfor %}#}
-        {#</tr>#}
 
-        {#{% for w in form.wymiar.vars.choices %}#}
-            {#<tr>#}
-                {#<th>{{ w.label }}</th>#}
+        {{ form_errors(form.wrapy) }}
 
-                {#{% for m in form.margines.vars.choices %}#}
+        <table id="tabelaZwymiarami" border="1">
 
+            <tr>
+                <th></th>
+                {% for m in form.margines.vars.choices %}
+                    <th> {{ m.label }}</th>
+                {% endfor %}
+            </tr>
 
+            {% for w in form.wymiar.vars.choices %}
+                <tr>
+                    <th>{{ w.label }}</th>
 
-                    {#{% if  m.value==8 or m.value==9  and w.value==30 or w.value==40  %}#}
-                        {#<td onclick="myFunction(0,0,'nic')" bgcolor="#a52a2a">#}
-                         {#NY#}
-                        {#</td>#}
-                    {#{% else %}#}
-                    {#<td onclick="myFunction({{ m.value }},{{ w.value }},'{{ m.label }}' )">#}
-                        {#{{  w.label ~' '~ m.label}}#}
+                    {% for m in form.margines.vars.choices %}
 
-                        {#&#123;&#35;{{ m.value ~' '~ w.value }}&#35;&#125;#}
-                    {#</td>#}
-                    {#{% endif %}#}
-                {#{% endfor %}#}
 
-            {#</tr>#}
-        {#{% endfor %}#}
-    {#</table>#}
 
+                        {% if
+                        (m.label=='18mm'   and  w.value>wymiary+4 and w.value<wymiary+11)
+                        or(m.label=='25mm'   and  w.value>wymiary+3 and w.value<wymiary+19)
+                        or(m.label=='32mm')
+                        or(m.label=='52mm'   and ( w.value<wymiary+6 or w.value>wymiary+10)) %}
 
-    {#<script>#}
+                            {#{% if  m.label=='18mm' and !(w.label>'A4-12"x8"' or w.label<'10"x8"' )  %}#}
+                            <td onclick="myFunction({{ m.value }},{{ w.value }},'{{ m.label }}' )">
+                                {{ w.label ~' '~ m.label }}
 
-        {#function toggleTable() {#}
-            {#var lTable = document.getElementById("tabelaZwymiarami");#}
-            {#lTable.style.display = (lTable.style.display == "table") ? "none" : "table";#}
-        {#}#}
+                                {#{{ m.value ~' '~ w.value }}#}
+                            </td>
 
+                        {% else %}
 
+                            <td onclick="myFunction(0,0,'nic')" bgcolor="#a52a2a">
+                                NY
+                            </td>
+                        {% endif %}
+                    {% endfor %}
 
-        {#function myFunction(z1, z2) {#}
+                </tr>
+            {% endfor %}
+        </table>
 
-            {#document.getElementById("obrazki_jakoproduktybundle_atrybuty_margines").value = z1;#}
-            {#document.getElementById("obrazki_jakoproduktybundle_atrybuty_wymiar").value = z2;#}
-            {#$("#obrazki_jakoproduktybundle_atrybuty_submit").show();#}
 
-{#//            document.getElementById("demo").innerHTML = Mnazwa;#}
+        <script>
 
-           {#$("#tabelaZwymiarami").hide(400);#}
+            function toggleTable() {
+                var lTable = document.getElementById("tabelaZwymiarami");
+                lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+            }
 
-            {#if(z1=="0"){#}
-                {#$("#obrazki_jakoproduktybundle_atrybuty_submit").hide();#}
-                {#$("#tabelaZwymiarami").show(400);#}
-            {#}#}
-        {#}#}
 
+            function myFunction(z1, z2) {
 
+                document.getElementById("obrazki_jakoproduktybundle_atrybuty_margines").value = z1;
+                document.getElementById("obrazki_jakoproduktybundle_atrybuty_wymiar").value = z2;
+                $("#obrazki_jakoproduktybundle_atrybuty_submit").show();
 
+//            document.getElementById("demo").innerHTML = Mnazwa;
 
+                $("#tabelaZwymiarami").hide(400);
 
-        {#function creator()#}
-        {#{#}
-            {#var obj = {};#}
-            {#obj.Blank = function()#}
-            {#{#}
+                if (z1 == "0") {
+                    $("#obrazki_jakoproduktybundle_atrybuty_submit").hide();
+                    $("#tabelaZwymiarami").show(400);
+                }
+            }
 
-                {#var c = document.getElementById("plotno");#}
-                {#var ctx = c.getContext("2d");#}
-                {#var img = new Image();#}
-                {#img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';#}
 
-                {#ctx.rect(0,{{ margines }},{{ entity.size.width+margines*2 }},{{ entity.size.height }});#}
-                {#ctx.rect({{ margines }},0,{{ entity.size.width }},{{ entity.size.height+margines*2 }});#}
+            function creator() {
+                var obj = {};
+                obj.Blank = function () {
 
+                    var c = document.getElementById("plotno");
+                    var ctx = c.getContext("2d");
+                    var img = new Image();
+                    img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
 
-                {#ctx.drawImage(img, {{ margines }}, {{ margines }}, {{ entity.size.width }}, {{ entity.size.Height }});#}
+                    ctx.rect(0, {{ margines }}, {{ entity.size.width+margines*2 }}, {{ entity.size.height }});
+                    ctx.rect({{ margines }}, 0, {{ entity.size.width }}, {{ entity.size.height+margines*2 }});
 
 
-                {#ctx.stroke();#}
-                {#return c;#}
+                    ctx.drawImage(img, {{ margines }}, {{ margines }}, {{ entity.size.width }}, {{ entity.size.Height }});
 
 
-                {#// tu cos robimy;#}
-            {#};#}
-            {#obj.Custom = function()#}
-            {#{#}
+                    ctx.stroke();
+                    return c;
 
 
-                {#var c = document.getElementById("plotno");#}
-                {#var ctx = c.getContext("2d");#}
-                {#var img = new Image();#}
-                {#img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';#}
+                    // tu cos robimy;
+                };
+                obj.Custom = function () {
 
-                {#ctx.fillStyle="#FF0000";#}
-                {#ctx.fillRect(0,{{ margines }},{{ entity.size.width+margines*2 }},{{ entity.size.height }});#}
-                {#ctx.fillRect({{ margines }},0,{{ entity.size.width }},{{ entity.size.height+margines*2 }});#}
 
+                    var c = document.getElementById("plotno");
+                    var ctx = c.getContext("2d");
+                    var img = new Image();
+                    img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
 
+                    ctx.fillStyle = "#FF0000";
+                    ctx.fillRect(0, {{ margines }}, {{ entity.size.width+margines*2 }}, {{ entity.size.height }});
+                    ctx.fillRect({{ margines }}, 0, {{ entity.size.width }}, {{ entity.size.height+margines*2 }});
 
-                {#ctx.drawImage(img, {{ margines }}, {{ margines }}, {{ entity.size.width }}, {{ entity.size.Height }});#}
 
-                {#ctx.stroke();#}
-                {#return c;#}
+                    ctx.drawImage(img, {{ margines }}, {{ margines }}, {{ entity.size.width }}, {{ entity.size.Height }});
 
-            {#};#}
+                    ctx.stroke();
+                    return c;
 
+                };
 
-            {#obj.Stretch=function()#}
-            {#{#}
-                {#var c = document.getElementById("plotno");#}
-                {#var ctx = c.getContext("2d");#}
-                {#var img = new Image();#}
-                {#img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';#}
 
+                obj.Stretch = function () {
+                    var c = document.getElementById("plotno");
+                    var ctx = c.getContext("2d");
+                    var img = new Image();
+                    img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
 
 
-                {#ctx.drawImage(img, 0,0, {{ entity.size.width }}, {{ entity.size.Height }});#}
+                    ctx.drawImage(img, 0, 0, {{ entity.size.width }}, {{ entity.size.Height }});
 
-                {#ctx.moveTo({{ margines }},{{ margines }});#}
-                {#ctx.lineTo({{ entity.size.width-margines }},{{ margines }});#}
-                {#ctx.lineTo({{ entity.size.width-margines }},{{ entity.size.Height-margines }});#}
-                {#ctx.lineTo({{ margines }},{{ entity.size.Height-margines }});#}
-                {#ctx.lineTo({{ margines }},{{ margines }});#}
+                    ctx.moveTo({{ margines }}, {{ margines }});
+                    ctx.lineTo({{ entity.size.width-margines }}, {{ margines }});
+                    ctx.lineTo({{ entity.size.width-margines }}, {{ entity.size.Height-margines }});
+                    ctx.lineTo({{ margines }}, {{ entity.size.Height-margines }});
+                    ctx.lineTo({{ margines }}, {{ margines }});
 
-                {#ctx.fillStyle="#FF0000";#}
-                {#ctx.fillRect(0,0,{{ margines }},{{ margines }});#}
-                {#ctx.fillRect({{ entity.size.width-margines }},0,{{ margines }},{{ margines }});#}
-                {#ctx.fillRect(0,{{entity.size.height-margines}},{{margines}},{{margines}});#}
-                {#ctx.fillRect({{ entity.size.width-margines }},{{ entity.size.height-margines }},{{ margines }}, {{ margines }});#}
+                    ctx.fillStyle = "#FF0000";
+                    ctx.fillRect(0, 0, {{ margines }}, {{ margines }});
+                    ctx.fillRect({{ entity.size.width-margines }}, 0, {{ margines }}, {{ margines }});
+                    ctx.fillRect(0, {{entity.size.height-margines}}, {{margines}}, {{margines}});
+                    ctx.fillRect({{ entity.size.width-margines }}, {{ entity.size.height-margines }}, {{ margines }}, {{ margines }});
 
-                {#ctx.stroke();#}
+                    ctx.stroke();
 
-                {#return c;#}
-            {#};#}
+                    return c;
+                };
 
-            {#obj.Mirror=function()#}
-            {#{#}
-                {#var c = document.getElementById("plotno");#}
-                {#var ctx = c.getContext("2d");#}
-                {#var img = new Image();#}
-                {#img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';#}
+                obj.Mirror = function () {
+                    var c = document.getElementById("plotno");
+                    var ctx = c.getContext("2d");
+                    var img = new Image();
+                    img.src = '{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}';
 
 
+                    ctx.drawImage(img, 0, 0, {{ entity.size.width }}, {{ entity.size.Height }});
 
-                {#ctx.drawImage(img, 0,0, {{ entity.size.width }}, {{ entity.size.Height }});#}
+                    ctx.moveTo({{ margines }}, {{ margines }});
+                    ctx.lineTo({{ entity.size.width-margines }}, {{ margines }});
+                    ctx.lineTo({{ entity.size.width-margines }}, {{ entity.size.Height-margines }});
+                    ctx.lineTo({{ margines }}, {{ entity.size.Height-margines }});
+                    ctx.lineTo({{ margines }}, {{ margines }});
 
-                {#ctx.moveTo({{ margines }},{{ margines }});#}
-                {#ctx.lineTo({{ entity.size.width-margines }},{{ margines }});#}
-                {#ctx.lineTo({{ entity.size.width-margines }},{{ entity.size.Height-margines }});#}
-                {#ctx.lineTo({{ margines }},{{ entity.size.Height-margines }});#}
-                {#ctx.lineTo({{ margines }},{{ margines }});#}
+                    ctx.fillStyle = "#FFFFFF";
+                    ctx.fillRect(0, 0, {{ margines }}, {{ margines }});
+                    ctx.fillRect({{ entity.size.width-margines }}, 0, {{ margines }}, {{ margines }});
+                    ctx.fillRect(0, {{entity.size.height-margines}}, {{margines}}, {{margines}});
+                    ctx.fillRect({{ entity.size.width-margines }}, {{ entity.size.height-margines }}, {{ margines }}, {{ margines }});
 
-                {#ctx.fillStyle="#FFFFFF";#}
-                {#ctx.fillRect(0,0,{{ margines }},{{ margines }});#}
-                {#ctx.fillRect({{ entity.size.width-margines }},0,{{ margines }},{{ margines }});#}
-                {#ctx.fillRect(0,{{entity.size.height-margines}},{{margines}},{{margines}});#}
-                {#ctx.fillRect({{ entity.size.width-margines }},{{ entity.size.height-margines }},{{ margines }}, {{ margines }});#}
+                    ctx.stroke();
+                    return c;
+                };
+                return obj;
+            }
 
-                {#ctx.stroke();#}
-                {#return c;#}
-            {#};#}
-            {#return obj;#}
-        {#}#}
 
+            //        for (var i = 0; i <= 9; i++)  {
+            //            (function(i) {
+            //                setTimeout(function() {
+            //                    console.log(i);
+            //                }, i*1000);
+            //            })(i);
+            //        }
 
 
+            //---------------------------------------------------------------------------------------------------
 
-{#//        for (var i = 0; i <= 9; i++)  {#}
-{#//            (function(i) {#}
-{#//                setTimeout(function() {#}
-{#//                    console.log(i);#}
-{#//                }, i*1000);#}
-{#//            })(i);#}
-{#//        }#}
 
+            //-------------------------------------------------------------------------------------
 
 
+            window.onload = function () {
+//            document.getElementById("pudelko").innerHTML = 'Blank';
 
+                var zd = new creator();
+                document.getElementById("plotno").innerHTML = zd.Blank();
 
 
+            };
 
 
-        {#//---------------------------------------------------------------------------------------------------#}
+            function zdjecie() {
 
+                Filters = {};
+                Filters.getPixels = function (img) {
+                    var c = this.getCanvas(img.width, img.height);
+                    var ctx = c.getContext('2d');
+                    ctx.drawImage(img);
+                    return ctx.getImageData(0, 0, c.width, c.height);
+                };
 
+                Filters.getCanvas = function (w, h) {
+                    var c = document.createElement('canvas');
+                    c.width = w;
+                    c.height = h;
+                    return c;
+                };
 
 
-        {#//-------------------------------------------------------------------------------------#}
+                Filters.filterImage = function (filter, image, var_args) {
+                    var args = [this.getPixels(image)];
+                    for (var i = 2; i < arguments.length; i++) {
+                        args.push(arguments[i]);
+                    }
+                    return filter.apply(null, args);
+                };
 
+                Filters.grayscale = function (pixels, args) {
+                    var d = pixels.data;
+                    for (var i = 0; i < d.length; i += 4) {
+                        var r = d[i];
+                        var g = d[i + 1];
+                        var b = d[i + 2];
+                        // CIE luminance for the RGB
+                        // The human eye is bad at seeing red and blue, so we de-emphasize them.
+                        var v = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                        d[i] = d[i + 1] = d[i + 2] = v
+                    }
+                    return pixels;
+                };
 
-        {#window.onload=function(){#}
-{#//            document.getElementById("pudelko").innerHTML = 'Blank';#}
+            }
 
-            {#var zd=new creator();#}
-            {#document.getElementById("plotno").innerHTML=zd.Blank();#}
 
+            function rysuj(nazwaWrapu) {
 
 
+                var zd = new creator();
 
-        {#};#}
 
+                if (nazwaWrapu == 'Custom') {
+                    document.getElementById("plotno").innerHTML = zd.Custom();
+//                document.getElementById("pudelko").innerHTML = 'custom';
+                }
+                else if (nazwaWrapu == 'Mirror') {
+                    document.getElementById("plotno").innerHTML = zd.Mirror();
+                }
+                else if (nazwaWrapu == 'Stretch') {
+                    document.getElementById("plotno").innerHTML = zd.Stretch();
+                }
+                else if (nazwaWrapu == 'Blank') {
+                    document.getElementById("plotno").innerHTML = zd.Blank();
+//                document.getElementById("pudelko").innerHTML = 'blank';
+                }
 
 
-        {#function zdjecie()#}
-        {#{#}
+//            var img = document.getElementById('orig');
+//            var canvases = document.getElementsByTagName('canvas');
+//            for (var i=0; i<canvases.length; i++) {
+//                var c = canvases[i];
+//                c.parentNode.insertBefore(img.cloneNode(true), c);
+//                c.style.display = 'none';
+//            }
+//            var idata = Filters.filterImage(Filters.grayscale(), img, arg1, arg2, arg3);
+//            c.width = idata.width;
+//            c.height = idata.height;
+//            var ctx = c.getContext('2d');
+//            ctx.putImageData(idata, 0, 0);
 
-            {#Filters = {};#}
-            {#Filters.getPixels = function(img) {#}
-                {#var c = this.getCanvas(img.width, img.height);#}
-                {#var ctx = c.getContext('2d');#}
-                {#ctx.drawImage(img);#}
-                {#return ctx.getImageData(0,0,c.width,c.height);#}
-            {#};#}
 
-            {#Filters.getCanvas = function(w,h) {#}
-                {#var c = document.createElement('canvas');#}
-                {#c.width = w;#}
-                {#c.height = h;#}
-                {#return c;#}
-            {#};#}
+            }
 
 
-            {#Filters.filterImage = function(filter, image, var_args) {#}
-                {#var args = [this.getPixels(image)];#}
-                {#for (var i=2; i<arguments.length; i++) {#}
-                    {#args.push(arguments[i]);#}
+            function funkcja() {
+
+                var e = document.getElementById("obrazki_jakoproduktybundle_atrybuty_wrapy");
+                var filtr = e.options[e.selectedIndex].text;
+
+//            document.getElementById("pudelko").innerHTML = filtr;
+//
+//            var nazwaClasyJakoFiltr=document.getElementById("pudelko").innerText;
+//            var x = document.getElementsByClassName(nazwaClasyJakoFiltr);
+//            x[0].className = filtr;
+
+
+                var c = document.getElementById("plotno");
+                var ctx = c.getContext("2d");
+                ctx.fillStyle = "#FFFFFF";
+
+                ctx.save();
+
+// Use the identity matrix while clearing the canvas
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.clearRect(0, 0, {{ entity.size.width+margines*2 }}, {{ entity.size.Height+margines*2 }});
+
+// Restore the transform
+                ctx.restore();
+
+
+                {#var zdj=zdjecie();#}
+
+                {#var img = document.getElementById('orig');#}
+
+                {#var canvases = document.getElementsByTagName('canvas');#}
+                {#console.log(canvases);#}
+                {#for (var i=0; i<canvases.length; i++) &#123;&#35;}
+                    {#var c = canvases[i];#}
+                {#c.parentNode.insertBefore(img.cloneNode(true), c);#}
+                {#c.style.display = 'none';#}
                 {#}#}
-                {#return filter.apply(null, args);#}
-            {#};#}
 
-            {#Filters.grayscale = function(pixels, args) {#}
-                {#var d = pixels.data;#}
-                {#for (var i=0; i<d.length; i+=4) {#}
-                    {#var r = d[i];#}
-                    {#var g = d[i+1];#}
-                    {#var b = d[i+2];#}
-                    {#// CIE luminance for the RGB#}
-                    {#// The human eye is bad at seeing red and blue, so we de-emphasize them.#}
-                    {#var v = 0.2126*r + 0.7152*g + 0.0722*b;#}
-                    {#d[i] = d[i+1] = d[i+2] = v#}
-                {#}#}
-                {#return pixels;#}
-            {#};#}
+                {#zdj.getPixels(canvases);#}
 
-        {#}#}
+                {#zdj.getCanvas({{ entity.size.width+margines*2 }},{{ entity.size.Height+margines*2 }});#}
+                {#zdj.filterImage(zdj.grayscale());#}
 
+                {#console.log(zdj);#}
 
+                {#ctx.putImageData(zdj, 0, 0);#}
 
+                {#ctx.stroke();#}
 
-        {#function rysuj(nazwaWrapu)#}
-        {#{#}
 
+                rysuj(filtr);
 
-            {#var zd=new creator();#}
 
+            }
 
 
-            {#if(nazwaWrapu=='Custom'){#}
-                {#document.getElementById("plotno").innerHTML=zd.Custom();#}
-{#//                document.getElementById("pudelko").innerHTML = 'custom';#}
-            {#}#}
-            {#else#}
-            {#if(nazwaWrapu=='Mirror'){#}
-                {#document.getElementById("plotno").innerHTML=zd.Mirror();#}
-            {#}#}
-            {#else#}
-            {#if(nazwaWrapu=='Stretch'){#}
-                {#document.getElementById("plotno").innerHTML=zd.Stretch();#}
-            {#}#}
-            {#else#}
-            {#if(nazwaWrapu=='Blank')#}
-            {#{#}
-                {#document.getElementById("plotno").innerHTML=zd.Blank();#}
-{#//                document.getElementById("pudelko").innerHTML = 'blank';#}
-            {#}#}
+        </script>
 
 
 
+        {{ form_rest(form) }}
 
 
+        {{ form_end(form) }}
 
-{#//            var img = document.getElementById('orig');#}
-{#//            var canvases = document.getElementsByTagName('canvas');#}
-{#//            for (var i=0; i<canvases.length; i++) {#}
-{#//                var c = canvases[i];#}
-{#//                c.parentNode.insertBefore(img.cloneNode(true), c);#}
-{#//                c.style.display = 'none';#}
-{#//            }#}
-{#//            var idata = Filters.filterImage(Filters.grayscale(), img, arg1, arg2, arg3);#}
-{#//            c.width = idata.width;#}
-{#//            c.height = idata.height;#}
-{#//            var ctx = c.getContext('2d');#}
-{#//            ctx.putImageData(idata, 0, 0);#}
 
 
 
-        {#}#}
+    {% else %}
+        {% set margines=50 %}
 
 
+        <img id="orig" src="{{ asset(entity.getUploadMinaturkaDir~"/" ~ entity.nazwaObrazka  ) }}" alt=""
+                />
+        {#ukryty obrazek poto żeby to działało#}
 
-        {#function funkcja() {#}
 
-            {#var e = document.getElementById("obrazki_jakoproduktybundle_atrybuty_wrapy");#}
-            {#var filtr = e.options[e.selectedIndex].text;#}
+        {#<canvas id="plotno" width="{{ entity.size.width+margines*2 }}" height="{{ entity.size.Height+margines*2 }}">#}
+        {#Your browser does not support the HTML5 canvas tag.#}
+        {#</canvas>#}
 
-{#//            document.getElementById("pudelko").innerHTML = filtr;#}
-{#//#}
-{#//            var nazwaClasyJakoFiltr=document.getElementById("pudelko").innerText;#}
-{#//            var x = document.getElementsByClassName(nazwaClasyJakoFiltr);#}
-{#//            x[0].className = filtr;#}
-
-
-
-
-            {#var c = document.getElementById("plotno");#}
-            {#var ctx = c.getContext("2d");#}
-            {#ctx.fillStyle="#FFFFFF";#}
-
-            {#ctx.save();#}
-
-{#// Use the identity matrix while clearing the canvas#}
-            {#ctx.setTransform(1, 0, 0, 1, 0, 0);#}
-            {#ctx.clearRect(0, 0,{{ entity.size.width+margines*2 }},{{ entity.size.Height+margines*2 }} );#}
-
-{#// Restore the transform#}
-            {#ctx.restore();#}
-
-
-
-
-            {#&#123;&#35;var zdj=zdjecie();&#35;&#125;#}
-
-            {#&#123;&#35;var img = document.getElementById('orig');&#35;&#125;#}
-
-            {#&#123;&#35;var canvases = document.getElementsByTagName('canvas');&#35;&#125;#}
-            {#&#123;&#35;console.log(canvases);&#35;&#125;#}
-            {#&#123;&#35;for (var i=0; i<canvases.length; i++) &#123;&#35;}#}
-                {#&#123;&#35;var c = canvases[i];&#35;&#125;#}
-                {#&#123;&#35;c.parentNode.insertBefore(img.cloneNode(true), c);&#35;&#125;#}
-                {#&#123;&#35;c.style.display = 'none';&#35;&#125;#}
-            {#&#123;&#35;}&#35;&#125;#}
-
-            {#&#123;&#35;zdj.getPixels(canvases);&#35;&#125;#}
-
-            {#&#123;&#35;zdj.getCanvas({{ entity.size.width+margines*2 }},{{ entity.size.Height+margines*2 }});&#35;&#125;#}
-            {#&#123;&#35;zdj.filterImage(zdj.grayscale());&#35;&#125;#}
-
-            {#&#123;&#35;console.log(zdj);&#35;&#125;#}
-
-            {#&#123;&#35;ctx.putImageData(zdj, 0, 0);&#35;&#125;#}
-
-            {#&#123;&#35;ctx.stroke();&#35;&#125;#}
-
-
-
-            {#rysuj(filtr);#}
-
-
-
-        {#}#}
-
-
-
-    {#</script>#}
-
-
-
-{#{{ form_rest(form) }}#}
-
-
-    {#{{ form_end(form) }}#}
-
-
-
-
-
-
-
-{{ form(form) }}
-    {{ dump(entity) }}
+        {{ form(form) }}
+    {% endif %}
 
 {% endblock %}

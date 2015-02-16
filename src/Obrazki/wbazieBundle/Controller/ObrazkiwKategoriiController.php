@@ -204,20 +204,7 @@ class ObrazkiwKategoriiController extends Controller
 //                    $typ->setKoszulki($koszulka);
 //                }
             }
-//            if ($typ->getNazwa() == "płótno") {
 //
-//                $typ->setAtrybut($atrybuty);
-//
-//            } else {
-//
-//                if ($typ->getNazwa() == "koszulka") {
-//                    {
-//                        exit();
-//
-//                        $typ->setKoszulki($koszulka);
-//                    }
-//                }
-//            }
 
 
             $produkt->setIdTypu($typ);
@@ -242,6 +229,7 @@ class ObrazkiwKategoriiController extends Controller
         return array(
             'entity' => $produkt->getIdZdjecia(),
             'form' => $form->createView(),
+            'typ'=>$typ->getNazwa()
 
         );
     }
@@ -250,10 +238,8 @@ class ObrazkiwKategoriiController extends Controller
      * @Route("/zamowien", name="nowezam")
      * @Template()
      */
-    public
-    function stworzzamAction(
-        Request $request
-    ) {
+    public function stworzzamAction(Request $request)
+    {
         $zamowienie = new zamowienie();
 
         $request = $this->get('request');
@@ -292,6 +278,7 @@ class ObrazkiwKategoriiController extends Controller
             'entity' => $zamowienie,
             'form' => $form->createView(),
 
+
         );
     }
 
@@ -300,11 +287,7 @@ class ObrazkiwKategoriiController extends Controller
      * @Route("/adre/{id}",name="nowyklie")
      * @Template()
      */
-    public
-    function  stworzKlientaAction(
-        Request $request,
-        $id
-    ) {
+    public function  stworzKlientaAction(Request $request, $id) {
         $klient = new klient();
         $klient->setLogin('1');
         $klient->setHaslo('1');
