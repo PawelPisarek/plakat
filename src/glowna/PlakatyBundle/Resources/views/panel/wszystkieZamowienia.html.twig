@@ -68,7 +68,8 @@
                                     </div>
                                 {% else %}
 
-                                   <div style="background-color: #C4D798">
+                                    {% if "koszulka"==produkt.IdTypu.nazwa %}
+                                   <div style="background-color: #C4D79F">
                                        <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
 
                                             width="70" height="70"/>
@@ -82,6 +83,24 @@
                                        {{ produkt.IdTypu.koszulki }}
                                        <br/>
                                    </div>
+                                        {% else %}
+                                            <div style="background-color: #E0F3AC">
+                                                <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+
+                                                     width="70" height="70"/>
+                                                {#cena netto   {{ produkt.Netto }}#}
+                                                {#cena brutto {{ produkt.Brutto }}#}
+                                                {% set  kwota=kwota+produkt.Brutto %}
+                                                {{ produkt.IdFiltru }} <br/>
+
+
+                                                {#{{ dump(produkt.IdTypu.nazwa)}}#}
+                                                {{ produkt.IdTypu.koszulki }}
+                                                <br/>
+                                                {{ produkt.IdTypu.nazwa }}
+                                            </div>
+                                    {% endif %}
+
 
                                 {% endif %}
                             {% endfor %}

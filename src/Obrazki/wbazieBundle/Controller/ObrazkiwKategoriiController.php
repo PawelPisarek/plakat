@@ -7,6 +7,7 @@ use Obrazki\jakoProduktyBundle\Entity\koszulka;
 use Obrazki\jakoProduktyBundle\Entity\typy;
 use Obrazki\jakoProduktyBundle\Form\atrybutyType;
 use Obrazki\jakoProduktyBundle\Form\koszulkaType;
+use Obrazki\jakoProduktyBundle\Form\typyType;
 use Obrazki\pfBundle\Entity\klient;
 use Obrazki\pfBundle\Entity\Produkt;
 use Obrazki\pfBundle\Entity\zamowienie;
@@ -50,6 +51,10 @@ class ObrazkiwKategoriiController extends Controller
 
         if (!$entity) {
             throw $this->createNotFoundException('nie znaleziono obrazka');
+        }
+
+        if (!in_array($typr, array('wizyt', 'canvas', 'koszul'))) {
+            throw $this->createNotFoundException('Nie ma takiego produktu');
         }
 
         //   $zamowienie=new zamowienie();
@@ -109,6 +114,44 @@ class ObrazkiwKategoriiController extends Controller
         );
     }
 
+
+    public function dodajCiasteczko($idProduktu)
+    {
+        $cookieGuest = array(
+            'name' => 'produkt',
+            'value' => $idProduktu
+        );
+
+        $request = $this->get('request');
+        $cookies = $request->cookies;
+
+
+        if ($cookies->has('produkt')) {
+//                var_dump($cookies->get('produkt'));
+            $cookieGuest = array(
+                'name' => 'produkt',
+                'value' => $cookies->get('produkt') . ',' . $idProduktu
+            );
+
+            $cookie = new Cookie(
+                $cookieGuest['name'], $cookieGuest['value']
+            );
+
+//                var_dump($cookie);
+//                exit();
+        } else {
+            $cookie = new Cookie(
+                $cookieGuest['name'], $cookieGuest['value']
+            );
+        }
+
+
+        $response = new Response();
+        $response->headers->setCookie($cookie);
+        $response->send();
+    }
+
+
     /**
      * @Route("typp/new/{id}", name="plotno_new")
      * @Template()
@@ -123,25 +166,27 @@ class ObrazkiwKategoriiController extends Controller
 
 
         if ($typ->getNazwa() == "płótno") {
-        $atrybuty = new atrybuty();
+            $atrybuty = new atrybuty();
 
-        $form = $this->createForm(new atrybutyType(), $atrybuty);
-        $form->add('submit', 'submit', array('label' => 'Create'));
+            $form = $this->createForm(new atrybutyType(), $atrybuty);
+            $form->add('submit', 'submit', array('label' => 'Create'));
         } else {
 
             if ($typ->getNazwa() == "koszulka") {
 
-                $koszulka = new koszulka();
-                $form = $this->createForm(new koszulkaType(), $koszulka);
+
+                $form = $this->createForm(new typyType(), $typ);
                 $form->add('submit', 'submit', array('label' => 'Create'));
 
 
+            } else {
+                $em->persist($produkt);
+                $em->flush();
+                $this->dodajCiasteczko($produkt->getId());
 
-            }
-            else
-            {
-                dump($typ->getNazwa() . '  dup');
-                exit();
+                return $this->redirect($this->generateUrl('produkt_show', array('id' => $produkt->getId())));
+
+
             }
 
         }
@@ -155,9 +200,9 @@ class ObrazkiwKategoriiController extends Controller
                 $typ->setAtrybut($atrybuty);
 
             } else {
-                if (isset($koszulka)) {
-                    $typ->setKoszulki($koszulka);
-                }
+//                if (isset($koszulka)) {
+//                    $typ->setKoszulki($koszulka);
+//                }
             }
 //            if ($typ->getNazwa() == "płótno") {
 //
@@ -187,41 +232,9 @@ class ObrazkiwKategoriiController extends Controller
 //                    'typy_delete' => $entity->getId(),
 //                )
 //            );
-//-------------------------------------------------------------
-            $cookieGuest = array(
-                'name' => 'produkt',
-                'value' => $produkt->getId()
-            );
 
-            $request = $this->get('request');
-            $cookies = $request->cookies;
+            $this->dodajCiasteczko($produkt->getId());
 
-
-            if ($cookies->has('produkt')) {
-//                var_dump($cookies->get('produkt'));
-                $cookieGuest = array(
-                    'name' => 'produkt',
-                    'value' => $cookies->get('produkt') . ',' . $produkt->getId()
-                );
-
-                $cookie = new Cookie(
-                    $cookieGuest['name'], $cookieGuest['value']
-                );
-
-//                var_dump($cookie);
-//                exit();
-            } else {
-                $cookie = new Cookie(
-                    $cookieGuest['name'], $cookieGuest['value']
-                );
-            }
-
-
-            $response = new Response();
-            $response->headers->setCookie($cookie);
-            $response->send();
-
-//----------------------------------------------------------------------------------
             return $this->redirect($this->generateUrl('produkt_show', array('id' => $produkt->getId())));
 
         }

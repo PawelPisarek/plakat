@@ -15,9 +15,19 @@ class typyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nazwa')
-            ->add('atrybut')
-            ->add('koszulki')
+       //     ->add('nazwa')
+         //   ->add('atrybut')
+//            ->add('koszulki')
+            ->add(
+                'koszulki',
+                null,
+                array(
+//                    'multiple' => false,
+//                    'expanded' => true,
+                    'required' => true
+                )
+
+            )
         ;
     }
     
