@@ -57,10 +57,12 @@ class ObrazkiwKategoriiController extends Controller
             throw $this->createNotFoundException('Nie ma takiego produktu');
         }
 
+
         //   $zamowienie=new zamowienie();
         $produkt = new Produkt();
 
-        $produkt->setIdZdjecia($entity);
+
+        $produkt->setZdjecia($entity);
 
         $produkt->setNetto(100);
         $produkt->setProcVat(22);
@@ -92,11 +94,19 @@ class ObrazkiwKategoriiController extends Controller
         $form->add('submit', 'submit', array('label' => 'Create'));
         $form->handleRequest($request);
 
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($typ);
-            $produkt->setIdTypu($typ);
+
+//            var_dump($typ);
+//            exit;
+//
+
+            $produkt->setTypu($typ);
+
+//            exit(\Doctrine\Common\Util\Debug::dump($produkt));
 
             $em->persist($produkt);
             $em->flush();
@@ -162,8 +172,7 @@ class ObrazkiwKategoriiController extends Controller
         $em = $this->getDoctrine()->getManager();
         $produkt = $em->getRepository('ObrazkipfBundle:Produkt')->find($id);
 
-        $typ = $produkt->getIdTypu();
-
+        $typ = $produkt->getTypu();
 
         if ($typ->getNazwa() == "płótno") {
             $atrybuty = new atrybuty();
@@ -207,7 +216,7 @@ class ObrazkiwKategoriiController extends Controller
 //
 
 
-            $produkt->setIdTypu($typ);
+            $produkt->setTypu($typ);
 
             $em->persist($produkt);
             $em->flush();
@@ -227,7 +236,7 @@ class ObrazkiwKategoriiController extends Controller
         }
 
         return array(
-            'entity' => $produkt->getIdZdjecia(),
+            'entity' => $produkt->getZdjecia(),
             'form' => $form->createView(),
             'typ'=>$typ->getNazwa()
 

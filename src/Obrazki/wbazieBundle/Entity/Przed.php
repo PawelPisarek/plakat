@@ -42,7 +42,7 @@ class Przed
     protected $grupa;
 
     /**
-     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_zdjecia")
+     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="zdjecia")
      */
     protected $zdjecieprod;
 

@@ -32,14 +32,15 @@ class zamowienie
     /**
      * @var boolean
      *
-     * @ORM\Column(name="zaplacono", type="boolean")
+
+     * @ORM\Column(name="zaplacono", type="boolean", nullable=true)
      */
     private $zaplacono = false;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dataWysylki", type="datetime")
+     * @ORM\Column(name="dataWysylki", type="datetime", nullable=true)
      */
     private $dataWysylki;
 

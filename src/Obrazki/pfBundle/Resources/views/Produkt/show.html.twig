@@ -1,7 +1,7 @@
 {% extends 'ObrazkiwbazieBundle:ObrazkiwKategorii:show.html.twig' %}
 
 {% block produkt %}
-    <h1>{{ entity.IdTypu.nazwa }}</h1>
+    <h1>{{ entity.Typu.nazwa }}</h1>
 
     <table class="record_properties">
         <tbody>
@@ -33,7 +33,7 @@
 
     {#{{ dump(obrazek) }} //nie wiem jakim cudem nazwa obrazka jest null ale pojkazuje dwa#}
 {#{{ entity.IdZdjecia.nazwaObrazka }}#}
-{{ entity.IdTypu.atrybut }}<br>
+{{ entity.Typu.atrybut }}<br>
 
     {#{{ obrazek.nazwaObrazka }}#}
     {#{{ dump(typ) }}#}
@@ -47,7 +47,7 @@
     </a>
 
 
-    <img src="{{ asset(entity.IdZdjecia.getUploadMinaturkaDir~'/' ~ entity.IdZdjecia.nazwaObrazka  ) }}"/>
+    <img src="{{ asset(entity.Zdjecia.getUploadMinaturkaDir~'/' ~ entity.Zdjecia.nazwaObrazka  ) }}"/>
         <ul class="record_actions">
     {#<li>#}
         {#<a href="{{ path('produkt') }}">#}

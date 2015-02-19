@@ -30,12 +30,12 @@
 
             {{ form_start(form) }}
 
-            {{ form_label(form.id_filtru) }}
-            {{ form_widget(form.id_filtru, { 'attr': {'onchange': 'ZmianaFiltruWidocznaNaObrazku()'} }) }}
+            {{ form_label(form.filtru) }}
+            {{ form_widget(form.filtru, { 'attr': {'onchange': 'ZmianaFiltruWidocznaNaObrazku()'} }) }}
 
 
 
-            {{ form_errors(form.id_filtru) }}
+            {{ form_errors(form.filtru) }}
 
 
             {{ form_label(form.submit) }}
@@ -46,6 +46,7 @@
         {% endblock %}
 
 
+        {#{{ form(form) }}#}
 
         <p id="pudelko"></p>
     </div>

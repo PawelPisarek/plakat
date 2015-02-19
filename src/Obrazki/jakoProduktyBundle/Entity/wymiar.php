@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class wymiary
+class wymiar
 {
     /**
      * @var integer
@@ -57,7 +57,7 @@ class wymiary
      * Set nazwa
      *
      * @param string $nazwa
-     * @return wymiary
+     * @return wymiar
      */
     public function setNazwa($nazwa)
     {
@@ -80,7 +80,7 @@ class wymiary
      * Add atrybut
      *
      * @param \Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut
-     * @return wymiary
+     * @return wymiar
      */
     public function addAtrybut(\Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut)
     {

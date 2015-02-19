@@ -8,7 +8,7 @@
 
 
         {% set margines=50 %}
-        {% set wymiary=31*2 %}
+        {% set wymiar=31*4 %}
 
 
         {#{{ dump(entity)}}#}
@@ -60,10 +60,10 @@
 
 
                         {% if
-                        (m.label=='18mm'   and  w.value>wymiary+4 and w.value<wymiary+11)
-                        or(m.label=='25mm'   and  w.value>wymiary+3 and w.value<wymiary+19)
+                          (m.label=='18mm'   and  w.value>wymiar+4 and w.value<wymiar+11)
+                        or(m.label=='25mm'   and  w.value>wymiar+3 and w.value<wymiar+19)
                         or(m.label=='32mm')
-                        or(m.label=='52mm'   and ( w.value<wymiary+6 or w.value>wymiary+10)) %}
+                        or(m.label=='52mm'   and ( w.value<wymiar+6 or w.value>wymiar+10)) %}
 
                             {#{% if  m.label=='18mm' and !(w.label>'A4-12"x8"' or w.label<'10"x8"' )  %}#}
                             <td onclick="myFunction({{ m.value }},{{ w.value }},'{{ m.label }}' )">

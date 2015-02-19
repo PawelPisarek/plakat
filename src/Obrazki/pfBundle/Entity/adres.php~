@@ -50,9 +50,10 @@ class adres
     private $kodpocztowy;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="nrTelefonu", type="string", length=255)
+     * @Assert\Length(min="9",max="9")
+     * @ORM\Column(name="nrTelefonu", type="integer")
      */
     private $nrTelefonu;
 

@@ -30,7 +30,7 @@ class filtr
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_filtru")
+     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="filtru")
      */
     protected $filtry;
 

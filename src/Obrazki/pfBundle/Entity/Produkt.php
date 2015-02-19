@@ -58,29 +58,37 @@ class Produkt
     /**
      * @ORM\ManyToOne(targetEntity="Obrazki\wbazieBundle\Entity\Przed",inversedBy="zdjecieprod",cascade={"persist"})
      */
-    protected  $id_zdjecia;
+    protected  $zdjecia;
 
 //////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * @ORM\ManyToOne(targetEntity="Obrazki\jakoProduktyBundle\Entity\filtr",inversedBy="filtry",cascade={"persist"})
      */
-    protected $id_filtru;
+    protected $filtru;
 //////////////////////////////////////////////////////////
 
     /**
      * @ORM\ManyToOne(targetEntity="Obrazki\jakoProduktyBundle\Entity\typy",inversedBy="typys",cascade={"all"})
      */
-    protected $id_typu;
+    protected $typu;
 
     function __toString()
     {
 
 
-        return $this->getIdZdjecia().'';
+        return $this->getZdjecia().'';
 
     }
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->zamowienia = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -183,13 +191,6 @@ class Produkt
     {
         return $this->procVat;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->zamowienia = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add zamowienia
@@ -225,71 +226,71 @@ class Produkt
     }
 
     /**
-     * Set id_zdjecia
+     * Set zdjecia
      *
-     * @param \Obrazki\wbazieBundle\Entity\Przed $idZdjecia
+     * @param \Obrazki\wbazieBundle\Entity\Przed $zdjecia
      * @return Produkt
      */
-    public function setIdZdjecia(\Obrazki\wbazieBundle\Entity\Przed $idZdjecia = null)
+    public function setZdjecia(\Obrazki\wbazieBundle\Entity\Przed $zdjecia = null)
     {
-        $this->id_zdjecia = $idZdjecia;
+        $this->zdjecia = $zdjecia;
 
         return $this;
     }
 
     /**
-     * Get id_zdjecia
+     * Get zdjecia
      *
      * @return \Obrazki\wbazieBundle\Entity\Przed 
      */
-    public function getIdZdjecia()
+    public function getZdjecia()
     {
-        return $this->id_zdjecia;
+        return $this->zdjecia;
     }
 
     /**
-     * Set id_filtru
+     * Set filtru
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\filtr $idFiltru
+     * @param \Obrazki\jakoProduktyBundle\Entity\filtr $filtru
      * @return Produkt
      */
-    public function setIdFiltru(\Obrazki\jakoProduktyBundle\Entity\filtr $idFiltru = null)
+    public function setFiltru(\Obrazki\jakoProduktyBundle\Entity\filtr $filtru = null)
     {
-        $this->id_filtru = $idFiltru;
+        $this->filtru = $filtru;
 
         return $this;
     }
 
     /**
-     * Get id_filtru
+     * Get filtru
      *
      * @return \Obrazki\jakoProduktyBundle\Entity\filtr 
      */
-    public function getIdFiltru()
+    public function getFiltru()
     {
-        return $this->id_filtru;
+        return $this->filtru;
     }
 
     /**
-     * Set id_typu
+     * Set typu
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\typy $idTypu
+     * @param \Obrazki\jakoProduktyBundle\Entity\typy $typu
      * @return Produkt
      */
-    public function setIdTypu(\Obrazki\jakoProduktyBundle\Entity\typy $idTypu = null)
+    public function setTypu(\Obrazki\jakoProduktyBundle\Entity\typy $typu = null)
     {
-        $this->id_typu = $idTypu;
+        $this->typu = $typu;
 
         return $this;
     }
 
     /**
-     * Get id_typu
+     * Get typu
      *
      * @return \Obrazki\jakoProduktyBundle\Entity\typy 
      */
-    public function getIdTypu()
+    public function getTypu()
     {
-        return $this->id_typu;
+        return $this->typu;
     }
 }

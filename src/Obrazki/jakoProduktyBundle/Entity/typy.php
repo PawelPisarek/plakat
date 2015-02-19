@@ -45,12 +45,12 @@ class typy
 
     /**
      * @ORM\OneToOne(targetEntity="koszulka",inversedBy="rozmiar",cascade={"all"})
-     * @ORM\JoinColumn(name="kubek_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="rozmiaryKoszulek",referencedColumnName="id")
      */
     protected $koszulki;
 
     /**
-     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_typu")
+     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="typu")
      */
     protected $typys;
 

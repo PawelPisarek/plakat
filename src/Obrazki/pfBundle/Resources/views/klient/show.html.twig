@@ -25,7 +25,7 @@
         <div>
 
             {% for produkt in zamowienie.produkty %}
-                <img src="{{ asset(produkt.IdZdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}"
+                <img src="{{ asset(produkt.Zdjecia.getUploadMinaturkaDir ~ '/' ~ produkt.Zdjecia.nazwaObrazka  ) }}"
 
                      width="70" height="70"/>
              cena netto   {{ produkt.Netto }}

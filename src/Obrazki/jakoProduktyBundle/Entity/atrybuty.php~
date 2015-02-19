@@ -38,7 +38,7 @@ class atrybuty
     protected $wrapy;
 
     /**
-     * @ORM\ManyToOne(targetEntity="wymiary",inversedBy="atrybut")
+     * @ORM\ManyToOne(targetEntity="wymiar",inversedBy="atrybut")
      *
      */
     protected $wymiar;
@@ -91,10 +91,10 @@ class atrybuty
     /**
      * Set wymiar
      *
-     * @param \Obrazki\jakoProduktyBundle\Entity\wymiary $wymiar
+     * @param \Obrazki\jakoProduktyBundle\Entity\wymiar $wymiar
      * @return atrybuty
      */
-    public function setWymiar(\Obrazki\jakoProduktyBundle\Entity\wymiary $wymiar = null)
+    public function setWymiar(\Obrazki\jakoProduktyBundle\Entity\wymiar $wymiar = null)
     {
         $this->wymiar = $wymiar;
 
@@ -104,7 +104,7 @@ class atrybuty
     /**
      * Get wymiar
      *
-     * @return \Obrazki\jakoProduktyBundle\Entity\wymiary 
+     * @return \Obrazki\jakoProduktyBundle\Entity\wymiar
      */
     public function getWymiar()
     {

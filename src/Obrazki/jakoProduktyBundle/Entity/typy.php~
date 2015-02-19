@@ -45,12 +45,12 @@ class typy
 
     /**
      * @ORM\OneToOne(targetEntity="koszulka",inversedBy="rozmiar",cascade={"all"})
-     * @ORM\JoinColumn(name="kubek_id",referencedColumnName="id")
+     * @ORM\JoinColumn(name="rozmiaryKoszulek",referencedColumnName="id")
      */
     protected $koszulki;
 
     /**
-     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="id_typu")
+     * @ORM\OneToMany(targetEntity="Obrazki\pfBundle\Entity\Produkt",mappedBy="typu")
      */
     protected $typys;
 
@@ -69,9 +69,118 @@ class typy
 
     function __toString()
     {
-        return $this->getAtrybut().' '.$this->getKubki();
+        return $this->getAtrybut().' '.$this->getKoszulki();
     }
 
 
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->typys = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     * @return typy
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwa
+     *
+     * @return string 
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
+    }
+
+    /**
+     * Set atrybut
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut
+     * @return typy
+     */
+    public function setAtrybut(\Obrazki\jakoProduktyBundle\Entity\atrybuty $atrybut = null)
+    {
+        $this->atrybut = $atrybut;
+
+        return $this;
+    }
+
+    /**
+     * Get atrybut
+     *
+     * @return \Obrazki\jakoProduktyBundle\Entity\atrybuty 
+     */
+    public function getAtrybut()
+    {
+        return $this->atrybut;
+    }
+
+    /**
+     * Set koszulki
+     *
+     * @param \Obrazki\jakoProduktyBundle\Entity\koszulka $koszulki
+     * @return typy
+     */
+    public function setKoszulki(\Obrazki\jakoProduktyBundle\Entity\koszulka $koszulki = null)
+    {
+        $this->koszulki = $koszulki;
+
+        return $this;
+    }
+
+    /**
+     * Get koszulki
+     *
+     * @return \Obrazki\jakoProduktyBundle\Entity\koszulka 
+     */
+    public function getKoszulki()
+    {
+        return $this->koszulki;
+    }
+
+    /**
+     * Add typys
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $typys
+     * @return typy
+     */
+    public function addTypy(\Obrazki\pfBundle\Entity\Produkt $typys)
+    {
+        $this->typys[] = $typys;
+
+        return $this;
+    }
+
+    /**
+     * Remove typys
+     *
+     * @param \Obrazki\pfBundle\Entity\Produkt $typys
+     */
+    public function removeTypy(\Obrazki\pfBundle\Entity\Produkt $typys)
+    {
+        $this->typys->removeElement($typys);
+    }
+
+    /**
+     * Get typys
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTypys()
+    {
+        return $this->typys;
+    }
 }

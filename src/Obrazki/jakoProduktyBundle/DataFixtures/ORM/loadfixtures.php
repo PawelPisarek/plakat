@@ -9,7 +9,7 @@ use Obrazki\jakoProduktyBundle\Entity\margines;
 use Obrazki\jakoProduktyBundle\Entity\PodGrupa;
 use Doctrine\Common\Persistence\ObjectManager;
 use Obrazki\jakoProduktyBundle\Entity\typy;
-use Obrazki\jakoProduktyBundle\Entity\wymiary;
+use Obrazki\jakoProduktyBundle\Entity\wymiar;
 use Obrazki\wbazieBundle\Entity\Przed;
 use Proxies\__CG__\Obrazki\jakoProduktyBundle\Entity\wrap;
 
@@ -106,7 +106,7 @@ class loadwymairy implements FixtureInterface
 
         foreach($wymiary as $wiatr)
         {
-            $wrap = new wymiary();
+            $wrap = new wymiar();
             $wrap->setNazwa($wiatr);
             $manager->persist($wrap);
         }
@@ -139,9 +139,13 @@ class loadkubek implements FixtureInterface
 {
     function  load(ObjectManager $manager)
     {
-        $wrap = new koszulka();
-        $wrap->setNazwa('rozmiar koszulki lub inne atrybuty kubka');
-        $manager->persist($wrap);
+        $koszulki=array('S','L','XL','XXL');
+        foreach($koszulki as $kosz)
+        {
+            $koszulka = new koszulka();
+            $koszulka->setNazwa($kosz);
+            $manager->persist($koszulka);
+        }
         $manager->flush();
 
     }
