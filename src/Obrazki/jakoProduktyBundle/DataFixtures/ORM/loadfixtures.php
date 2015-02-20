@@ -75,27 +75,27 @@ class loadwrap implements FixtureInterface
     }
 }
 
-class loadtypy implements FixtureInterface
-{
-    function  load(ObjectManager $manager)
-    {
-        $wrap = new typy();
-        $wrap->setNazwa('płótno');
-        $manager->persist($wrap);
-        $manager->flush();
-
-        $wrap = new typy();
-        $wrap->setNazwa('kubek');
-        $manager->persist($wrap);
-        $manager->flush();
-
-        $wrap = new typy();
-        $wrap->setNazwa('koszulka');
-        $manager->persist($wrap);
-        $manager->flush();
-
-    }
-}
+//class loadtypy implements FixtureInterface
+//{
+//    function  load(ObjectManager $manager)
+//    {
+//        $wrap = new typy();
+//        $wrap->setNazwa('płótno');
+//        $manager->persist($wrap);
+//        $manager->flush();
+//
+//        $wrap = new typy();
+//        $wrap->setNazwa('kubek');
+//        $manager->persist($wrap);
+//        $manager->flush();
+//
+//        $wrap = new typy();
+//        $wrap->setNazwa('koszulka');
+//        $manager->persist($wrap);
+//        $manager->flush();
+//
+//    }
+//}
 
 class loadwymairy implements FixtureInterface
 {
@@ -104,6 +104,7 @@ class loadwymairy implements FixtureInterface
 
         $wymiary=file('data/wymiary.txt');
 
+//            var_dump($wymiary);
         foreach($wymiary as $wiatr)
         {
             $wrap = new wymiar();
@@ -155,20 +156,14 @@ class loadfiltr implements FixtureInterface
 {
     function  load(ObjectManager $manager)
     {
-        $wrap = new filtr();
-        $wrap->setNazwa('orginalny');
-        $manager->persist($wrap);
-        $manager->flush();
+        $filtry=array('orginalny','grayscale','sepia');
+        foreach($filtry as $fit)
+        {
+            $wrap = new filtr();
+            $wrap->setNazwa($fit);
+            $manager->persist($wrap);
+        }
 
-
-        $wrap = new filtr();
-        $wrap->setNazwa('grayscale');
-        $manager->persist($wrap);
-        $manager->flush();
-
-        $wrap = new filtr();
-        $wrap->setNazwa('sepia');
-        $manager->persist($wrap);
         $manager->flush();
 
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zamowienia>
+    <grupa>
+        <nazwa>Abstract</nazwa>
+
+    </grupa>
+    <grupa>
+        <nazwa>Animals</nazwa>
+
+    </grupa>
+    <grupa>
+        <nazwa>Anime &amp; Cartoon</nazwa>
+    </grupa>
+
+    <grupa>
+        <nazwa>Na potrzeby prezentacji</nazwa>
+    </grupa>
+
+</zamowienia>

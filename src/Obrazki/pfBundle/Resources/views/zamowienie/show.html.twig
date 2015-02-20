@@ -26,7 +26,7 @@
 
    {% for produkt in entity.Produkty %}
 
-        <img src="{{  asset(produkt.IdZdjecia.getUploadMinaturkaDir~'/' ~ produkt.IdZdjecia.nazwaObrazka  ) }}" width="70" height="70"/>
+        <img src="{{  asset(produkt.Zdjecia.getUploadMinaturkaDir~'/' ~ produkt.Zdjecia.nazwaObrazka  ) }}" width="70" height="70"/>
         {{ produkt.Netto }}
     {% endfor %}
 
