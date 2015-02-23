@@ -28,12 +28,7 @@ class klient
      */
     private $login;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="haslo", type="string", length=255)
-     */
-    private $haslo;
+
 
 
 
@@ -123,7 +118,7 @@ class klient
      */
     public function getHaslo()
     {
-        return $this->haslo;
+        return '';
     }
 
     /**

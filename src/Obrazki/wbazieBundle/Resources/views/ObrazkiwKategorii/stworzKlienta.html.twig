@@ -4,12 +4,13 @@
 
 
 {{ form(form) }}
+    {#{{ dump(form) }}#}
 
 {#{{ form_start(form) }}#}
 
 {#<div>#}
 
-    {#{% for zamowienie in form.zamowienia %}#}
+    {#{% for zamowienie in form.zamowienie %}#}
 
         {#{% if (zamowienie.vars.checked==true) %}#}
 
@@ -21,7 +22,7 @@
     {#{% endif %}#}
     {#{% endfor %}#}
 
-    {#{%  do  form.zamowienia.setRendered %}#}
+    {#{%  do  form.zamowienie.setRendered %}#}
 
 {#</div>#}
 

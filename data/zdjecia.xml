@@ -8,12 +8,12 @@
 
     <zdjecie>
         <nazwa>2.jpg</nazwa>
-        <grupa>Animals</grupa>
+        <grupa>Abstract</grupa>
     </zdjecie>
 
     <zdjecie>
         <nazwa>3.jpg</nazwa>
-        <grupa>Animals</grupa>
+        <grupa>Car &amp; Motorbikes</grupa>
     </zdjecie>
 
 
@@ -27,11 +27,11 @@
     </zdjecie>
     <zdjecie>
         <nazwa>6.jpg</nazwa>
-        <grupa>Animals</grupa>
+        <grupa>Cityscape &amp; Landscape</grupa>
     </zdjecie>
     <zdjecie>
         <nazwa>7.jpg</nazwa>
-        <grupa>Animals</grupa>
+        <grupa>Cityscape &amp; Landscape</grupa>
     </zdjecie>
     <zdjecie>
         <nazwa>8.jpg</nazwa>
@@ -43,7 +43,11 @@
     </zdjecie>
     <zdjecie>
         <nazwa>10.jpg</nazwa>
-        <grupa>Animals</grupa>
+        <grupa>Sunset &amp; Seascapes</grupa>
+    </zdjecie>
+    <zdjecie>
+        <nazwa>11.jpg</nazwa>
+        <grupa>Sport</grupa>
     </zdjecie>
 
 

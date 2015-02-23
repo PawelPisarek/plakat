@@ -49,6 +49,7 @@ class ObrazkiwKategoriiController extends Controller
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ObrazkiwbazieBundle:Przed')->find($id);
 
+
         if (!$entity) {
             throw $this->createNotFoundException('nie znaleziono obrazka');
         }
@@ -118,6 +119,7 @@ class ObrazkiwKategoriiController extends Controller
 
 
         return array(
+            'typ'=>$typ->getNazwa(),
             'entity' => $entity,
             'form' => $form->createView(),
 
@@ -298,8 +300,8 @@ class ObrazkiwKategoriiController extends Controller
      */
     public function  stworzKlientaAction(Request $request, $id) {
         $klient = new klient();
-        $klient->setLogin('1');
-        $klient->setHaslo('1');
+        $klient->setLogin('Klient bez rejestracji');
+
 
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('ObrazkipfBundle:zamowienie')->find($id);

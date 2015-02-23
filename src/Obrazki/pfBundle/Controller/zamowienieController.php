@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Obrazki\pfBundle\Entity\zamowienie;
 use Obrazki\pfBundle\Form\zamowienieType;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * zamowienie controller.
@@ -91,6 +92,9 @@ class zamowienieController extends Controller
     public function newAction()
     {
         $entity = new zamowienie();
+        $dzis=new \DateTime();
+        $dzis->modify('+1 day');
+        $entity->setDataWysylki($dzis);
         $form   = $this->createCreateForm($entity);
 
         return array(

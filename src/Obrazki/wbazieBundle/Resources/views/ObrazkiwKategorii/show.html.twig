@@ -21,7 +21,7 @@
     <div class="col-sm-3" style="background-color:lavenderblush;">
         {% block formularz %}
             <br/>
-            <p>Jakiś opis jeśli chcesz ale taki sam dla wszystkich obrazków</p>
+            <p>Wybrano obrazek dla {{ typ }} proszę o wybranie filtru na zdjęcie</p>
 
 
 
@@ -76,7 +76,7 @@
 
         function ZmianaFiltruWidocznaNaObrazku() {
 
-            var e = document.getElementById("obrazki_pfbundle_produkt_id_filtru");
+            var e = document.getElementById("obrazki_pfbundle_produkt_filtru");
             var filtr = e.options[e.selectedIndex].text;
 
 

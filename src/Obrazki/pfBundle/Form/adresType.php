@@ -18,7 +18,9 @@ class adresType extends AbstractType
             ->add('miasto')
             ->add('ulica')
             ->add('kodpocztowy')
-            ->add('nrTelefonu')
+->add('nrTelefonu')
+//            ->add('nrTelefonu','integer',array('attr'=>array('class'=>'','id'=>'')))
+
             ->add('email')
 //            ->add('klienci')
         ;

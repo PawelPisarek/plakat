@@ -5,26 +5,26 @@
 
     <table class="record_properties">
         <tbody>
-            {#<tr>#}
-                {#<th>Id</th>#}
-                {#<td>{{ entity.id }}</td>#}
-            {#</tr>#}
-            <tr>
-                <th>Netto</th>
-                <td>{{ entity.netto }}</td>
-            </tr>
-            <tr>
-                <th>Brutto</th>
-                <td>{{ entity.brutto }}</td>
-            </tr>
-            <tr>
-                <th>Rabat</th>
-                <td>{{ entity.rabat }}</td>
-            </tr>
-            <tr>
-                <th>Procvat</th>
-                <td>{{ entity.procVat }}</td>
-            </tr>
+        {#<tr>#}
+        {#<th>Id</th>#}
+        {#<td>{{ entity.id }}</td>#}
+        {#</tr>#}
+        <tr>
+            <th>Netto</th>
+            <td>{{ entity.netto }}</td>
+        </tr>
+        <tr>
+            <th>Brutto</th>
+            <td>{{ entity.brutto }}</td>
+        </tr>
+        <tr>
+            <th>Rabat</th>
+            <td>{{ entity.rabat }}</td>
+        </tr>
+        <tr>
+            <th>Procvat</th>
+            <td>{{ entity.procVat }}</td>
+        </tr>
         </tbody>
     </table>
 
@@ -32,8 +32,8 @@
     {#{{ entity.Przed }}#}
 
     {#{{ dump(obrazek) }} //nie wiem jakim cudem nazwa obrazka jest null ale pojkazuje dwa#}
-{#{{ entity.IdZdjecia.nazwaObrazka }}#}
-{{ entity.Typu.atrybut }}<br>
+    {#{{ entity.IdZdjecia.nazwaObrazka }}#}
+    {{ entity.Typu.atrybut }}<br>
 
     {#{{ obrazek.nazwaObrazka }}#}
     {#{{ dump(typ) }}#}
@@ -43,24 +43,26 @@
 
 
     <a href="{{ path('kategoirie') }}">
-       kolejny produkt i powrót do strony głównej?
+        kolejny produkt i powrót do strony głównej?
     </a>
 
+    <section class="{{ entity.filtru.nazwa }}">
+        <img src="{{ asset(entity.Zdjecia.getUploadMinaturkaDir~'/' ~ entity.Zdjecia.nazwaObrazka  ) }}"/>
+    </section>
+    <ul class="record_actions">
 
-    <img src="{{ asset(entity.Zdjecia.getUploadMinaturkaDir~'/' ~ entity.Zdjecia.nazwaObrazka  ) }}"/>
-        <ul class="record_actions">
-    {#<li>#}
+        {#<li>#}
         {#<a href="{{ path('produkt') }}">#}
-            {#Back to the list#}
+        {#Back to the list#}
         {#</a>#}
-    {#</li>#}
-    {#<li>#}
+        {#</li>#}
+        {#<li>#}
         {#<a href="{{ path('produkt_edit', { 'id': entity.id }) }}">#}
-            {#Edit#}
+        {#Edit#}
         {#</a>#}
-    {#</li>#}
+        {#</li>#}
 
-            <li><a href="{{ path('nowezam') }}">koszyk</a></li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <li><a href="{{ path('nowezam') }}">koszyk</a></li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}
